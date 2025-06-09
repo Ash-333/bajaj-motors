@@ -1,0 +1,151 @@
+/* Dropdown Styles */
+.dropdown-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Motorcycle Card Styles */
+.motorcycle-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.motorcycle-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Category Button Styles */
+.category-btn.active {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+}
+
+/* Carousel Styles */
+.carousel-slide {
+  min-width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-content {
+  text-align: center;
+  color: white;
+  z-index: 5;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.slide-enter {
+  animation: slideIn 0.7s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text shadow utility */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Brand item hover effect */
+.brand-item:hover {
+  background-color: #f3f4f6;
+  color: #1e40af;
+}
+
+/* Header Overlap Styles */
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* Transparent top bar */
+.top-bar-transparent {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Floating navbar */
+.floating-navbar {
+  margin: 0 2rem;
+  height: 110px;
+  padding: auto;
+  /* border-radius: 1rem; */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Media center dropdown styles */
+.media-dropdown-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.media-dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media item styles */
+.media-item {
+  transition: background-color 0.2s ease;
+}
+
+.media-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* Adjust carousel for header overlap */
+.carousel-with-header {
+  padding-top: 0;
+}
+
+/* Brand filter active state */
+.brand-filter.active {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+}
