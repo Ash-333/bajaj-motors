@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Functionality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8">Bajaj Website Functionality Test</h1>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Carousel Test -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Carousel Test</h2>
+                <button onclick="testCarousel()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Test Carousel
+                </button>
+                <button onclick="getCarouselStats()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 ml-2">
+                    Get Stats
+                </button>
+                <div id="carousel-results" class="mt-4 p-4 bg-gray-50 rounded text-sm"></div>
+            </div>
+
+            <!-- Navigation Test -->
+            <div class="bg-white p-6 rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Navigation Test</h2>
+                <button onclick="testNavigation()" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+                    Test Navigation
+                </button>
+                <button onclick="testBrandFilter()" class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 ml-2">
+                    Test Brand Filter
+                </button>
+                <div id="nav-results" class="mt-4 p-4 bg-gray-50 rounded text-sm"></div>
+            </div>
+
+            <!-- App Status -->
+            <div class="bg-white p-6 rounded-lg shadow md:col-span-2">
+                <h2 class="text-xl font-semibold mb-4">App Status</h2>
+                <button onclick="checkAppStatus()" class="bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700">
+                    Check Status
+                </button>
+                <div id="status-results" class="mt-4 p-4 bg-gray-50 rounded text-sm"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function testCarousel() {
+            const results = document.getElementById('carousel-results');
+            try {
+                if (window.carouselManager) {
+                    const stats = window.carouselManager.getStats();
+                    results.innerHTML = `
+                        <strong>Carousel Working!</strong><br>
+                        Total Slides: ${stats.totalSlides}<br>
+                        Active Slides: ${stats.activeSlides}<br>
+                        Categories: ${stats.categories.join(', ')}<br>
+                        Autoplay: ${stats.settings.autoplay ? 'Enabled' : 'Disabled'}
+                    `;
+                    results.className = 'mt-4 p-4 bg-green-50 rounded text-sm text-green-800';
+                } else {
+                    results.innerHTML = 'Carousel Manager not found!';
+                    results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+                }
+            } catch (error) {
+                results.innerHTML = `Error: ${error.message}`;
+                results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+            }
+        }
+
+        function getCarouselStats() {
+            const results = document.getElementById('carousel-results');
+            try {
+                if (window.carouselManager) {
+                    window.carouselManager.nextSlide();
+                    results.innerHTML = 'Moved to next slide! Check the main page.';
+                    results.className = 'mt-4 p-4 bg-blue-50 rounded text-sm text-blue-800';
+                } else {
+                    results.innerHTML = 'Carousel Manager not found!';
+                    results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+                }
+            } catch (error) {
+                results.innerHTML = `Error: ${error.message}`;
+                results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+            }
+        }
+
+        function testNavigation() {
+            const results = document.getElementById('nav-results');
+            try {
+                if (window.navbarManager) {
+                    const currentCategory = window.navbarManager.getCurrentCategory();
+                    const currentBrand = window.navbarManager.getCurrentBrand();
+                    results.innerHTML = `
+                        <strong>Navigation Working!</strong><br>
+                        Current Category: ${currentCategory}<br>
+                        Current Brand: ${currentBrand}
+                    `;
+                    results.className = 'mt-4 p-4 bg-green-50 rounded text-sm text-green-800';
+                } else {
+                    results.innerHTML = 'Navbar Manager not found!';
+                    results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+                }
+            } catch (error) {
+                results.innerHTML = `Error: ${error.message}`;
+                results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+            }
+        }
+
+        function testBrandFilter() {
+            const results = document.getElementById('nav-results');
+            try {
+                if (window.navbarManager) {
+                    window.navbarManager.setCurrentBrand('PULSAR');
+                    results.innerHTML = 'Brand filter set to PULSAR! Check the main page dropdown.';
+                    results.className = 'mt-4 p-4 bg-blue-50 rounded text-sm text-blue-800';
+                } else {
+                    results.innerHTML = 'Navbar Manager not found!';
+                    results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+                }
+            } catch (error) {
+                results.innerHTML = `Error: ${error.message}`;
+                results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+            }
+        }
+
+        function checkAppStatus() {
+            const results = document.getElementById('status-results');
+            try {
+                if (window.bajajApp) {
+                    const status = window.bajajApp.getStatus();
+                    results.innerHTML = `
+                        <strong>App Status:</strong><br>
+                        Carousel Initialized: ${status.carouselInitialized ? 'Yes' : 'No'}<br>
+                        Navbar Initialized: ${status.navbarInitialized ? 'Yes' : 'No'}<br>
+                        Current Category: ${status.currentCategory || 'N/A'}<br>
+                        ${status.carouselStats ? `Active Slides: ${status.carouselStats.activeSlides}` : ''}
+                    `;
+                    results.className = 'mt-4 p-4 bg-green-50 rounded text-sm text-green-800';
+                } else {
+                    results.innerHTML = 'Bajaj App not found!';
+                    results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+                }
+            } catch (error) {
+                results.innerHTML = `Error: ${error.message}`;
+                results.className = 'mt-4 p-4 bg-red-50 rounded text-sm text-red-800';
+            }
+        }
+
+        // Auto-check status on load
+        setTimeout(() => {
+            checkAppStatus();
+        }, 2000);
+    </script>
+</body>
+</html>

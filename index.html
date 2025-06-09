@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Navbar - Bajaj</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="header-overlay">
+      <!-- Top Bar -->
+      <div class="bg-transparent px-6 py-2">
+        <div class="flex justify-between items-center max-w-7xl mx-auto">
+          <div class="flex items-center space-x-2">
+            <span class="text-white font-semibold">G</span>
+            <span class="text-sm text-white/80"
+              >GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span
+            >
+          </div>
+          <div class="text-sm text-white/80">
+            <span>🌐 International website</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav class="floating-navbar bg-white mx-8 my-4">
+        <div class="flex justify-between items-center px-6 py-4">
+          <!-- Left Navigation Items -->
+          <div class="flex items-center space-x-8">
+            <!-- Motorcycles Dropdown -->
+            <div class="relative dropdown">
+              <button
+                class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                onclick="toggleDropdown('motorcycles')"
+              >
+                <span>MOTORCYCLES</span>
+                <svg
+                  class="w-4 h-4 transition-transform duration-200"
+                  id="motorcycles-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Dropdown Content -->
+              <div
+                id="motorcycles-dropdown"
+                class="dropdown-content absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
+                style="width: 1000px"
+              >
+                <div class="flex">
+                  <!-- Left Sidebar - Brands -->
+                  <div class="w-64 bg-gray-50 p-6 rounded-l-lg">
+                    <h3 class="text-gray-800 font-semibold mb-4">BRANDS</h3>
+                    <ul class="space-y-2" id="brand-list">
+                      <!-- Brands will be populated by JavaScript -->
+                    </ul>
+                  </div>
+
+                  <!-- Right Content - Motorcycles -->
+                  <div class="flex-1 p-6">
+                    <!-- Category Filter -->
+                    <div class="flex space-x-4 mb-6">
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 active"
+                        onclick="filterCategory('All')"
+                      >
+                        All
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Classic')"
+                      >
+                        Classic
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('NS')"
+                      >
+                        NS
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('N')"
+                      >
+                        N
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Adventure')"
+                      >
+                        Adventure
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Cruiser')"
+                      >
+                        Cruiser
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Commuter')"
+                      >
+                        Commuter
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Economy')"
+                      >
+                        Economy
+                      </button>
+                    </div>
+
+                    <!-- Motorcycle Grid -->
+                    <div id="motorcycle-grid" class="space-y-8">
+                      <!-- Motorcycles will be populated by JavaScript -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >SHOWROOMS</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >WORKSHOPS</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >EVENTS</a
+            >
+          </div>
+
+          <!-- Center Logo -->
+          <div class="flex items-center space-x-4">
+            <div class="bg-blue-600 text-white px-4 py-2 font-bold text-xl">
+              BAJAJ
+            </div>
+            <div class="text-blue-600 text-sm font-semibold">
+              LOVED IN 70+ COUNTRIES
+            </div>
+          </div>
+
+          <!-- Right Navigation Items -->
+          <div class="flex items-center space-x-8">
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >BOOK TEST RIDE</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >ABOUT US</a
+            >
+            <a
+              href="#"
+              class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+              >NEWS</a
+            >
+
+            <!-- Media Center Dropdown -->
+            <div class="relative dropdown">
+              <button
+                class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200"
+                onclick="toggleDropdown('media')"
+              >
+                <span>MEDIA CENTER</span>
+                <svg
+                  class="w-4 h-4 transition-transform duration-200"
+                  id="media-arrow"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+
+              <!-- Media Dropdown Content -->
+              <div
+                id="media-dropdown"
+                class="media-dropdown-content absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
+                style="width: 400px"
+              >
+                <div class="p-6">
+                  <h3 class="text-gray-800 font-semibold mb-4">MEDIA CENTER</h3>
+                  <div id="media-content" class="space-y-4">
+                    <!-- Media content will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section class="relative h-screen overflow-hidden carousel-with-header">
+      <!-- Carousel Container -->
+      <div class="carousel-container relative w-full h-full">
+        <!-- Carousel Slides -->
+        <div
+          id="carousel-slides"
+          class="flex transition-transform duration-700 ease-in-out h-full"
+        >
+          <!-- Slides will be populated by JavaScript -->
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button
+          id="prevBtn"
+          class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group"
+        >
+          <svg
+            class="w-6 h-6 group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
+          </svg>
+        </button>
+        <button
+          id="nextBtn"
+          class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group"
+        >
+          <svg
+            class="w-6 h-6 group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+
+        <!-- Dot Indicators -->
+        <div
+          id="carousel-dots"
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10"
+        >
+          <!-- Dots will be populated by JavaScript -->
+        </div>
+
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black/20 z-0"></div>
+      </div>
+    </section>
+
+    <!-- Mr Gopal Start Coding from here -->
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
