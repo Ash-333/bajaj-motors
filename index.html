@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-[#F5F5F5]">
     <!-- Header -->
     <header class="header-overlay">
       <!-- Top Bar -->
@@ -277,6 +277,159 @@
 
     <!-- Mr Gopal Start Coding from here -->
 
+    <section class="max-w-full mx-auto lg:pb-24">
+      <!-- Navigation Tabs -->
+      <nav
+        class="flex justify-start lg:space-x-16 py-4 text-2xl text-gray-500 border-b-2 max-w-7xl mx-auto mt-10"
+      >
+        <button class="s1-tab active-tab">PULSAR</button>
+        <button class="s1-tab">DOMINAR</button>
+        <button class="s1-tab">AVENGERS</button>
+        <button class="s1-tab">DISCOVER</button>
+        <button class="s1-tab">PLATINA</button>
+      </nav>
+
+      <!-- Main Bike Section -->
+      <section class="text-center relative py-10 px-4">
+        <!-- Background Text -->
+        <h1
+          class="text-[25vw] w-screen text-center text-indigo-200/70 font-extrabold absolute left-0 right-0 -z-10"
+        >
+          PULSAR
+        </h1>
+
+        <!-- Bike Title -->
+        <h1 id="s1-title" class="text-2xl lg:text-5xl font-bold">
+          PULSAR 220F ABS
+        </h1>
+        <p id="s1-description" class="text-gray-500 max-w-full mx-auto mt-5">
+          Powerful High Performance bike that offers superior power, handling,
+          safety, features to meet diversified demands
+        </p>
+
+        <!-- Arrows -->
+        <div class="flex justify-between items-center mt-6">
+          <button
+            id="s1-prevBtn"
+            class="w-10 h-10 border border-black rounded-full flex justify-center items-center text-2xl hover:bg-gray-100 transition-colors"
+          >
+            ←
+          </button>
+          <div class="flex-1 flex justify-center">
+            <img
+              id="s1-bikeImage"
+              src=""
+              alt="Bike"
+              class="w-[800px] h-[600px] mx-auto object-contain"
+            />
+          </div>
+          <button
+            id="s1-nextBtn"
+            class="w-10 h-10 border border-black rounded-full flex justify-center items-center text-2xl hover:bg-gray-100 transition-colors"
+          >
+            →
+          </button>
+        </div>
+
+        <!-- Thumbnails -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-center lg:space-x-4 mt-4 max-w-7xl mx-auto"
+        >
+          <div class="flex justify-start items-center space-x-4">
+            <img
+              src="https://via.placeholder.com/40x40/333333/ffffff?text=1"
+              alt="bike 1"
+              class="thumbnail w-10 h-10 rounded-full border border-black cursor-pointer"
+              data-index="0"
+            />
+            <img
+              src="https://via.placeholder.com/40x40/666666/ffffff?text=2"
+              alt="bike 2"
+              class="thumbnail w-10 h-10 rounded-full opacity-50 hover:opacity-100 cursor-pointer border"
+              data-index="1"
+            />
+            <img
+              src="https://via.placeholder.com/40x40/999999/ffffff?text=3"
+              alt="bike 3"
+              class="thumbnail w-10 h-10 rounded-full opacity-50 hover:opacity-100 cursor-pointer border"
+              data-index="2"
+            />
+            <span class="font-semibold text-gray-500">Pulsar Classic</span>
+          </div>
+          <!-- Color Pickers -->
+          <div class="flex justify-center space-x-4 mt-6 items-center">
+            <span>Charcoal Black</span>
+            <button
+              id="s1-color-black"
+              class="w-6 h-6 bg-black rounded-full border-2 border-gray-300 cursor-pointer hover:ring-2 hover:ring-blue-300"
+              data-color="0"
+            ></button>
+            <button
+              id="s1-color-yellow"
+              class="w-6 h-6 bg-yellow-400 rounded-full border-2 border-gray-300 cursor-pointer hover:ring-2 hover:ring-blue-300"
+              data-color="1"
+            ></button>
+            <button
+              id="s1-color-green"
+              class="w-6 h-6 bg-green-500 rounded-full border-2 border-gray-300 cursor-pointer hover:ring-2 hover:ring-blue-300"
+              data-color="2"
+            ></button>
+          </div>
+        </div>
+
+        <!-- View Series Link -->
+        <div class="grid justify-end items-center">
+          <div class="mt-4 lg:w-[50vw] flex justify-start">
+            <a href="#" id="s1-seriesLink" class="text-black hover:underline"
+              >View series page →</a
+            >
+          </div>
+
+          <!-- Bike Variants (Tabs) -->
+          <div
+            class="flex justify-start space-x-8 mt-4 text-sm border-t-2 border-gray-500 lg:w-[40vw]"
+          >
+            <button
+              id="s1-variant-220f"
+              class="variant-btn font-bold border-b-2 border-black"
+              data-variant="0"
+            >
+              PULSAR 220F ABS
+            </button>
+            <button
+              id="s1-variant-150td"
+              class="variant-btn text-gray-500 hover:text-black"
+              data-variant="1"
+            >
+              PULSAR 150 TD
+            </button>
+            <button
+              id="s1-variant-150"
+              class="variant-btn text-gray-500 hover:text-black"
+              data-variant="2"
+            >
+              PULSAR 150
+            </button>
+            <button
+              id="s1-variant-125"
+              class="variant-btn text-gray-500 hover:text-black"
+              data-variant="3"
+            >
+              PULSAR 125
+            </button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <script type="module">
+      import { BikeCarousel } from './js/bike-carousel.js';
+      
+      // Initialize the bike carousel when the DOM is loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        new BikeCarousel();
+      });
+    </script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
