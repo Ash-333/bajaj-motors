@@ -166,6 +166,53 @@ export class BikeApiService {
     return [...this.bikeData.colorVariants];
   }
 
+  // Get category display map
+  getCategoryDisplayMap() {
+    if (!this.bikeData) {
+      throw new Error('Bike data not loaded. Call loadBikeData() first.');
+    }
+    return { ...this.bikeData.categoryDisplayMap };
+  }
+
+  // Get fallback data
+  getFallbacks() {
+    if (!this.bikeData) {
+      throw new Error('Bike data not loaded. Call loadBikeData() first.');
+    }
+    return { ...this.bikeData.fallbacks };
+  }
+
+  // Get brand logo
+  getBrandLogo(brandName) {
+    const brand = this.getBrandData(brandName);
+    return brand ? brand.brandLogo : this.getFallbacks().brandLogo;
+  }
+
+  // Get category icon
+  getCategoryIcon(brandName) {
+    const brand = this.getBrandData(brandName);
+    return brand ? brand.categoryIcon : this.getFallbacks().categoryIcon;
+  }
+
+  // Get brand display text
+  getBrandDisplayText(brandName) {
+    const brand = this.getBrandData(brandName);
+    return brand ? brand.brandDisplayText : brandName;
+  }
+
+  // Get category display text
+  getCategoryDisplayText(category) {
+    const categoryMap = this.getCategoryDisplayMap();
+    return categoryMap[category] || this.getFallbacks().categoryText;
+  }
+
+  // Get dynamic category text (brand + category)
+  getDynamicCategoryText(brandName, category) {
+    const brandText = this.getBrandDisplayText(brandName);
+    const categoryText = this.getCategoryDisplayText(category);
+    return `${brandText} ${categoryText}`;
+  }
+
   // Check if data is loaded
   isDataLoaded() {
     return this.isLoaded && this.bikeData !== null;
@@ -254,5 +301,40 @@ export const bikeDataUtils = {
   // Check if data is loaded
   isDataLoaded() {
     return bikeApiService.isDataLoaded();
+  },
+
+  // Get category display map
+  getCategoryDisplayMap() {
+    return bikeApiService.getCategoryDisplayMap();
+  },
+
+  // Get fallback data
+  getFallbacks() {
+    return bikeApiService.getFallbacks();
+  },
+
+  // Get brand logo
+  getBrandLogo(brandName) {
+    return bikeApiService.getBrandLogo(brandName);
+  },
+
+  // Get category icon
+  getCategoryIcon(brandName) {
+    return bikeApiService.getCategoryIcon(brandName);
+  },
+
+  // Get brand display text
+  getBrandDisplayText(brandName) {
+    return bikeApiService.getBrandDisplayText(brandName);
+  },
+
+  // Get category display text
+  getCategoryDisplayText(category) {
+    return bikeApiService.getCategoryDisplayText(category);
+  },
+
+  // Get dynamic category text
+  getDynamicCategoryText(brandName, category) {
+    return bikeApiService.getDynamicCategoryText(brandName, category);
   }
 };

@@ -119,13 +119,16 @@ export class BrandManager {
 
     // Update background text
     this.updateBackgroundText(brandData.backgroundText);
-    
+
     // Update brand description if needed
     this.updateBrandDescription();
-    
+
+    // Update logo and category display
+    this.updateBrandLogoAndCategory(brandName);
+
     // Generate variant buttons for this brand
     this.generateVariantButtons(brandData.models);
-    
+
     // Preload images for this brand
     await this.preloadBrandImages(brandData.models);
   }
@@ -140,6 +143,32 @@ export class BrandManager {
   updateBrandDescription() {
     // This could be used to update a brand description section if it exists
     // Currently not implemented in the UI
+  }
+
+  updateBrandLogoAndCategory(brandName) {
+    // Update brand logo
+    const brandLogo = document.getElementById('brand-logo');
+    if (brandLogo) {
+      const logoUrl = bikeDataUtils.getBrandLogo(brandName);
+      brandLogo.src = logoUrl;
+      brandLogo.alt = `${brandName} Logo`;
+    }
+
+    // Update category icon
+    const categoryIcon = document.getElementById('category-icon');
+    if (categoryIcon) {
+      const iconUrl = bikeDataUtils.getCategoryIcon(brandName);
+      categoryIcon.src = iconUrl;
+      categoryIcon.alt = `${brandName} Category Icon`;
+    }
+
+    // Update category display text (will be updated by carousel when model changes)
+    // Initial text can be set to brand name
+    const categoryDisplayText = document.getElementById('category-display-text');
+    if (categoryDisplayText) {
+      const brandDisplayText = bikeDataUtils.getBrandDisplayText(brandName);
+      categoryDisplayText.textContent = `${brandDisplayText} Series`;
+    }
   }
 
   generateVariantButtons(models) {

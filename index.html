@@ -230,8 +230,8 @@
   </section>
 
   <!-- Mr Gopal Start Coding from here -->
-  <!-- Bikes section - Redesigned to match exact layout -->
-  <section class="w-full bg-white relative overflow-hidden">
+  <!-- Bikes Carousel section -->
+   <section class="w-full bg-white relative overflow-hidden">
     <!-- Background Text -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
       <h1 id="background-brand-text"
@@ -300,8 +300,8 @@
           </div>
         </div>
 
-        <!-- Right Side - Navigation Arrow and Colors -->
-        <div class="col-span-2 flex flex-col items-center justify-center space-y-8">
+        <!-- Right Side - Navigation Arrow Only -->
+        <div class="col-span-2 flex justify-center items-center">
           <!-- Next Arrow (for model navigation) -->
           <button id="s1-nextBtn"
             class="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
@@ -310,38 +310,56 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
             </svg>
           </button>
+        </div>
+      </div>
 
-          <!-- Color Selection (Horizontal Layout) -->
-          <div class="flex flex-col items-center space-y-4">
-            <h3 class="text-sm font-semibold text-gray-700">Colors</h3>
-            <span id="current-color-name"
-              class="text-xs text-gray-600 text-center"><!-- Color name will be dynamically updated --></span>
-            <div id="color-options" class="flex flex-row space-x-2">
+      <!-- Bottom Section - Logo, Color Selection, Series Link and Variant Tabs -->
+      <div class="mt-12 lg:mt-16">
+        <!-- Top Row: Left Logo + Right Color Selection -->
+        <div class="flex justify-between items-start mb-6">
+          <!-- Left Side - Brand Logo and Category -->
+          <div class="flex items-center space-x-3">
+            <img id="brand-logo" src="" alt="Brand Logo" class="h-8 w-auto" />
+            <img id="category-icon" src="" alt="Category Icon" class="h-6 w-auto" />
+            <span id="category-display-text" class="text-sm font-medium text-gray-700">
+              <!-- Category text will be dynamically updated -->
+            </span>
+          </div>
+
+          <!-- Right Side - Color Selection -->
+          <div class="flex items-center space-x-4">
+            <!-- Current Color Name -->
+            <h3 id="current-color-name" class="text-sm font-bold text-gray-700 whitespace-nowrap">
+              <!-- Color name will be dynamically updated -->
+            </h3>
+
+            <!-- Color Options -->
+            <div id="color-options" class="flex flex-row items-center space-x-2">
               <!-- Color buttons will be dynamically generated -->
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Bottom Section - Series Link and Variant Tabs -->
-      <div class="mt-12 lg:mt-16">
-        <!-- View Series Link -->
-        <div class="flex justify-end mb-8">
-          <a href="#" id="s1-seriesLink"
-            class="inline-flex items-center text-black hover:text-gray-700 font-medium transition-colors duration-200 group text-sm lg:text-base">
-            <!-- Series link text will be dynamically updated -->
-            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none"
-              stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-
-        <!-- Variant Tabs - Positioned on Right Side -->
+        <!-- Series Link and Variant Tabs Container -->
         <div class="flex justify-end">
-          <div class="border-t border-gray-300 pt-6">
-            <div id="variant-tabs" class="flex flex-wrap justify-end gap-6 lg:gap-8">
-              <!-- Variant buttons will be dynamically generated -->
+          <div class="flex flex-col items-start">
+            <!-- View Series Link -->
+            <div class="mb-8">
+              <a href="#" id="s1-seriesLink"
+                class="inline-flex items-center text-black hover:text-gray-700 font-medium transition-colors duration-200 group text-sm lg:text-base">
+                <!-- Series link text will be dynamically updated -->
+                <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Variant Tabs -->
+            <div class="border-t border-gray-300 pt-6">
+              <div id="variant-tabs" class="flex flex-wrap justify-start gap-6 lg:gap-8">
+                <!-- Variant buttons will be dynamically generated -->
+              </div>
             </div>
           </div>
         </div>

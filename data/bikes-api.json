@@ -7,6 +7,23 @@
     "resumeDelay": 3000,
     "showProgress": false
   },
+  "categoryDisplayMap": {
+    "Classic": "Classic Series",
+    "NS": "NS Series",
+    "N": "N Series",
+    "Adventure": "Adventure Series",
+    "Cruiser": "Cruiser Series",
+    "Street": "Street Series",
+    "Commuter": "Commuter Series",
+    "Economy": "Economy Series",
+    "Comfort": "Comfort Series",
+    "Touring": "Touring Series"
+  },
+  "fallbacks": {
+    "brandLogo": "/assets/fallbacks/default-brand-logo.svg",
+    "categoryIcon": "/assets/fallbacks/default-category-icon.svg",
+    "categoryText": "Motorcycle Series"
+  },
   "colorVariants": [
     {
       "id": "black",
@@ -45,6 +62,9 @@
       "tagline": "Definitely Male",
       "description": "Powerful High Performance bikes that offer superior power, handling, safety, features to meet diversified demands",
       "backgroundText": "PULSAR",
+      "brandLogo": "/assets/brand-logos/pulsar-logo.svg",
+      "categoryIcon": "/assets/category-icons/pulsar-category-icon.svg",
+      "brandDisplayText": "Pulsar",
       "categories": ["Classic", "NS", "N"],
       "models": [
         {
@@ -134,6 +154,9 @@
       "tagline": "Adventure Awaits",
       "description": "Built for the highways, designed for adventures. Experience the thrill of long rides with superior comfort and performance.",
       "backgroundText": "DOMINAR",
+      "brandLogo": "/assets/brand-logos/dominar-logo.svg",
+      "categoryIcon": "/assets/category-icons/dominar-category-icon.svg",
+      "brandDisplayText": "Dominar",
       "categories": ["Adventure", "Touring"],
       "models": [
         {
@@ -183,6 +206,9 @@
       "tagline": "Cruise in Style",
       "description": "Experience the freedom of cruising with our comfortable and stylish Avengers series.",
       "backgroundText": "AVENGERS",
+      "brandLogo": "/assets/brand-logos/avengers-logo.svg",
+      "categoryIcon": "/assets/category-icons/avengers-category-icon.svg",
+      "brandDisplayText": "Avengers",
       "categories": ["Cruiser", "Street"],
       "models": [
         {
@@ -232,6 +258,9 @@
       "tagline": "Discover More",
       "description": "Reliable commuter bikes designed for daily rides with excellent fuel efficiency.",
       "backgroundText": "DISCOVER",
+      "brandLogo": "/assets/brand-logos/discover-logo.svg",
+      "categoryIcon": "/assets/category-icons/discover-category-icon.svg",
+      "brandDisplayText": "Discover",
       "categories": ["Commuter", "Economy"],
       "models": [
         {
@@ -281,6 +310,9 @@
       "tagline": "Comfort Redefined",
       "description": "Ultra-comfortable bikes with superior suspension and ergonomics for smooth rides.",
       "backgroundText": "PLATINA",
+      "brandLogo": "/assets/brand-logos/platina-logo.svg",
+      "categoryIcon": "/assets/category-icons/platina-category-icon.svg",
+      "brandDisplayText": "Platina",
       "categories": ["Comfort", "Economy"],
       "models": [
         {

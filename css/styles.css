@@ -251,3 +251,82 @@
   background: linear-gradient(135deg, #374151, #4b5563);
   transform: translateY(-2px);
 }
+
+
+/* Bikes section styles */
+
+/* Color Selection Component Styles */
+#color-options {
+  min-height: 32px; /* Ensure consistent height even when empty */
+}
+
+#color-options button {
+  transition: all 0.2s ease;
+}
+
+#color-options button:hover {
+  transform: scale(1.1);
+}
+
+#color-options button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Brand Logo and Category Section Styles */
+#brand-logo {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+#category-icon {
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+#category-display-text {
+  transition: all 0.3s ease;
+}
+
+/* Logo hover effects */
+#brand-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Series link and variant tabs alignment */
+#s1-seriesLink {
+  transition: all 0.2s ease;
+}
+
+/* Variant tabs alignment */
+#variant-tabs {
+  transition: all 0.3s ease;
+}
+
+#variant-tabs .variant-btn {
+  transition: all 0.2s ease;
+}
+
+/* Series and variant container alignment */
+.flex.justify-end > .flex.flex-col.items-start {
+  min-width: fit-content;
+}
+
+/* Responsive adjustments for color selection */
+@media (max-width: 768px) {
+  #color-options {
+    justify-content: flex-end;
+  }
+
+  #current-color-name {
+    text-align: right;
+  }
+
+  /* Stack logo section vertically on mobile */
+  .flex.justify-between.items-start {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+

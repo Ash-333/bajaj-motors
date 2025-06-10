@@ -13,6 +13,11 @@ export class BikeCarousel {
     this.nextBtn = document.getElementById("s1-nextBtn");
     this.seriesLink = document.getElementById("s1-seriesLink");
 
+    // New logo and category elements
+    this.brandLogo = document.getElementById("brand-logo");
+    this.categoryIcon = document.getElementById("category-icon");
+    this.categoryDisplayText = document.getElementById("category-display-text");
+
     // Dynamic elements (will be updated based on brand)
     this.thumbnails = [];
     this.variantButtons = [];
@@ -202,6 +207,9 @@ export class BikeCarousel {
       // Update category display
       this.updateCategoryDisplay();
 
+      // Update logo and category section
+      this.updateLogoAndCategory();
+
       // Fade in new image
       if (this.bikeImage) {
         this.bikeImage.style.opacity = "1";
@@ -309,7 +317,14 @@ export class BikeCarousel {
 
   updateSeriesLink(model) {
     if (this.seriesLink) {
-      this.seriesLink.textContent = `View ${model.name} series page →`;
+      this.seriesLink.innerHTML = `
+      <span class="inline-flex items-center gap-1">
+        View Series page
+        <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14.3984 6.08398L20.1875 11.7559C20.2812 11.8496 20.3398 11.9629 20.3633 12.0957C20.3867 12.2285 20.3594 12.3574 20.2812 12.4824C20.25 12.5605 20.2109 12.623 20.1641 12.6699L14.4453 18.4824C14.3203 18.5918 14.1758 18.6465 14.0117 18.6465C13.8477 18.6465 13.7109 18.5918 13.6016 18.4824L13.3672 18.248C13.2578 18.123 13.2031 17.9785 13.2031 17.8145C13.2031 17.6504 13.2578 17.5137 13.3672 17.4043L17.6797 13.0215H5.89062C5.73438 13.0215 5.59766 12.9629 5.48047 12.8457C5.36328 12.7285 5.30469 12.584 5.30469 12.4121V12.084C5.30469 11.9277 5.36328 11.791 5.48047 11.6738C5.59766 11.5566 5.73438 11.498 5.89062 11.498H17.75L13.3438 7.18555C13.2344 7.07617 13.1758 6.93555 13.168 6.76367C13.1602 6.5918 13.2188 6.45117 13.3438 6.3418L13.5547 6.10742C13.6797 5.98242 13.8242 5.91992 13.9883 5.91992C14.1523 5.91992 14.2891 5.97461 14.3984 6.08398Z" fill="#326AD2"/>
+</svg>
+      </span>
+    `;
       this.seriesLink.href = `#${model.id}`;
     }
   }
@@ -443,6 +458,32 @@ export class BikeCarousel {
 
     if (colorNameElement && colorVariant) {
       colorNameElement.textContent = colorVariant.name;
+    }
+  }
+
+  updateLogoAndCategory() {
+    const currentModel = this.getCurrentModel();
+
+    if (!currentModel) return;
+
+    // Update brand logo
+    if (this.brandLogo) {
+      const logoUrl = bikeDataUtils.getBrandLogo(this.currentBrand);
+      this.brandLogo.src = logoUrl;
+      this.brandLogo.alt = `${this.currentBrand} Logo`;
+    }
+
+    // Update category icon
+    if (this.categoryIcon) {
+      const iconUrl = bikeDataUtils.getCategoryIcon(this.currentBrand);
+      this.categoryIcon.src = iconUrl;
+      this.categoryIcon.alt = `${currentModel.category} Icon`;
+    }
+
+    // Update category display text
+    if (this.categoryDisplayText) {
+      const categoryText = bikeDataUtils.getDynamicCategoryText(this.currentBrand, currentModel.category);
+      this.categoryDisplayText.textContent = categoryText;
     }
   }
 
