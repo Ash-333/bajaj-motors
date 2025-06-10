@@ -48,7 +48,7 @@ export class BikeApiService {
 
   // Validate the loaded JSON data structure
   _validateDataStructure(data) {
-    const requiredFields = ['autoScrollConfig', 'colorVariants', '  '];
+    const requiredFields = ['autoScrollConfig', 'colorVariants', 'brands'];
     
     for (const field of requiredFields) {
       if (!data[field]) {
