@@ -1,553 +1,517 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Navbar - Bajaj</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="header-overlay">
-      <!-- Top Bar -->
-      <div class="bg-transparent px-6 py-2">
-        <div class="flex justify-between items-center max-w-6xl mx-auto">
-          <div class="flex items-center space-x-2">
-            <img
-              src="assets/golcha-logo.png"
-              alt="golcha_logo"
-              class="h-8 w-auto"
-            />
-            <span class="text-sm text-white/80"
-              >GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span
-            >
-          </div>
-          <div class="text-sm text-white/80">
-            <span>🌐 International website</span>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bajaj Motors</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-gray-50">
+  <!-- Header -->
+  <header class="header-overlay">
+    <!-- Top Bar -->
+    <div class="bg-transparent px-6 py-2">
+      <div class="flex justify-between items-center max-w-6xl mx-auto">
+        <div class="flex items-center space-x-2">
+          <img src="assets/golcha-logo.png" alt="golcha_logo" class="h-8 w-auto" />
+          <span class="text-sm text-white/80">GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span>
+        </div>
+        <div class="text-sm text-white/80">
+          <span>🌐 International website</span>
         </div>
       </div>
+    </div>
 
-      <!-- Main Navigation -->
-      <div class="w-full flex justify-center px-8">
-        <nav class="floating-navbar bg-white my-4">
-          <div class="flex justify-between items-center px-6 py-4 text-base">
-            <!-- Left Navigation Items -->
-            <div class="flex items-center space-x-8">
-              <!-- Motorcycles Dropdown -->
-              <div class="relative dropdown">
-                <button
-                  class="text-sm flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                  onclick="toggleDropdown('motorcycles')"
-                >
-                  <span>MOTORCYCLES</span>
-                  <svg
-                    class="w-4 h-4 transition-transform duration-200"
-                    id="motorcycles-arrow"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
-                </button>
-
-                <!-- Dropdown Content -->
-                <div
-                  id="motorcycles-dropdown"
-                  class="dropdown-content absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
-                  style="width: 1000px"
-                >
-                  <div class="flex">
-                    <!-- Left Sidebar - Brands -->
-                    <div class="w-64 bg-gray-50 p-6 rounded-l-lg">
-                      <h3 class="text-gray-800 font-semibold mb-4">BRANDS</h3>
-                      <ul class="space-y-2" id="brand-list">
-                        <!-- Brands will be populated by JavaScript -->
-                      </ul>
-                    </div>
-
-                    <!-- Right Content - Motorcycles -->
-                    <div class="flex-1 p-6">
-                      <!-- Category Filter -->
-                      <div class="flex space-x-4 mb-6">
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 active"
-                          onclick="filterCategory('All')"
-                        >
-                          All
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('Classic')"
-                        >
-                          Classic
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('NS')"
-                        >
-                          NS
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('N')"
-                        >
-                          N
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('Adventure')"
-                        >
-                          Adventure
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('Cruiser')"
-                        >
-                          Cruiser
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('Commuter')"
-                        >
-                          Commuter
-                        </button>
-                        <button
-                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
-                          onclick="filterCategory('Economy')"
-                        >
-                          Economy
-                        </button>
-                      </div>
-
-                      <!-- Motorcycle Grid -->
-                      <div id="motorcycle-grid" class="space-y-8">
-                        <!-- Motorcycles will be populated by JavaScript -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <a
-                href="#"
-                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
-                >SHOWROOMS</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
-                >WORKSHOPS</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
-                >EVENTS</a
-              >
-            </div>
-
-            <!-- Center Logo -->
-
-            <img class="h-[72px] px-4" src="assets/logo.png" alt="logo" />
-
-            <!-- Right Navigation Items -->
-            <div class="flex text-sm items-center space-x-8">
-              <a
-                href="#"
-                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                >BOOK TEST RIDE</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                >ABOUT US</a
-              >
-              <a
-                href="#"
-                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                >NEWS</a
-              >
-
-              <!-- Media Center Dropdown -->
-              <div class="relative dropdown">
-                <button
-                  class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
-                  onclick="toggleDropdown('media')"
-                >
-                  <span>MEDIA CENTER</span>
-                  <svg
-                    class="w-4 h-4 transition-transform duration-200"
-                    id="media-arrow"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"
-                    ></path>
-                  </svg>
-                </button>
-
-                <!-- Media Dropdown Content -->
-                <div
-                  id="media-dropdown"
-                  class="media-dropdown-content absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
-                  style="width: 400px"
-                >
-                  <div class="p-6">
-                    <h3 class="text-gray-800 font-semibold mb-4">
-                      MEDIA CENTER
-                    </h3>
-                    <div id="media-content" class="space-y-4">
-                      <!-- Media content will be populated by JavaScript -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Hero Section with Carousel -->
-    <section class="relative h-screen overflow-hidden carousel-with-header">
-      <!-- Carousel Container -->
-      <div class="carousel-container relative w-full h-full">
-        <!-- Carousel Slides -->
-        <div
-          id="carousel-slides"
-          class="flex transition-transform duration-700 ease-in-out h-full"
-        >
-          <!-- Slides will be populated by JavaScript -->
-        </div>
-
-        <!-- Navigation Arrows -->
-        <button
-          id="prevBtn"
-          class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group"
-        >
-          <svg
-            class="w-6 h-6 group-hover:scale-110 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M15 19l-7-7 7-7"
-            ></path>
-          </svg>
-        </button>
-        <button
-          id="nextBtn"
-          class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group"
-        >
-          <svg
-            class="w-6 h-6 group-hover:scale-110 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-        </button>
-
-        <!-- Explore More Button -->
-        <button
-          id="explore-more-btn"
-          class="absolute bottom-24 h-10 right-24 bg-[#222222] text-white px-6 rounded-full font-semibold transition-all duration-300 z-20 flex items-center space-x-2 group"
-        >
-          <span>Explore More</span>
-          <svg
-            class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"
-            ></path>
-          </svg>
-        </button>
-
-        <!-- Bouncing Arrow Indicator -->
-        <div
-          id="bouncing-arrow"
-          class="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-15"
-        >
-          <svg
-            width="22"
-            height="21"
-            viewBox="0 0 22 21"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11 13.6001L21 9.20007L22 10.7001L11 20.2001L0 10.7001L0.999992 9.20007L11 13.6001Z"
-              fill="#FAFAFA"
-            />
-            <path
-              d="M11 4.80002L17.6 0.400024L18.7 1.50002L11 9.20002L3.30005 1.50002L4.40005 0.400024L11 4.80002Z"
-              fill="#FAFAFA"
-            />
-          </svg>
-        </div>
-
-        <!-- Dot Indicators -->
-        <div
-          id="carousel-dots"
-          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10"
-        >
-          <!-- Dots will be populated by JavaScript -->
-        </div>
-
-        <!-- Overlay for better text readability -->
-        <div class="absolute inset-0 bg-black/20 z-0"></div>
-      </div>
-    </section>
-
-    <!-- Content Section for Explore More Button Testing -->
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center">
-          <h2 class="text-4xl font-bold text-gray-900 mb-8">
-            Discover Our Motorcycles
-          </h2>
-          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-            Experience the perfect blend of performance, style, and innovation
-            with our complete range of motorcycles. From sport bikes to
-            cruisers, find your perfect ride.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Own Your Dream Bajaj Section -->
-    <section class="py-16 dream-bajaj-section">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <!-- Image Section -->
-          <div class="relative">
-            <div
-              class="rounded-2xl overflow-hidden shadow-2xl dream-bajaj-image"
-            >
-              <img
-                src="/assets/dream-section-img.png"
-                alt="Bajaj Motorcycle with Customer"
-                class="w-full h-[400px] object-cover"
-              />
-            </div>
-          </div>
-
-          <!-- Content Section -->
-          <div class="space-y-6">
-            <h2 class="text-4xl font-bold text-gray-900 leading-tight">
-              OWN YOUR DREAM BAJAJ <br />
-              MOTORCYCLE WITH EASE
-            </h2>
-
-            <p class="text-lg text-gray-600 leading-relaxed">
-              At Bajaj Nepal, we believe that your dream ride should be within
-              reach. Our simplified financing options are designed to make
-              motorcycle ownership accessible and hassle-free for everyone.
-            </p>
-
-            <div class="pt-4">
+    <!-- Main Navigation -->
+    <div class="w-full flex justify-center px-8">
+      <nav class="floating-navbar bg-white my-4">
+        <div class="flex justify-between items-center px-6 py-4 text-base">
+          <!-- Left Navigation Items -->
+          <div class="flex items-center space-x-8">
+            <!-- Motorcycles Dropdown -->
+            <div class="relative dropdown">
               <button
-                class="loan-availability-btn bg-[#222222] h-10 flex items-center text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                Check Your Loan Availability
-                <svg
-                  class="w-6 h-6 group-hover:scale-110 transition-transform"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
+                class="text-sm flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                onclick="toggleDropdown('motorcycles')">
+                <span>MOTORCYCLES</span>
+                <svg class="w-4 h-4 transition-transform duration-200" id="motorcycles-arrow" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Mr Gopal Start Coding from here -->
+              <!-- Dropdown Content -->
+              <div id="motorcycles-dropdown"
+                class="dropdown-content absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
+                style="width: 1000px">
+                <div class="flex">
+                  <!-- Left Sidebar - Brands -->
+                  <div class="w-64 bg-gray-50 p-6 rounded-l-lg">
+                    <h3 class="text-gray-800 font-semibold mb-4">BRANDS</h3>
+                    <ul class="space-y-2" id="brand-list">
+                      <!-- Brands will be populated by JavaScript -->
+                    </ul>
+                  </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 min-h-screen flex flex-col">
-      <!-- Email Signup Section -->
-      <div class="flex-1 flex items-center justify-center px-4 py-12">
-        <div class="max-w-md w-full">
-          <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-2">
-              Sign up for Email
-            </h2>
-            <p class="text-sm text-gray-500 mb-1">
-              Read our
-              <a href="#" class="text-blue-500 underline">privacy policy</a>
-              to learn about data processing
-            </p>
-            <p class="text-sm text-gray-500">
-              Sign up for BAJAJ latest news and updates
-            </p>
-          </div>
+                  <!-- Right Content - Motorcycles -->
+                  <div class="flex-1 p-6">
+                    <!-- Category Filter -->
+                    <div class="flex space-x-4 mb-6">
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 active"
+                        onclick="filterCategory('All')">
+                        All
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Classic')">
+                        Classic
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('NS')">
+                        NS
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('N')">
+                        N
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Adventure')">
+                        Adventure
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Cruiser')">
+                        Cruiser
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Commuter')">
+                        Commuter
+                      </button>
+                      <button
+                        class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                        onclick="filterCategory('Economy')">
+                        Economy
+                      </button>
+                    </div>
 
-          <form id="emailForm" class="mb-4">
-            <div class="flex gap-2 mb-2">
-              <input
-                type="email"
-                id="email"
-                placeholder="YOUR EMAIL ADDRESS"
-                class="flex-1 bg-white border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-              <button
-                type="submit"
-                class="bg-blue-500 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-blue-600"
-              >
-                SUBSCRIBE NOW
-              </button>
-            </div>
-            <p class="text-xs text-gray-500 text-center">
-              This site is protected by reCAPTCHA and the Google
-              <a href="#" class="underline">Privacy Policy</a> and
-              <a href="#" class="underline">Terms of Service</a> apply.
-            </p>
-          </form>
-        </div>
-      </div>
-
-      <!-- Footer Section -->
-      <div class="bg-gray-900 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4">
-          <div class="text-center mb-8">
-            <div class="flex justify-center items-center mb-4">
-              <div
-                class="w-8 h-8 mr-3 bg-white rounded-full flex items-center justify-center"
-              >
-                <span class="text-black font-bold text-sm">G</span>
+                    <!-- Motorcycle Grid -->
+                    <div id="motorcycle-grid" class="space-y-8">
+                      <!-- Motorcycles will be populated by JavaScript -->
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-lg font-medium">
-                GOLCHHA GROUP WITH LEGACY OF 100 YEAR
-              </h3>
-            </div>
-          </div>
-
-          <!-- Footer Links -->
-          <div class="flex justify-center gap-8 text-sm mb-8">
-            <a href="#" class="hover:text-gray-300">TERMS OF USE</a>
-            <a href="#" class="hover:text-gray-300">PRIVACY INFORMATION</a>
-            <a href="#" class="hover:text-gray-300">COOKIES INFORMATION</a>
-          </div>
-
-          <!-- Copyright -->
-          <div class="text-center text-xs text-gray-400 mb-8">
-            <p>
-              Copyright © 2025 Bajaj Auto Ltd – A Sole Shareholder Company - A
-              Company subject to the Management and Coordination
-            </p>
-            <p>activities of BAJAJ AUTO. All rights reserved. VAT NO.</p>
-          </div>
-
-          <!-- Bottom Section -->
-          <div class="flex flex-wrap justify-between items-center gap-4">
-            <!-- Bajaj Logo -->
-            <div>
-              <img src="../assets/footer-logo.svg" alt="" />
             </div>
 
-            <!-- Social Media Icons -->
-            <div class="flex gap-4">
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-facebook"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-youtube"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-tiktok"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
-              >
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </div>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">SHOWROOMS</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">WORKSHOPS</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">EVENTS</a>
+          </div>
 
-            <!-- International Website -->
-            <div class="flex items-center text-sm text-gray-400">
-              <i class="fas fa-globe mr-2"></i>
-              <a href="#" class="hover:text-white">International website</a>
+          <!-- Center Logo -->
+
+          <img class="h-[72px] px-4" src="assets/logo.png" alt="logo" />
+
+          <!-- Right Navigation Items -->
+          <div class="flex text-sm items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">BOOK TEST RIDE</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">ABOUT US</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600 transition-colors duration-200">NEWS</a>
+
+            <!-- Media Center Dropdown -->
+            <div class="relative dropdown">
+              <button
+                class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                onclick="toggleDropdown('media')">
+                <span>MEDIA CENTER</span>
+                <svg class="w-4 h-4 transition-transform duration-200" id="media-arrow" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              <!-- Media Dropdown Content -->
+              <div id="media-dropdown"
+                class="media-dropdown-content absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
+                style="width: 400px">
+                <div class="p-6">
+                  <h3 class="text-gray-800 font-semibold mb-4">
+                    MEDIA CENTER
+                  </h3>
+                  <div id="media-content" class="space-y-4">
+                    <!-- Media content will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section with Carousel -->
+  <section class="relative h-screen overflow-hidden carousel-with-header">
+    <!-- Carousel Container -->
+    <div class="carousel-container relative w-full h-full">
+      <!-- Carousel Slides -->
+      <div id="carousel-slides" class="flex transition-transform duration-700 ease-in-out h-full">
+        <!-- Slides will be populated by JavaScript -->
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button id="prevBtn"
+        class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group">
+        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+      </button>
+      <button id="nextBtn"
+        class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 z-10 group">
+        <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Explore More Button -->
+      <button id="explore-more-btn"
+        class="absolute bottom-24 h-10 right-24 bg-[#222222] text-white px-6 rounded-full font-semibold transition-all duration-300 z-20 flex items-center space-x-2 group">
+        <span>Explore More</span>
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none"
+          stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+      </button>
+
+      <!-- Bouncing Arrow Indicator -->
+      <div id="bouncing-arrow" class="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-15">
+        <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11 13.6001L21 9.20007L22 10.7001L11 20.2001L0 10.7001L0.999992 9.20007L11 13.6001Z"
+            fill="#FAFAFA" />
+          <path d="M11 4.80002L17.6 0.400024L18.7 1.50002L11 9.20002L3.30005 1.50002L4.40005 0.400024L11 4.80002Z"
+            fill="#FAFAFA" />
+        </svg>
+      </div>
+
+      <!-- Dot Indicators -->
+      <div id="carousel-dots" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+        <!-- Dots will be populated by JavaScript -->
+      </div>
+
+      <!-- Overlay for better text readability -->
+      <div class="absolute inset-0 bg-black/20 z-0"></div>
+    </div>
+  </section>
+
+  <!-- Content Section for Explore More Button Testing -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-8">
+          Discover Our Motorcycles
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Experience the perfect blend of performance, style, and innovation
+          with our complete range of motorcycles. From sport bikes to
+          cruisers, find your perfect ride.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Own Your Dream Bajaj Section -->
+  <section class="py-16 dream-bajaj-section">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Image Section -->
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden shadow-2xl dream-bajaj-image">
+            <img src="/assets/dream-section-img.png" alt="Bajaj Motorcycle with Customer"
+              class="w-full h-[400px] object-cover" />
+          </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="space-y-6">
+          <h2 class="text-4xl font-bold text-gray-900 leading-tight">
+            OWN YOUR DREAM BAJAJ <br />
+            MOTORCYCLE WITH EASE
+          </h2>
+
+          <p class="text-lg text-gray-600 leading-relaxed">
+            At Bajaj Nepal, we believe that your dream ride should be within
+            reach. Our simplified financing options are designed to make
+            motorcycle ownership accessible and hassle-free for everyone.
+          </p>
+
+          <div class="pt-4">
+            <button
+              class="loan-availability-btn bg-[#222222] h-10 flex items-center text-white px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              Check Your Loan Availability
+              <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mr Gopal Start Coding from here -->
+  <!-- Bikes section - Redesigned to match exact layout -->
+  <section class="w-full bg-white relative overflow-hidden">
+    <!-- Background Text -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <h1 id="background-brand-text"
+        class="text-[20vw] lg:text-[25vw] font-black text-indigo-100 select-none transition-all duration-500">
+        <!-- Background text will be dynamically updated -->
+      </h1>
+    </div>
+
+    <!-- Brand Navigation Tabs - Top -->
+    <div class="relative z-10 pt-8 pb-4">
+      <nav class="flex justify-center space-x-8 lg:space-x-16">
+        <button
+          class="s1-tab text-lg lg:text-xl font-semibold text-gray-800 border-b-2 border-black pb-2 transition-all duration-300 focus:outline-none"
+          data-brand="PULSAR">PULSAR</button>
+        <button
+          class="s1-tab text-lg lg:text-xl font-semibold text-gray-400 border-b-2 border-transparent pb-2 hover:text-gray-600 transition-all duration-300 focus:outline-none"
+          data-brand="DOMINAR">DOMINAR</button>
+        <button
+          class="s1-tab text-lg lg:text-xl font-semibold text-gray-400 border-b-2 border-transparent pb-2 hover:text-gray-600 transition-all duration-300 focus:outline-none"
+          data-brand="AVENGERS">AVENGERS</button>
+        <button
+          class="s1-tab text-lg lg:text-xl font-semibold text-gray-400 border-b-2 border-transparent pb-2 hover:text-gray-600 transition-all duration-300 focus:outline-none"
+          data-brand="DISCOVER">DISCOVER</button>
+        <button
+          class="s1-tab text-lg lg:text-xl font-semibold text-gray-400 border-b-2 border-transparent pb-2 hover:text-gray-600 transition-all duration-300 focus:outline-none"
+          data-brand="PLATINA">PLATINA</button>
+      </nav>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 py-8">
+      <!-- Bike Title and Description -->
+      <div class="text-center mb-8">
+        <h2 id="s1-title" class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4 transition-all duration-300">
+          <!-- Title will be dynamically updated -->
+        </h2>
+        <p id="s1-description" class="text-gray-600 text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
+          <!-- Description will be dynamically updated -->
+        </p>
+      </div>
+
+      <!-- Main Bike Display Grid -->
+      <div class="grid grid-cols-12 gap-4 lg:gap-8 items-center min-h-[500px]">
+        <!-- Left Side - Navigation Arrow Only -->
+        <div class="col-span-2 flex justify-center items-center">
+          <!-- Previous Arrow (for model navigation) -->
+          <button id="s1-prevBtn"
+            class="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            aria-label="Previous model" title="Previous Model">
+            <svg class="w-6 h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Center - Main Bike Image -->
+        <div class="col-span-8 flex justify-center items-center">
+          <div class="relative w-full max-w-4xl">
+            <img id="s1-bikeImage" src="" alt="Bike"
+              class="w-full h-auto max-h-[400px] lg:max-h-[500px] object-contain transition-all duration-500 ease-in-out" />
+            <!-- Loading overlay -->
+            <div id="image-loading"
+              class="absolute inset-0 bg-gray-100 animate-pulse rounded-lg hidden flex items-center justify-center">
+              <div class="text-gray-500">Loading...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Navigation Arrow and Colors -->
+        <div class="col-span-2 flex flex-col items-center justify-center space-y-8">
+          <!-- Next Arrow (for model navigation) -->
+          <button id="s1-nextBtn"
+            class="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-gray-300 flex items-center justify-center hover:border-gray-500 hover:bg-gray-50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            aria-label="Next model" title="Next Model">
+            <svg class="w-6 h-6 lg:w-7 lg:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+
+          <!-- Color Selection (Horizontal Layout) -->
+          <div class="flex flex-col items-center space-y-4">
+            <h3 class="text-sm font-semibold text-gray-700">Colors</h3>
+            <span id="current-color-name"
+              class="text-xs text-gray-600 text-center"><!-- Color name will be dynamically updated --></span>
+            <div id="color-options" class="flex flex-row space-x-2">
+              <!-- Color buttons will be dynamically generated -->
             </div>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      document
-        .getElementById("emailForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const email = document.getElementById("email").value;
-          if (email) {
-            alert(
-              "Thank you for subscribing! You will receive updates at: " + email
-            );
-            document.getElementById("email").value = "";
-          }
-        });
-    </script>
+      <!-- Bottom Section - Series Link and Variant Tabs -->
+      <div class="mt-12 lg:mt-16">
+        <!-- View Series Link -->
+        <div class="flex justify-end mb-8">
+          <a href="#" id="s1-seriesLink"
+            class="inline-flex items-center text-black hover:text-gray-700 font-medium transition-colors duration-200 group text-sm lg:text-base">
+            <!-- Series link text will be dynamically updated -->
+            <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
 
-    <script type="module" src="js/main.js"></script>
-  </body>
+        <!-- Variant Tabs - Positioned on Right Side -->
+        <div class="flex justify-end">
+          <div class="border-t border-gray-300 pt-6">
+            <div id="variant-tabs" class="flex flex-wrap justify-end gap-6 lg:gap-8">
+              <!-- Variant buttons will be dynamically generated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Email Signup Section -->
+    <div class="flex-1 flex items-center justify-center px-4 py-12">
+      <div class="max-w-md w-full">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">
+            Sign up for Email
+          </h2>
+          <p class="text-sm text-gray-500 mb-1">
+            Read our
+            <a href="#" class="text-blue-500 underline">privacy policy</a>
+            to learn about data processing
+          </p>
+          <p class="text-sm text-gray-500">
+            Sign up for BAJAJ latest news and updates
+          </p>
+        </div>
+
+        <form id="emailForm" class="mb-4">
+          <div class="flex gap-2 mb-2">
+            <input type="email" id="email" placeholder="YOUR EMAIL ADDRESS"
+              class="flex-1 bg-white border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required />
+            <button type="submit"
+              class="bg-blue-500 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-blue-600">
+              SUBSCRIBE NOW
+            </button>
+          </div>
+          <p class="text-xs text-gray-500 text-center">
+            This site is protected by reCAPTCHA and the Google
+            <a href="#" class="underline">Privacy Policy</a> and
+            <a href="#" class="underline">Terms of Service</a> apply.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="bg-gray-900 text-white py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-8">
+          <div class="flex justify-center items-center mb-4">
+            <div class="w-8 h-8 mr-3 bg-white rounded-full flex items-center justify-center">
+              <span class="text-black font-bold text-sm">G</span>
+            </div>
+            <h3 class="text-lg font-medium">
+              GOLCHHA GROUP WITH LEGACY OF 100 YEAR
+            </h3>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="flex justify-center gap-8 text-sm mb-8">
+          <a href="#" class="hover:text-gray-300">TERMS OF USE</a>
+          <a href="#" class="hover:text-gray-300">PRIVACY INFORMATION</a>
+          <a href="#" class="hover:text-gray-300">COOKIES INFORMATION</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-xs text-gray-400 mb-8">
+          <p>
+            Copyright © 2025 Bajaj Auto Ltd – A Sole Shareholder Company - A
+            Company subject to the Management and Coordination
+          </p>
+          <p>activities of BAJAJ AUTO. All rights reserved. VAT NO.</p>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="flex flex-wrap justify-between items-center gap-4">
+          <!-- Bajaj Logo -->
+          <div>
+            <img src="../assets/footer-logo.svg" alt="" />
+          </div>
+
+          <!-- Social Media Icons -->
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+
+          <!-- International Website -->
+          <div class="flex items-center text-sm text-gray-400">
+            <i class="fas fa-globe mr-2"></i>
+            <a href="#" class="hover:text-white">International website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document
+      .getElementById("emailForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        if (email) {
+          alert(
+            "Thank you for subscribing! You will receive updates at: " + email
+          );
+          document.getElementById("email").value = "";
+        }
+      });
+  </script>
+  <script type="module" src="js/bike-init.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+
 </html>
