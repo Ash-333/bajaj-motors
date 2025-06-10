@@ -251,3 +251,175 @@
   background: linear-gradient(135deg, #374151, #4b5563);
   transform: translateY(-2px);
 }
+
+/* Bajaj Experiences Section */
+.bajaj-experiences-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Experiences Carousel */
+.carousel-slide {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.experience-card {
+  background: white;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.experience-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+}
+
+.experience-card img {
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover img {
+  transform: scale(1.02);
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Carousel navigation buttons */
+#prev-btn,
+#next-btn {
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Carousel dots */
+.carousel-dot {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Explore More Button Styles */
+.experience-card button {
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.experience-card:hover button {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop container height for portrait cards */
+.bajaj-experiences-section .relative {
+  min-height: 500px;
+  overflow: hidden;
+}
+
+/* Carousel track container */
+.bajaj-experiences-section .relative.h-\[500px\] {
+  overflow: visible; /* Allow side cards to be visible */
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure carousel container is properly centered */
+.bajaj-experiences-section .max-w-6xl {
+  position: relative;
+  overflow: visible; /* Allow side cards to be visible */
+  width: 100%;
+  max-width: 1200px; /* Increase max width to accommodate side cards */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .carousel-slide {
+    width: 160px !important;
+    height: 280px !important;
+  }
+
+  #prev-btn,
+  #next-btn {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+
+  #prev-btn svg,
+  #next-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bajaj-experiences-section .relative {
+    height: 450px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bajaj-experiences-section h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .carousel-slide {
+    width: 140px !important;
+    height: 240px !important;
+  }
+
+  #prev-btn {
+    left: 8px;
+  }
+
+  #next-btn {
+    right: 8px;
+  }
+
+  .experience-card button {
+    padding: 1rem 2rem;
+    font-size: 0.75rem;
+  }
+
+  .bajaj-experiences-section .relative {
+    height: 400px !important;
+  }
+}

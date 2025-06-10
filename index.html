@@ -398,6 +398,87 @@
       </div>
     </section>
 
+    <!-- The Bajaj Experiences Section -->
+    <section class="py-16 bg-gray-50 bajaj-experiences-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <!-- Section Title -->
+        <div class="text-center mb-12">
+          <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            THE BAJAJ EXPERIENCES
+          </h2>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative">
+          <!-- Loading State -->
+          <div id="experiences-loading" class="text-center py-20">
+            <div
+              class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"
+            ></div>
+            <p class="mt-4 text-gray-600">Loading experiences...</p>
+          </div>
+
+          <!-- Carousel Wrapper -->
+          <div id="experiences-carousel" class="hidden">
+            <div class="relative max-w-6xl mx-auto">
+              <!-- Carousel Track -->
+              <div
+                class="relative h-[500px] flex items-center justify-center"
+                style="perspective: 1000px"
+              >
+                <div
+                  id="experiences-track"
+                  class="relative flex items-center justify-center transition-all duration-500 ease-in-out"
+                  style="width: 100%; height: 100%"
+                >
+                  <!-- Dynamic slides will be inserted here -->
+                </div>
+              </div>
+
+              <!-- Navigation Arrows -->
+              <button
+                id="prev-btn"
+                class="absolute left-8 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-20"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </button>
+
+              <button
+                id="next-btn"
+                class="absolute right-8 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-50 rounded-full w-12 h-12 flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110 z-20"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mr Gopal Start Coding from here -->
 
     <!-- Footer -->

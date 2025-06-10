@@ -1,15 +1,17 @@
 // Main Application Module
 import { CarouselManager } from "./carousel.js";
 import { NavbarManager } from "./navbar.js";
+import experiencesCarousel from "./experiencesCarousel.js";
 
 class BajajApp {
   constructor() {
     this.carouselManager = null;
     this.navbarManager = null;
+    this.experiencesCarousel = null;
   }
 
   // Initialize the application
-  initialize() {
+  async initialize() {
     // Initialize carousel
     this.carouselManager = new CarouselManager();
     this.carouselManager.initialize();
@@ -18,9 +20,14 @@ class BajajApp {
     this.navbarManager = new NavbarManager();
     this.navbarManager.initialize();
 
+    // Initialize experiences carousel
+    this.experiencesCarousel = experiencesCarousel;
+    await this.experiencesCarousel.initialize();
+
     // Make managers globally available for debugging and external access
     window.carouselManager = this.carouselManager;
     window.navbarManager = this.navbarManager;
+    window.experiencesCarousel = this.experiencesCarousel;
 
     console.log("Bajaj App initialized successfully");
     console.log("Carousel stats:", this.carouselManager.getStats());
@@ -34,6 +41,11 @@ class BajajApp {
   // Get navbar manager
   getNavbarManager() {
     return this.navbarManager;
+  }
+
+  // Get experiences carousel
+  getExperiencesCarousel() {
+    return this.experiencesCarousel;
   }
 
   // Add new slide to carousel
@@ -63,20 +75,24 @@ class BajajApp {
     return {
       carouselInitialized: !!this.carouselManager,
       navbarInitialized: !!this.navbarManager,
+      experiencesInitialized: !!this.experiencesCarousel,
       carouselStats: this.carouselManager
         ? this.carouselManager.getStats()
         : null,
       currentCategory: this.navbarManager
         ? this.navbarManager.getCurrentCategory()
         : null,
+      experiencesCount: this.experiencesCarousel
+        ? this.experiencesCarousel.experiences.length
+        : 0,
     };
   }
 }
 
 // Initialize the application when DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const app = new BajajApp();
-  app.initialize();
+  await app.initialize();
 
   // Make app globally available
   window.bajajApp = app;
@@ -114,6 +130,21 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     console.log("New motorcycle added to Test category");
+  };
+
+  window.testExperiences = function () {
+    console.log("Testing experiences functionality...");
+
+    // Test carousel navigation
+    const carousel = app.getExperiencesCarousel();
+    if (carousel) {
+      console.log("Current experiences:", carousel.experiences.length);
+      console.log("Current slide:", carousel.currentSlide);
+
+      // Test navigation
+      setTimeout(() => carousel.nextSlide(), 1000);
+      setTimeout(() => carousel.previousSlide(), 2000);
+    }
   };
 
   window.getAppStatus = function () {
