@@ -1,0 +1,179 @@
+{
+  "blogs": [
+    {
+      "id": "wheels-of-memory-2025",
+      "title": "WHEELS OF MEMORY",
+      "subtitle": "12 Months Photography Contest",
+      "excerpt": "Join us for the 12 months photography contest inviting riders to share bike photos symbolizing each of the 12 Indian months. Capture the essence of time and memories on two wheels.",
+      "content": "Experience the beauty of time through the lens of motorcycle photography. Our 12-month contest invites riders from across the country to capture the essence of each month through their bike journeys. From the monsoon rides of July to the winter adventures of December, every month tells a unique story.",
+      "author": "Bajaj Community Team",
+      "publishDate": "2025-05-12",
+      "category": "Community",
+      "tags": ["photography", "contest", "community", "memories"],
+      "featured": true,
+      "image": "https://images.unsplash.com/photo-1508357941501-0924cf312bbd?q=80&w=2070&auto=format&fit=crop",
+      "readTime": "5 min read",
+      "status": "published"
+    },
+    {
+      "id": "pulsar-n250-launch-nepal",
+      "title": "Launch of the Bajaj Pulsar N250 in Nepal",
+      "subtitle": "Power Meets Performance",
+      "excerpt": "Experience the power and performance of the all-new Pulsar N250, now available in Nepal with cutting-edge technology and design.",
+      "content": "The wait is over! Bajaj Auto has officially launched the much-anticipated Pulsar N250 in Nepal. This new addition to the Pulsar family brings together advanced engineering, sporty design, and unmatched performance for the modern rider.",
+      "author": "Bajaj Nepal Team",
+      "publishDate": "2025-04-28",
+      "category": "Product Launch",
+      "tags": ["pulsar", "n250", "launch", "nepal", "motorcycle"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=400&fit=crop&crop=center",
+      "readTime": "3 min read",
+      "status": "published"
+    },
+    {
+      "id": "goa-motofest-2025",
+      "title": "Goa Motofest - 5th Statewide Community Ride",
+      "subtitle": "Celebrating the Spirit of Riding",
+      "excerpt": "Join hundreds of riders in Goa's biggest motorcycle community event celebrating the spirit of riding and brotherhood.",
+      "content": "The 5th edition of Goa Motofest brought together over 500 motorcycle enthusiasts from across the state. This annual celebration of riding culture featured scenic coastal routes, technical workshops, and community bonding activities.",
+      "author": "Event Team",
+      "publishDate": "2025-04-15",
+      "category": "Events",
+      "tags": ["goa", "motofest", "community", "ride", "event"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop&crop=center",
+      "readTime": "4 min read",
+      "status": "published"
+    },
+    {
+      "id": "avenger-new-year-deals",
+      "title": "Bajaj Avenger's Campaign Offers Exciting New Year Deals",
+      "subtitle": "Start Your Year with Adventure",
+      "excerpt": "Kickstart your year with amazing offers on the Bajaj Avenger series. Limited time deals available with attractive financing options.",
+      "content": "Ring in the new year with incredible savings on the Bajaj Avenger lineup. Our special New Year campaign offers attractive financing options, extended warranties, and exclusive accessories for early buyers.",
+      "author": "Sales Team",
+      "publishDate": "2025-04-10",
+      "category": "Offers",
+      "tags": ["avenger", "deals", "new year", "offers", "financing"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center",
+      "readTime": "2 min read",
+      "status": "published"
+    },
+    {
+      "id": "motorcycle-safety-tips",
+      "title": "Motorcycle Safety Tips for New Riders",
+      "subtitle": "Ride Safe, Ride Smart",
+      "excerpt": "Essential safety guidelines and tips for new motorcycle riders to ensure a safe and enjoyable riding experience.",
+      "content": "Safety should always be your top priority when riding a motorcycle. Whether you're a new rider or getting back on the road after a break, these essential safety tips will help you stay protected and confident on your journeys.",
+      "author": "Safety Expert Team",
+      "publishDate": "2025-04-05",
+      "category": "Safety",
+      "tags": ["safety", "tips", "new riders", "guidelines", "protection"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop&crop=center",
+      "readTime": "6 min read",
+      "status": "published"
+    },
+    {
+      "id": "best-routes-nepal",
+      "title": "Best Motorcycle Routes in Nepal",
+      "subtitle": "Discover Nepal's Hidden Gems",
+      "excerpt": "Discover the most scenic and thrilling motorcycle routes across Nepal for your next adventure, from mountain passes to valley roads.",
+      "content": "Nepal offers some of the world's most spectacular motorcycle routes. From the winding mountain roads of the Himalayas to the scenic valley routes, every journey promises breathtaking views and unforgettable experiences.",
+      "author": "Travel Team",
+      "publishDate": "2025-03-28",
+      "category": "Travel",
+      "tags": ["nepal", "routes", "travel", "adventure", "scenic"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop&crop=center",
+      "readTime": "8 min read",
+      "status": "published"
+    },
+    {
+      "id": "maintenance-winter-tips",
+      "title": "Winter Motorcycle Maintenance Guide",
+      "subtitle": "Keep Your Bike Ready for Cold Weather",
+      "excerpt": "Essential maintenance tips to keep your motorcycle running smoothly during the winter months and cold weather conditions.",
+      "content": "Winter riding requires special attention to motorcycle maintenance. Cold weather can affect various components of your bike, from the battery to the tires. Follow our comprehensive guide to ensure your motorcycle stays in top condition throughout the winter season.",
+      "author": "Technical Team",
+      "publishDate": "2025-03-15",
+      "category": "Maintenance",
+      "tags": ["maintenance", "winter", "cold weather", "tips", "care"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=400&fit=crop&crop=center",
+      "readTime": "7 min read",
+      "status": "published"
+    },
+    {
+      "id": "dominar-touring-experience",
+      "title": "Epic Touring Experience with Bajaj Dominar",
+      "subtitle": "Long Distance Comfort Redefined",
+      "excerpt": "Discover why the Bajaj Dominar is the perfect companion for long-distance touring and adventure riding across diverse terrains.",
+      "content": "The Bajaj Dominar has redefined the touring motorcycle segment with its perfect blend of power, comfort, and reliability. From highway cruising to mountain adventures, the Dominar delivers an unmatched riding experience for touring enthusiasts.",
+      "author": "Touring Team",
+      "publishDate": "2025-03-02",
+      "category": "Touring",
+      "tags": ["dominar", "touring", "adventure", "long distance", "comfort"],
+      "featured": false,
+      "image": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop&crop=center",
+      "readTime": "5 min read",
+      "status": "published"
+    }
+  ],
+  "categories": [
+    {
+      "id": "community",
+      "name": "Community",
+      "description": "Stories from our riding community",
+      "color": "blue"
+    },
+    {
+      "id": "product-launch",
+      "name": "Product Launch",
+      "description": "Latest product announcements and launches",
+      "color": "green"
+    },
+    {
+      "id": "events",
+      "name": "Events",
+      "description": "Motorcycle events and gatherings",
+      "color": "purple"
+    },
+    {
+      "id": "offers",
+      "name": "Offers",
+      "description": "Special deals and promotions",
+      "color": "red"
+    },
+    {
+      "id": "safety",
+      "name": "Safety",
+      "description": "Riding safety tips and guidelines",
+      "color": "orange"
+    },
+    {
+      "id": "travel",
+      "name": "Travel",
+      "description": "Travel guides and route recommendations",
+      "color": "indigo"
+    },
+    {
+      "id": "maintenance",
+      "name": "Maintenance",
+      "description": "Motorcycle care and maintenance tips",
+      "color": "gray"
+    },
+    {
+      "id": "touring",
+      "name": "Touring",
+      "description": "Long-distance riding and touring experiences",
+      "color": "yellow"
+    }
+  ],
+  "meta": {
+    "totalBlogs": 8,
+    "lastUpdated": "2025-05-12T10:00:00Z",
+    "version": "1.0"
+  }
+}
