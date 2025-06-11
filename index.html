@@ -231,7 +231,7 @@
 
   <!-- Mr Gopal Start Coding from here -->
   <!-- Bikes Carousel section -->
-   <section class="w-full bg-white relative overflow-hidden">
+  <section class="w-full bg-white relative overflow-hidden">
     <!-- Background Text -->
     <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
       <h1 id="background-brand-text"
@@ -367,7 +367,7 @@
     </div>
   </section>
 
-   <!-- Own Your Dream Bajaj Section -->
+  <!-- Own Your Dream Bajaj Section -->
   <section class="py-16 dream-bajaj-section">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -432,6 +432,38 @@
         </svg>
       </button>
 
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Latest News & Stories</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Stay updated with the latest motorcycle news, riding tips, and community stories from the world of Bajaj.
+        </p>
+      </div>
+
+      <!-- Blog Grid -->
+      <div id="blog-grid" class="grid grid-cols-1 lg:grid-cols-10 gap-6">
+        <!-- Loading State -->
+        <div class="lg:col-span-10 flex items-center justify-center py-12">
+          <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Loading latest stories...</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- View All Blogs Button -->
+      <div class="text-center mt-12">
+        <button
+          class="bg-gray-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          View All Stories
+        </button>
+      </div>
     </div>
   </section>
 
@@ -558,7 +590,8 @@
   </script>
   <script type="module" src="js/bike-init.js"></script>
   <script type="module" src="js/main.js"></script>
-  <script type="module" src="js/expereience-carousel.js"></script>  
+  <script type="module" src="js/expereience-carousel.js"></script>
+  <script type="module" src="js/blog-section.js"></script>
 </body>
 
 </html>
