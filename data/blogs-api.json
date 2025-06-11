@@ -11,7 +11,7 @@
       "category": "Community",
       "tags": ["photography", "contest", "community", "memories"],
       "featured": true,
-      "image": "https://images.unsplash.com/photo-1508357941501-0924cf312bbd?q=80&w=2070&auto=format&fit=crop",
+      "image": "./assets/blogs/1.jpg",
       "readTime": "5 min read",
       "status": "published"
     },
@@ -26,7 +26,7 @@
       "category": "Product Launch",
       "tags": ["pulsar", "n250", "launch", "nepal", "motorcycle"],
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=400&fit=crop&crop=center",
+      "image": "./assets/blogs/2.jpg",
       "readTime": "3 min read",
       "status": "published"
     },
@@ -41,7 +41,7 @@
       "category": "Events",
       "tags": ["goa", "motofest", "community", "ride", "event"],
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=600&h=400&fit=crop&crop=center",
+      "image": "./assets/blogs/3.jpg",
       "readTime": "4 min read",
       "status": "published"
     },
@@ -56,7 +56,7 @@
       "category": "Offers",
       "tags": ["avenger", "deals", "new year", "offers", "financing"],
       "featured": false,
-      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop&crop=center",
+      "image": "./assets/blogs/4.png",
       "readTime": "2 min read",
       "status": "published"
     },

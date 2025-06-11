@@ -3,19 +3,19 @@
     {
       "title": "Squad Diaries",
       "description": "Adventures with your riding squad.",
-      "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=300&h=500&fit=crop&crop=center",
+      "image": "./assets/experience/1.png",
       "link": "#"
     },
     {
       "title": "Grand Exchange Mela",
       "description": "Exciting offers on new Bajaj bikes.",
-      "image": "https://images.unsplash.com/photo-1509275698723-ae804786a334?q=80&w=1976&auto=format&fit=crop",
+      "image": "./assets/experience/2.png",
       "link": "#"
     },
     {
       "title": "Auto Show 2025",
       "description": "Experience the latest innovations.",
-      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=300&h=500&fit=crop&crop=center",
+      "image": "./assets/experience/3.png",
       "link": "#"
     },
     {

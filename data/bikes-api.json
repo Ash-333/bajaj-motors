@@ -77,7 +77,7 @@
           "mileage": "40 kmpl",
           "features": ["ABS", "Digital Console", "LED Headlamp"],
           "images": {
-            "black": "/assets/bikes/pulsar/pulsar-220f-black.svg",
+            "black": "./assets/bikes/pulsar/pulsar_220f_abs.png",
             "yellow": "/assets/bikes/pulsar/pulsar-220f-yellow.svg",
             "green": "/assets/bikes/pulsar/pulsar-220f-green.svg",
             "red": "/assets/bikes/pulsar/pulsar-220f-red.svg",
@@ -97,7 +97,7 @@
           "mileage": "50 kmpl",
           "features": ["Twin Disc", "Digital Console", "LED DRL"],
           "images": {
-            "black": "/assets/bikes/pulsar/pulsar-150td-black.svg",
+            "black": "./assets/bikes/pulsar/pulsar_150_td.png",
             "yellow": "/assets/bikes/pulsar/pulsar-150td-yellow.svg",
             "green": "/assets/bikes/pulsar/pulsar-150td-green.svg",
             "red": "/assets/bikes/pulsar/pulsar-150td-red.svg",
@@ -117,7 +117,7 @@
           "mileage": "52 kmpl",
           "features": ["Digital Console", "LED Tail Lamp", "Tubeless Tyres"],
           "images": {
-            "black": "/assets/bikes/pulsar/pulsar-150-black.svg",
+            "black": "./assets/bikes/pulsar/pulsar_150.png",
             "yellow": "/assets/bikes/pulsar/pulsar-150-yellow.svg",
             "green": "/assets/bikes/pulsar/pulsar-150-green.svg",
             "red": "/assets/bikes/pulsar/pulsar-150-red.svg",
@@ -137,7 +137,7 @@
           "mileage": "55 kmpl",
           "features": ["Digital Console", "LED Headlamp", "Split Seat"],
           "images": {
-            "black": "/assets/bikes/pulsar/pulsar-125-black.svg",
+            "black": "./assets/bikes/pulsar/pulsar_125.png",
             "yellow": "/assets/bikes/pulsar/pulsar-125-yellow.svg",
             "green": "/assets/bikes/pulsar/pulsar-125-green.svg",
             "red": "/assets/bikes/pulsar/pulsar-125-red.svg",
@@ -167,7 +167,12 @@
           "price": "₹2,17,000",
           "engine": "373cc",
           "mileage": "35 kmpl",
-          "features": ["Dual Channel ABS", "USD Forks", "LED Headlamp", "Digital Console"],
+          "features": [
+            "Dual Channel ABS",
+            "USD Forks",
+            "LED Headlamp",
+            "Digital Console"
+          ],
           "images": {
             "black": "/assets/bikes/dominar/dominar-400-black.svg",
             "yellow": "/assets/bikes/dominar/dominar-400-yellow.svg",
@@ -343,7 +348,11 @@
           "price": "₹65,000",
           "engine": "100cc",
           "mileage": "80 kmpl",
-          "features": ["Electric Start", "ComforTec Suspension", "Analog Console"],
+          "features": [
+            "Electric Start",
+            "ComforTec Suspension",
+            "Analog Console"
+          ],
           "images": {
             "black": "/assets/bikes/platina/platina-100-es-black.svg",
             "yellow": "/assets/bikes/platina/platina-100-es-yellow.svg",
