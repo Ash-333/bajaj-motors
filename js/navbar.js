@@ -3,24 +3,25 @@ import {
     motorcycleData,
     addNewMotorcycle,
     getMotorcyclesByBrand,
-    getCategoriesForBrand,
-    mediaCenterData,
-    getMediaContentByCategory,
-    getAllMediaCategories
+    getCategoriesForBrand
 } from './motorcycle-data.js';
 
 export class NavbarManager {
     constructor() {
         this.currentCategory = 'All';
-        this.currentBrand = 'All';
+        this.currentBrand = 'PULSAR';
     }
 
     // Initialize the navbar
     initialize() {
         this.populateBrands();
         this.renderMotorcycles();
-        this.populateMediaCenter();
         this.setupEventListeners();
+
+        // Filter category buttons for default brand after everything is set up
+        setTimeout(() => {
+            this.updateCategoryButtons();
+        }, 100);
     }
 
     // Populate brands in sidebar
@@ -30,15 +31,7 @@ export class NavbarManager {
 
         brandList.innerHTML = '';
 
-        // Add "All Brands" option
-        const allLi = document.createElement('li');
-        allLi.innerHTML = `
-            <a href="#" class="brand-item brand-filter block px-3 py-2 text-sm text-gray-700 rounded-md transition-colors duration-200 ${this.currentBrand === 'All' ? 'active' : ''}" data-brand="All">
-                All Brands
-            </a>
-        `;
-        brandList.appendChild(allLi);
-
+        // Add individual brands (no "All Brands" option)
         motorcycleData.brands.forEach(brand => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -63,17 +56,22 @@ export class NavbarManager {
     toggleDropdown(dropdownId) {
         const dropdown = document.getElementById(dropdownId + '-dropdown');
         const arrow = document.getElementById(dropdownId + '-arrow');
-        
+
         if (!dropdown || !arrow) return;
-        
+
         if (dropdown.classList.contains('show')) {
             dropdown.classList.remove('show');
+            dropdown.classList.add('hidden');
             arrow.style.transform = 'rotate(0deg)';
         } else {
             // Close all other dropdowns first
-            document.querySelectorAll('.dropdown-content').forEach(dd => dd.classList.remove('show'));
+            document.querySelectorAll('.dropdown-content, .media-dropdown-content').forEach(dd => {
+                dd.classList.remove('show');
+                dd.classList.add('hidden');
+            });
             document.querySelectorAll('.dropdown svg').forEach(arr => arr.style.transform = 'rotate(0deg)');
-            
+
+            dropdown.classList.remove('hidden');
             dropdown.classList.add('show');
             arrow.style.transform = 'rotate(180deg)';
         }
@@ -108,31 +106,36 @@ export class NavbarManager {
 
     // Update category buttons based on selected brand
     updateCategoryButtons() {
-        const categoryButtons = document.querySelectorAll('.category-btn');
+        try {
+            const categoryButtons = document.querySelectorAll('.category-btn');
 
-        if (this.currentBrand === 'All') {
-            // Show all category buttons
-            categoryButtons.forEach(btn => {
-                btn.style.display = 'block';
-            });
-        } else {
             // Show only relevant categories for the selected brand
             const brandCategories = getCategoriesForBrand(this.currentBrand);
 
             categoryButtons.forEach(btn => {
                 const category = btn.textContent.trim();
+                // Always show "All" button, and show categories that exist for this brand
                 if (category === 'All' || brandCategories.includes(category)) {
                     btn.style.display = 'block';
                 } else {
                     btn.style.display = 'none';
                 }
             });
-        }
 
-        // Reset to "All" category
-        this.currentCategory = 'All';
-        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.category-btn[onclick*="All"]').classList.add('active');
+            // Set "All" as the default active category when switching brands
+            this.currentCategory = 'All';
+            document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Find and activate the "All" button
+            const allButton = Array.from(document.querySelectorAll('.category-btn')).find(btn =>
+                btn.textContent.trim() === 'All'
+            );
+            if (allButton) {
+                allButton.classList.add('active');
+            }
+        } catch (error) {
+            console.error('Error in updateCategoryButtons:', error);
+        }
     }
 
     // Render motorcycles based on current category and brand
@@ -142,14 +145,8 @@ export class NavbarManager {
 
         grid.innerHTML = '';
 
-        let motorcyclesToShow = {};
-
-        // Filter by brand first
-        if (this.currentBrand === 'All') {
-            motorcyclesToShow = motorcycleData.motorcycles;
-        } else {
-            motorcyclesToShow = getMotorcyclesByBrand(this.currentBrand);
-        }
+        // Filter by brand first (always a specific brand, no "All")
+        const motorcyclesToShow = getMotorcyclesByBrand(this.currentBrand);
 
         // Then filter by category
         if (this.currentCategory === 'All') {
@@ -183,8 +180,8 @@ export class NavbarManager {
                 </div>
                 <div class="grid grid-cols-4 gap-6">
                     ${motorcycles.map(bike => `
-                        <div class="motorcycle-card bg-white rounded-lg p-4 text-center border border-gray-200 cursor-pointer">
-                            <img src="${bike.image}" alt="${bike.name}" class="w-full h-20 object-cover mb-3 rounded">
+                        <div class="motorcycle-card bg-white p-4 text-center cursor-pointer hover:bg-gray-50">
+                            <img src="${bike.image}" alt="${bike.name}" class="w-full h-20 object-cover mb-3">
                             <h4 class="text-sm font-medium text-gray-800">${bike.name}</h4>
                         </div>
                     `).join('')}
@@ -195,52 +192,7 @@ export class NavbarManager {
         grid.appendChild(section);
     }
 
-    // Populate media center dropdown
-    populateMediaCenter() {
-        const mediaContent = document.getElementById('media-content');
-        if (!mediaContent) return;
 
-        mediaContent.innerHTML = '';
-
-        getAllMediaCategories().forEach(category => {
-            const categorySection = document.createElement('div');
-            categorySection.className = 'mb-4';
-
-            const categoryTitle = document.createElement('h4');
-            categoryTitle.className = 'text-sm font-semibold text-gray-800 mb-2';
-            categoryTitle.textContent = category;
-
-            const itemsList = document.createElement('div');
-            itemsList.className = 'space-y-1';
-
-            const items = getMediaContentByCategory(category).slice(0, 3); // Show only first 3 items
-            items.forEach(item => {
-                const itemElement = document.createElement('a');
-                itemElement.href = '#';
-                itemElement.className = 'media-item block px-3 py-2 text-xs text-gray-600 rounded hover:bg-gray-50 transition-colors duration-200';
-                itemElement.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <span>${item.title}</span>
-                        <span class="text-xs text-gray-400">${item.type}</span>
-                    </div>
-                    <div class="text-xs text-gray-400 mt-1">${item.date}</div>
-                `;
-                itemsList.appendChild(itemElement);
-            });
-
-            if (getMediaContentByCategory(category).length > 3) {
-                const viewAllLink = document.createElement('a');
-                viewAllLink.href = '#';
-                viewAllLink.className = 'block px-3 py-2 text-xs text-blue-600 hover:text-blue-800 font-medium';
-                viewAllLink.textContent = `View all ${category}`;
-                itemsList.appendChild(viewAllLink);
-            }
-
-            categorySection.appendChild(categoryTitle);
-            categorySection.appendChild(itemsList);
-            mediaContent.appendChild(categorySection);
-        });
-    }
 
     // Setup event listeners
     setupEventListeners() {
@@ -249,10 +201,11 @@ export class NavbarManager {
             const dropdowns = document.querySelectorAll('.dropdown');
             dropdowns.forEach(dropdown => {
                 if (!dropdown.contains(event.target)) {
-                    const dropdownContent = dropdown.querySelector('.dropdown-content');
+                    const dropdownContent = dropdown.querySelector('.dropdown-content, .media-dropdown-content');
                     const arrow = dropdown.querySelector('svg');
                     if (dropdownContent) {
                         dropdownContent.classList.remove('show');
+                        dropdownContent.classList.add('hidden');
                         if (arrow) arrow.style.transform = 'rotate(0deg)';
                     }
                 }
@@ -310,9 +263,9 @@ window.toggleDropdown = function(dropdownId) {
 };
 
 // Global function for category filter (to maintain compatibility with HTML onclick)
-window.filterCategory = function(category) {
+window.filterCategory = function(category, event) {
     if (window.navbarManager) {
-        const button = event.target;
+        const button = event ? event.target : null;
         window.navbarManager.filterCategory(category, button);
     }
 };

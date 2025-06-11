@@ -18,12 +18,8 @@ class BajajApp {
     this.navbarManager = new NavbarManager();
     this.navbarManager.initialize();
 
-    // Make managers globally available for debugging and external access
-    window.carouselManager = this.carouselManager;
+    // Make navbar manager globally available for HTML onclick handlers
     window.navbarManager = this.navbarManager;
-
-    console.log("Bajaj App initialized successfully");
-    console.log("Carousel stats:", this.carouselManager.getStats());
   }
 
   // Get carousel manager
@@ -77,49 +73,6 @@ class BajajApp {
 document.addEventListener("DOMContentLoaded", function () {
   const app = new BajajApp();
   app.initialize();
-
-  // Make app globally available
-  window.bajajApp = app;
-
-  // Example usage functions for testing
-  window.testCarousel = function () {
-    console.log("Testing carousel functionality...");
-
-    // Test adding a new slide
-    app.addCarouselSlide({
-      id: "test-slide",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop",
-      title: "Test Slide",
-      subtitle: "Testing functionality",
-      description: "This is a test slide to verify carousel functionality.",
-      cta: "Test Button",
-      category: "test",
-    });
-
-    console.log(
-      "New slide added. Current stats:",
-      app.getCarouselManager().getStats()
-    );
-  };
-
-  window.testNavbar = function () {
-    console.log("Testing navbar functionality...");
-
-    // Test adding a new motorcycle
-    app.addMotorcycle("Test", {
-      name: "Test Bike",
-      image:
-        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=150&h=100&fit=crop",
-    });
-
-    console.log("New motorcycle added to Test category");
-  };
-
-  window.getAppStatus = function () {
-    console.log("App Status:", app.getStatus());
-    return app.getStatus();
-  };
 });
 
 // Export for potential module usage

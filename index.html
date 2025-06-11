@@ -11,24 +11,31 @@
 
 <body class="bg-gray-50">
   <!-- Header -->
-  <header class="header-overlay">
+  <header class="header-overlay fixed top-0 left-0 right-0 z-50">
     <!-- Top Bar -->
-    <div class="bg-transparent px-6 py-2">
-      <div class="flex justify-between items-center max-w-6xl mx-auto">
+    <div class="bg-transparent py-2" style="padding-left: 150px; padding-right: 150px;">
+      <div class="flex justify-between items-center">
         <div class="flex items-center space-x-2">
           <img src="assets/golcha-logo.png" alt="golcha_logo" class="h-8 w-auto" />
-          <span class="text-sm text-white/80">GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span>
+          <span class="text-sm font-bold text-[#FAFAFA]">GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span>
         </div>
-        <div class="text-sm text-white/80">
-          <span>🌐 International website</span>
+        <div class="flex items-center space-x-2">
+          <svg width="23" height="18" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M6.89761 15.1618C8.28247 16.3099 10.0607 17 12.0001 17C16.4184 17 20.0001 13.4183 20.0001 9C20.0001 8.43095 19.9407 7.87578 19.8278 7.34036M6.89761 15.1618C5.12756 13.6944 4.00014 11.4789 4.00014 9C4.00014 4.58172 7.58186 1 12.0001 1C15.8494 1 19.0637 3.71853 19.8278 7.34036M6.89761 15.1618C8.85314 14.7147 11.1796 13.7828 13.526 12.4281C16.2564 10.8517 18.4773 9.01248 19.8278 7.34036M6.89761 15.1618C4.46844 15.7171 2.61159 15.5243 1.99965 14.4644C1.36934 13.3726 2.19631 11.5969 3.99999 9.70898M19.8278 7.34036C21.0796 5.79041 21.5836 4.38405 21.0522 3.46374C20.5134 2.53051 19.0095 2.26939 16.9997 2.59929"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+          <span class="text-sm font-bold text-[#FAFAFA]">International website</span>
+
         </div>
       </div>
     </div>
 
     <!-- Main Navigation -->
-    <div class="w-full flex justify-center px-8">
-      <nav class="floating-navbar bg-white my-4">
-        <div class="flex justify-between items-center px-6 py-4 text-base">
+    <div class="bg-transparent py-2 font-roboto" style="padding-left: 150px; padding-right: 150px;">
+      <nav class="floating-navbar bg-white my-4 px-6">
+        <div class="flex justify-evenly items-center py-4 text-base">
           <!-- Left Navigation Items -->
           <div class="flex items-center space-x-8">
             <!-- Motorcycles Dropdown -->
@@ -45,11 +52,11 @@
 
               <!-- Dropdown Content -->
               <div id="motorcycles-dropdown"
-                class="dropdown-content absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
-                style="width: 1000px">
-                <div class="flex">
+                class="dropdown-content absolute top-full left-0 mt-12 bg-white border border-gray-200 z-50 overflow-hidden"
+                style="width: 1000px; height: 600px;">
+                <div class="flex h-full">
                   <!-- Left Sidebar - Brands -->
-                  <div class="w-64 bg-gray-50 p-6 rounded-l-lg">
+                  <div class="w-64 bg-gray-50 p-6 rounded-l-lg flex-shrink-0">
                     <h3 class="text-gray-800 font-semibold mb-4">BRANDS</h3>
                     <ul class="space-y-2" id="brand-list">
                       <!-- Brands will be populated by JavaScript -->
@@ -57,9 +64,9 @@
                   </div>
 
                   <!-- Right Content - Motorcycles -->
-                  <div class="flex-1 p-6">
+                  <div class="flex-1 flex flex-col h-full">
                     <!-- Category Filter -->
-                    <div class="flex space-x-4 mb-6">
+                    <div class="flex space-x-4 p-6 pb-4 flex-shrink-0 border-b border-gray-100">
                       <button
                         class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 active"
                         onclick="filterCategory('All')">
@@ -102,8 +109,8 @@
                       </button>
                     </div>
 
-                    <!-- Motorcycle Grid -->
-                    <div id="motorcycle-grid" class="space-y-8">
+                    <!-- Motorcycle Grid with Scrolling -->
+                    <div id="motorcycle-grid" class="flex-1 overflow-y-auto px-6 py-4">
                       <!-- Motorcycles will be populated by JavaScript -->
                     </div>
                   </div>
@@ -140,15 +147,26 @@
 
               <!-- Media Dropdown Content -->
               <div id="media-dropdown"
-                class="media-dropdown-content absolute top-full right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 z-50"
-                style="width: 400px">
-                <div class="p-6">
-                  <h3 class="text-gray-800 font-semibold mb-4">
-                    MEDIA CENTER
-                  </h3>
-                  <div id="media-content" class="space-y-4">
-                    <!-- Media content will be populated by JavaScript -->
-                  </div>
+                class="media-dropdown-content absolute top-full right-0 mt-12 bg-white border border-gray-200 z-50 hidden"
+                style="width: 220px">
+                <div class="py-2">
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">ABOUT
+                    US</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">ANNOUNCEMENTS</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">EVENTS</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">BLOGS</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">DOWNLOAD
+                    CENTER</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">CONTACT
+                    US</a>
+                  <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200">FAQS</a>
                 </div>
               </div>
             </div>

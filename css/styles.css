@@ -19,13 +19,24 @@
 
 .motorcycle-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
 }
 
 /* Category Button Styles */
+.category-btn {
+  border-radius: 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
 .category-btn.active {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: white;
+  background: transparent;
+  color: #000000;
+  border-radius: 0 !important;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 /* Carousel Styles */
@@ -107,12 +118,11 @@
 
 /* Floating navbar */
 .floating-navbar {
-  max-width: 1200px;
+
   margin: 0 auto;
   margin-left: auto;
   margin-right: auto;
   height: 110px;
-  padding: auto;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -147,9 +157,26 @@
 }
 
 /* Brand filter active state */
+.brand-filter {
+  border-radius: 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
 .brand-filter.active {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: white;
+  background: transparent;
+  color: #000000;
+  border-radius: 1px !important;
+}
+
+.brand-filter.active {
+  background: transparent;
+  color: #000000;
+  border-radius: 0 !important;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 /* Explore More Button Styles */
@@ -327,6 +354,12 @@
     flex-direction: column;
     gap: 1rem;
   }
+
+  /* Featured blog layout adjustments for mobile */
+  .featured-text-column,
+  .featured-image-column {
+    grid-column: 1 / -1 !important; /* Full width on mobile */
+  }
 }
 
 
@@ -444,7 +477,6 @@
 }
 
 
-
 /* Blogs Section Styles */
 /* Media item styles */
 .media-item {
@@ -481,8 +513,3 @@
     transform: translateY(-5px);
   }
 }
-
-
-
-
-
