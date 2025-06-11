@@ -1,0 +1,40 @@
+{
+  "originalExperiences": [
+    {
+      "title": "Squad Diaries",
+      "description": "Adventures with your riding squad.",
+      "image": "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=300&h=500&fit=crop&crop=center",
+      "link": "#"
+    },
+    {
+      "title": "Grand Exchange Mela",
+      "description": "Exciting offers on new Bajaj bikes.",
+      "image": "https://images.unsplash.com/photo-1509275698723-ae804786a334?q=80&w=1976&auto=format&fit=crop",
+      "link": "#"
+    },
+    {
+      "title": "Auto Show 2025",
+      "description": "Experience the latest innovations.",
+      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=300&h=500&fit=crop&crop=center",
+      "link": "#"
+    },
+    {
+      "title": "Riding Club Meet",
+      "description": "Connect with fellow riders.",
+      "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=300&h=500&fit=crop&crop=center",
+      "link": "#"
+    },
+    {
+      "title": "Service Camp",
+      "description": "Get your bike checked by experts.",
+      "image": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=500&fit=crop&crop=center",
+      "link": "#"
+    },
+    {
+      "title": "Track Day Fun",
+      "description": "Unleash the beast on the track.",
+      "image": "https://images.unsplash.com/photo-1528301024193-8b8b6c7d9d6f?q=80&w=1936&auto=format&fit=crop",
+      "link": "#"
+    }
+  ]
+}

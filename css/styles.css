@@ -330,3 +330,117 @@
 }
 
 
+
+/* Experience section styles */
+/* Custom CSS for finer control or specific effects */
+.experience-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Width will be set dynamically by JS to perfectly frame 3 cards */
+  padding: 0 1rem;
+  /* Add slight padding for visual separation from arrows if needed */
+}
+
+.experience-carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* Smooth transition for sliding */
+  align-items: center;
+  /* Vertically align items to center the different sized cards */
+  justify-content: flex-start;
+  /* Start items from the left */
+  will-change: transform;
+}
+
+.experience-carousel-item {
+  flex-shrink: 0;
+  width: 481px;
+  /* Base width for all cards */
+  height: 629px;
+  /* Base height for all cards (e.g., 300x500 aspect ratio) */
+  margin: 0;
+  /* No default margin; will be set by JS for overlap */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: scale(0.8);
+  /* Smaller scale for side cards */
+  transition: transform 0.5s ease-in-out, z-index 0.5s ease-in-out, opacity 0.5s ease-in-out, margin 0.5s ease-in-out;
+  z-index: 1;
+  /* Default z-index for side cards */
+  opacity: 0.7;
+  /* Dim side cards */
+}
+
+/* Focused state for the center card */
+.experience-carousel-item.focused {
+  transform: scale(1);
+  /* Full size for center card */
+  z-index: 10;
+  /* Bring to front */
+  opacity: 1;
+  /* Full opacity for focused card */
+}
+
+/* Image and button overlay styles */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.explore-button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+  z-index: 10;
+
+  cursor: pointer;
+}
+
+.explore-button:hover {
+  background-color: #326AD2;
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+
