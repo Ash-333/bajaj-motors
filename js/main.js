@@ -8,13 +8,13 @@ class BajajApp {
     this.navbarManager = null;
   }
 
-  // Initialize the application
+  // Initialize the application - back to simple sync
   initialize() {
     // Initialize carousel
     this.carouselManager = new CarouselManager();
     this.carouselManager.initialize();
 
-    // Initialize navbar
+    // Initialize navbar (loads data when needed)
     this.navbarManager = new NavbarManager();
     this.navbarManager.initialize();
 

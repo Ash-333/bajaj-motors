@@ -1,10 +1,47 @@
-// Navbar Module
-import {
-    motorcycleData,
-    addNewMotorcycle,
-    getMotorcyclesByBrand,
-    getCategoriesForBrand
-} from './motorcycle-data.js';
+// Navbar Module - Fetch data from JSON file
+let navbarData = null;
+
+// Load navbar data from JSON file
+async function loadNavbarData() {
+    if (!navbarData) {
+        try {
+            const response = await fetch('./data/navbar-bikes.json');
+            navbarData = await response.json();
+        } catch (error) {
+            console.error('Error loading navbar data:', error);
+            // Fallback empty structure
+            navbarData = { brands: {}, fallbackImage: '' };
+        }
+    }
+    return navbarData;
+}
+
+// Utility functions for navbar
+function getAllBrands() {
+    return Object.keys(navbarData.brands);
+}
+
+function getCategoriesForBrand(brand) {
+    return navbarData.brands[brand]?.categories || [];
+}
+
+function getMotorcyclesByBrand(brand) {
+    const brandData = navbarData.brands[brand];
+    if (!brandData) return {};
+
+    const result = {};
+    brandData.categories.forEach(category => {
+        const bikes = brandData.bikes[category];
+        if (bikes && bikes.length > 0) {
+            result[category] = bikes.map(bike => ({
+                name: bike.name,
+                image: bike.image,
+                brand: brand
+            }));
+        }
+    });
+    return result;
+}
 
 export class NavbarManager {
     constructor() {
@@ -14,14 +51,23 @@ export class NavbarManager {
         this.isMobileBrandDetailOpen = false;
     }
 
-    // Initialize the navbar
+    // Initialize the navbar - simple sync, data loads when needed
     initialize() {
+        this.setupEventListeners();
+        this.setupMobileEventListeners();
+
+        // Load data and populate UI
+        this.loadAndPopulate();
+    }
+
+    // Load data and populate UI elements
+    async loadAndPopulate() {
+        await loadNavbarData();
+
         this.populateBrands();
         this.populateMobileBrands();
         this.populateMobileBikesBrands();
         this.renderMotorcycles();
-        this.setupEventListeners();
-        this.setupMobileEventListeners();
 
         // Filter category buttons for default brand after everything is set up
         setTimeout(() => {
@@ -29,15 +75,16 @@ export class NavbarManager {
         }, 100);
     }
 
-    // Populate brands in sidebar
+    // Populate brands in sidebar - Simplified and faster
     populateBrands() {
         const brandList = document.getElementById('brand-list');
         if (!brandList) return;
 
         brandList.innerHTML = '';
+        const brands = getAllBrands();
 
-        // Add individual brands (no "All Brands" option)
-        motorcycleData.brands.forEach(brand => {
+        // Create brand list items
+        brands.forEach(brand => {
             const li = document.createElement('li');
             li.innerHTML = `
                 <a href="#" class="brand-item brand-filter block px-3 py-2 text-sm text-gray-700 rounded-md transition-colors duration-200 ${this.currentBrand === brand ? 'active' : ''}" data-brand="${brand}">
@@ -57,14 +104,15 @@ export class NavbarManager {
         });
     }
 
-    // Populate mobile brands
+    // Populate mobile brands - Simplified
     populateMobileBrands() {
         const mobileBrands = document.getElementById('mobile-brands');
         if (!mobileBrands) return;
 
         mobileBrands.innerHTML = '';
+        const brands = getAllBrands();
 
-        motorcycleData.brands.forEach(brand => {
+        brands.forEach(brand => {
             const brandItem = document.createElement('div');
             brandItem.className = 'mobile-brand-item';
             brandItem.innerHTML = `
@@ -82,14 +130,15 @@ export class NavbarManager {
         });
     }
 
-    // Populate mobile bikes brands (for header dropdown)
+    // Populate mobile bikes brands (for header dropdown) - Simplified
     populateMobileBikesBrands() {
         const mobileBikesBrands = document.getElementById('mobile-bikes-brands');
         if (!mobileBikesBrands) return;
 
         mobileBikesBrands.innerHTML = '';
+        const brands = getAllBrands();
 
-        motorcycleData.brands.forEach(brand => {
+        brands.forEach(brand => {
             const brandItem = document.createElement('div');
             brandItem.className = 'mobile-brand-item';
             brandItem.innerHTML = `
@@ -132,14 +181,17 @@ export class NavbarManager {
         }
     }
 
-    // Filter motorcycles by brand
+    // Filter motorcycles by brand - Simple and direct
     filterByBrand(brand) {
         this.currentBrand = brand;
         this.currentCategory = 'All'; // Reset category when changing brand
 
         // Update active brand
         document.querySelectorAll('.brand-filter').forEach(link => link.classList.remove('active'));
-        document.querySelector(`[data-brand="${brand}"]`).classList.add('active');
+        const brandElement = document.querySelector(`[data-brand="${brand}"]`);
+        if (brandElement) {
+            brandElement.classList.add('active');
+        }
 
         // Update category buttons based on brand
         this.updateCategoryButtons();
@@ -159,12 +211,12 @@ export class NavbarManager {
         this.renderMotorcycles();
     }
 
-    // Update category buttons based on selected brand
+    // Update category buttons based on selected brand - Simplified and faster
     updateCategoryButtons() {
         try {
             const categoryButtons = document.querySelectorAll('.category-btn');
 
-            // Show only relevant categories for the selected brand
+            // Get categories for current brand (much faster lookup)
             const brandCategories = getCategoriesForBrand(this.currentBrand);
 
             categoryButtons.forEach(btn => {
@@ -182,7 +234,7 @@ export class NavbarManager {
             document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
 
             // Find and activate the "All" button
-            const allButton = Array.from(document.querySelectorAll('.category-btn')).find(btn =>
+            const allButton = Array.from(categoryButtons).find(btn =>
                 btn.textContent.trim() === 'All'
             );
             if (allButton) {
@@ -190,6 +242,10 @@ export class NavbarManager {
             }
         } catch (error) {
             console.error('Error in updateCategoryButtons:', error);
+            // Fallback: show all buttons if there's an error
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.style.display = 'block';
+            });
         }
     }
 
@@ -276,15 +332,7 @@ export class NavbarManager {
         });
     }
 
-    // Add new motorcycle (public method)
-    addMotorcycle(category, motorcycle) {
-        addNewMotorcycle(category, motorcycle);
 
-        // Re-render if we're currently showing this category
-        if (this.currentCategory === 'All' || this.currentCategory === category) {
-            this.renderMotorcycles();
-        }
-    }
 
     // Get current category
     getCurrentCategory() {
@@ -302,7 +350,7 @@ export class NavbarManager {
         return this.currentBrand;
     }
 
-    // Set current brand
+    // Set current brand - Simple
     setCurrentBrand(brand) {
         this.currentBrand = brand;
         this.updateCategoryButtons();

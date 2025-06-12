@@ -1,0 +1,69 @@
+{
+  "brands": {
+    "PULSAR": {
+      "categories": ["Classic", "NS", "N"],
+      "bikes": {
+        "Classic": [
+          { "name": "PULSAR 220F ABS", "image": "./assets/bikes/pulsar/pulsar_220f_abs.png" },
+          { "name": "PULSAR 150 TD", "image": "./assets/bikes/pulsar/pulsar_150_td.png" }, 
+          { "name": "PULSAR 150", "image": "./assets/bikes/pulsar/pulsar_150.png" },
+          { "name": "PULSAR 125", "image": "./assets/bikes/pulsar/pulsar_125.png" }
+        ],
+        "NS": [
+          { "name": "PULSAR NS400Z", "image": "./assets/bikes/pulsar/pulsar_ns400z.png" },
+          { "name": "PULSAR NS 200 ABS FI", "image": "./assets/bikes/pulsar/pulsar_ns200_abs_fi.png" },
+          { "name": "PULSAR NS 200 ABS", "image": "./assets/bikes/pulsar/pulsar_ns200_abs.png" },
+          { "name": "PULSAR NS 200", "image": "./assets/bikes/pulsar/pulsar_ns200.png" },
+          { "name": "PULSAR NS 160 ABS", "image": "./assets/bikes/pulsar/pulsar_ns160_abs.png" },
+          { "name": "NS160 FI DUAL ABS BS6", "image": "./assets/bikes/pulsar/ns160_fi_dual_abs_bs6.png" },
+          { "name": "PULSAR NS 125 BS6", "image": "./assets/bikes/pulsar/pulsar_ns125_bs6.png" },
+          { "name": "PULSAR NS 125 FI BS6", "image": "./assets/bikes/pulsar/pulsar_ns125_fi_bs6.png" }
+        ],
+        "N": [
+          { "name": "PULSAR N250", "image": "./assets/bikes/pulsar/pulsar_n250.png" },
+          { "name": "PULSAR N160", "image": "./assets/bikes/pulsar/pulsar_n160.png" }
+        ]
+      }
+    },
+    "DOMINAR": {
+      "categories": ["Adventure"],
+      "bikes": {
+        "Adventure": [
+          { "name": "DOMINAR 400", "image": "./assets/bikes/dominar/dominar_400.png" },
+          { "name": "DOMINAR 250", "image": "./assets/bikes/dominar/dominar_250.png" }
+        ]
+      }
+    },
+    "AVENGERS": {
+      "categories": ["Cruiser"],
+      "bikes": {
+        "Cruiser": [
+          { "name": "AVENGER CRUISE 220", "image": "./assets/bikes/avengers/avenger_cruise_220.png" },
+          { "name": "AVENGER STREET 220", "image": "./assets/bikes/avengers/avenger_street_220.png" },
+          { "name": "AVENGER STREET 160", "image": "./assets/bikes/avengers/avenger_street_160.png" }
+        ]
+      }
+    },
+    "DISCOVER": {
+      "categories": ["Commuter"],
+      "bikes": {
+        "Commuter": [
+          { "name": "DISCOVER 125", "image": "./assets/bikes/discover/discover_125.png" },
+          { "name": "DISCOVER 110", "image": "./assets/bikes/discover/discover_110.png" },
+          { "name": "DISCOVER 100", "image": "./assets/bikes/discover/discover_100.png" }
+        ]
+      }
+    },
+    "PLATINA": {
+      "categories": ["Economy"],
+      "bikes": {
+        "Economy": [
+          { "name": "PLATINA 110 H-GEAR", "image": "./assets/bikes/platina/platina_110_h_gear.png" },
+          { "name": "PLATINA 100 ES", "image": "./assets/bikes/platina/platina_100_es.png" },
+          { "name": "PLATINA 100", "image": "./assets/bikes/platina/platina_100.png" }
+        ]
+      }
+    }
+  },
+  "fallbackImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=150&h=100&fit=crop"
+}
