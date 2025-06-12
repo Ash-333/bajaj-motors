@@ -4,8 +4,7 @@ export class CarouselManager {
     this.slides = [
       {
         id: "slide1",
-        image:
-          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop",
+        image: "./assets/hero_image_1.png",
         title: "PULSAR Series",
         subtitle: "Definitely Male",
         description:
@@ -38,18 +37,18 @@ export class CarouselManager {
         active: true,
         category: "cruiser",
       },
-      {
-        id: "slide4",
-        image:
-          "https://images.unsplash.com/photo-1605531179818-de32686e5e2e?w=1920&h=1080&fit=crop",
-        title: "PLATINA",
-        subtitle: "Comfort Redefined",
-        description:
-          "The perfect blend of comfort and efficiency. PLATINA makes every journey memorable.",
-        cta: "Experience PLATINA",
-        active: true,
-        category: "commuter",
-      },
+      // {
+      //   id: "slide4",
+      //   image:
+      //     "https://images.unsplash.com/photo-1605531179818-de32686e5e2e?w=1920&h=1080&fit=crop",
+      //   title: "PLATINA",
+      //   subtitle: "Comfort Redefined",
+      //   description:
+      //     "The perfect blend of comfort and efficiency. PLATINA makes every journey memorable.",
+      //   cta: "Experience PLATINA",
+      //   active: true,
+      //   category: "commuter",
+      // },
     ];
 
     this.settings = {

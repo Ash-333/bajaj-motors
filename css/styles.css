@@ -1,3 +1,134 @@
+/* ========================================
+   BAJAJ MOTORS - ORGANIZED CSS STYLES
+   ======================================== */
+
+/* ========================================
+   1. BASE & UTILITIES
+   ======================================== */
+
+/* Text shadow utility */
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Bouncing Arrow Animation */
+.bouncing-arrow {
+  animation: bounce 2s infinite;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.slide-enter {
+  animation: slideIn 0.7s ease-out;
+}
+
+/* ========================================
+   2. HEADER & NAVIGATION
+   ======================================== */
+
+/* Header Overlap Styles */
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+
+/* Top Bar Responsive Styles */
+.top-bar {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+/* Transparent top bar */
+.top-bar-transparent {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Top bar content responsive adjustments */
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Top bar text responsive sizing */
+.top-bar-text {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #fafafa;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Top bar logo responsive sizing */
+.top-bar-logo {
+  height: 2rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* Top bar icon responsive sizing */
+.top-bar-icon {
+  width: 23px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Floating navbar */
+.floating-navbar {
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: 110px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Dropdown Styles */
 .dropdown-content {
   display: none;
@@ -12,20 +143,42 @@
   transform: translateY(0);
 }
 
-/* Motorcycle Card Styles */
-.motorcycle-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Media center dropdown styles */
+.media-dropdown-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
 }
 
-.motorcycle-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+.media-dropdown-content.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Category Button Styles */
-.category-btn.active {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: white;
+/* Media item styles */
+.media-item {
+  transition: background-color 0.2s ease;
+}
+
+.media-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* Brand item hover effect */
+.brand-item:hover {
+  background-color: #f3f4f6;
+  color: #1e40af;
+}
+
+/* ========================================
+   3. HERO SECTION & CAROUSEL
+   ======================================== */
+
+/* Adjust carousel for header overlap */
+.carousel-with-header {
+  padding-top: 0;
 }
 
 /* Carousel Styles */
@@ -63,127 +216,114 @@
   transform: scale(1.2);
 }
 
-.slide-enter {
-  animation: slideIn 0.7s ease-out;
+/* ========================================
+   4. BIKES SECTION
+   ======================================== */
+
+/* Motorcycle Card Styles */
+.motorcycle-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.motorcycle-card:hover {
+  transform: translateY(-2px);
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); */
 }
 
-/* Text shadow utility */
-.text-shadow-lg {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+/* Category Button Styles */
+.category-btn {
+  border-radius: 0 !important;
+  position: relative;
+  display: inline-block;
 }
 
-/* Brand item hover effect */
-.brand-item:hover {
-  background-color: #f3f4f6;
-  color: #1e40af;
-}
-
-/* Header Overlap Styles */
-.header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-}
-
-/* Transparent top bar */
-.top-bar-transparent {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Floating navbar */
-.floating-navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-left: auto;
-  margin-right: auto;
-  height: 110px;
-  padding: auto;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-/* Media center dropdown styles */
-.media-dropdown-content {
-  display: none;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
-}
-
-.media-dropdown-content.show {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Media item styles */
-.media-item {
-  transition: background-color 0.2s ease;
-}
-
-.media-item:hover {
-  background-color: #f3f4f6;
-}
-
-/* Adjust carousel for header overlap */
-.carousel-with-header {
-  padding-top: 0;
+.category-btn.active {
+  background: transparent;
+  color: #000000;
+  border-radius: 0 !important;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 /* Brand filter active state */
+.brand-filter {
+  border-radius: 0 !important;
+  position: relative;
+  display: inline-block;
+}
+
 .brand-filter.active {
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
-  color: white;
+  background: transparent;
+  color: #000000;
+  border-radius: 0 !important;
+  text-decoration: underline;
+  text-decoration-color: #000000;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
-/* Explore More Button Styles */
-/* #explore-more-btn {
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-  backdrop-filter: blur(10px);
+/* Color Selection Component Styles */
+#color-options {
+  min-height: 32px; /* Ensure consistent height even when empty */
 }
 
-#explore-more-btn:hover {
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-  transform: translateY(-2px);
-} */
-
-/* Bouncing Arrow Animation */
-.bouncing-arrow {
-  animation: bounce 2s infinite;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+#color-options button {
+  transition: all 0.2s ease;
 }
 
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
+#color-options button:hover {
+  transform: scale(1.1);
 }
+
+#color-options button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Brand Logo and Category Section Styles */
+#brand-logo {
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+#category-icon {
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+#category-display-text {
+  transition: all 0.3s ease;
+}
+
+/* Logo hover effects */
+#brand-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Series link and variant tabs alignment */
+#s1-seriesLink {
+  transition: all 0.2s ease;
+}
+
+/* Variant tabs alignment */
+#variant-tabs {
+  transition: all 0.3s ease;
+}
+
+#variant-tabs .variant-btn {
+  transition: all 0.2s ease;
+}
+
+/* Series and variant container alignment */
+.flex.justify-end > .flex.flex-col.items-start {
+  min-width: fit-content;
+}
+
+/* ========================================
+   5. DREAM BAJAJ SECTION
+   ======================================== */
 
 /* Dream Bajaj Section Styles */
 .dream-bajaj-section {
@@ -198,19 +338,407 @@
   transform: scale(1.02);
 }
 
-/* .loan-availability-btn {
+/* Loan Availability Button */
+.loan-availability-btn {
   background: linear-gradient(135deg, #1f2937, #374151);
   transition: all 0.3s ease;
-} */
+}
 
-/* .loan-availability-btn:hover {
+.loan-availability-btn:hover {
   background: linear-gradient(135deg, #374151, #4b5563);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
-} */
+  transform: translateY(-2px);
+}
 
-/* Responsive adjustments for new elements */
+/* ========================================
+   5.5. BIKE DETAIL PAGE
+   ======================================== */
+
+/* Hero Section for Bike Detail */
+.bike-detail-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Color Selector Styles */
+.color-selector-button {
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-selector-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.color-selector-button.active {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Key Features Cards */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Specifications Section */
+.spec-section {
+  transition: all 0.2s ease;
+}
+
+.spec-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.spec-row {
+  transition: background-color 0.2s ease;
+}
+
+.spec-row:hover {
+  background-color: #f9fafb;
+}
+
+/* Specification Tabs */
+.spec-tab {
+  cursor: pointer;
+  position: relative;
+}
+
+.spec-tab:hover {
+  color: #374151;
+}
+
+.spec-tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* Compact Specification Tabs */
+.spec-tab-compact {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.spec-tab-compact:focus {
+  outline: none;
+}
+
+/* Image Transitions */
+#hero-bike-image,
+#spec-bike-image {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Smooth image loading */
+.image-loading {
+  opacity: 0.5;
+}
+
+/* Tab Content */
+.tab-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for bike detail */
 @media (max-width: 768px) {
+  .bike-detail-hero img {
+    max-height: 50vh;
+  }
+
+  .color-selector-button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Mobile tab adjustments */
+  .spec-tab {
+    font-size: 0.875rem;
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* ========================================
+   6. MOBILE NAVIGATION & MENUS
+   ======================================== */
+
+/* Mobile Bikes Dropdown - Full Screen */
+#mobile-bikes-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 9999;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+#mobile-bikes-dropdown.show {
+  transform: translateX(0);
+}
+
+/* Mobile Bikes Arrow Animation */
+#mobile-bikes-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* Mobile Menu Styles */
+#mobile-menu-overlay {
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#mobile-menu-overlay.show {
+  transform: translateX(0);
+}
+
+/* Mobile Menu Item Styles */
+.mobile-menu-item {
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-item:hover {
+  background-color: #f9fafb;
+}
+
+/* Mobile Brand List Styles */
+.mobile-brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.mobile-brand-item:hover {
+  background-color: #f9fafb;
+}
+
+.mobile-brand-item:last-child {
+  border-bottom: none;
+}
+
+/* Mobile Category Tabs */
+.mobile-category-tab {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobile-category-tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* Mobile Motorcycle Item */
+.mobile-motorcycle-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.mobile-motorcycle-item:last-child {
+  border-bottom: none;
+}
+
+.mobile-motorcycle-item img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 0.375rem;
+  margin-right: 1rem;
+}
+
+/* ========================================
+   7. EXPERIENCE SECTION
+   ======================================== */
+
+/* Experience Carousel Wrapper */
+.experience-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Width will be set dynamically by JS to perfectly frame 3 cards */
+  padding: 0 1rem;
+  /* Add slight padding for visual separation from arrows if needed */
+}
+
+.experience-carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* Smooth transition for sliding */
+  align-items: center;
+  /* Vertically align items to center the different sized cards */
+  justify-content: flex-start;
+  /* Start items from the left */
+  will-change: transform;
+}
+
+.experience-carousel-item {
+  flex-shrink: 0;
+  width: 300px;
+  /* Base width for all cards */
+  height: 400px;
+  /* Base height for all cards (e.g., 300x400 aspect ratio) */
+  margin: 0;
+  /* No default margin; will be set by JS for overlap */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: scale(0.8);
+  /* Smaller scale for side cards */
+  transition: transform 0.5s ease-in-out, z-index 0.5s ease-in-out,
+    opacity 0.5s ease-in-out, margin 0.5s ease-in-out;
+  z-index: 1;
+  /* Default z-index for side cards */
+  opacity: 0.7;
+  /* Dim side cards */
+}
+
+/* Focused state for the center card */
+.experience-carousel-item.focused {
+  transform: scale(1);
+  /* Full size for center card */
+  z-index: 10;
+  /* Bring to front */
+  opacity: 1;
+  /* Full opacity for focused card */
+}
+
+/* Image and button overlay styles */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.explore-button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #222222;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 24px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.explore-button:hover {
+  background-color: #326ad2;
+}
+
+/* Navigation arrows */
+.nav-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-arrow:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* ========================================
+   8. BLOG SECTION
+   ======================================== */
+
+/* Blog media item styles - Note: Some styles are duplicated in Media section */
+.media-item {
+  transition: background-color 0.2s ease;
+}
+
+.media-item:hover {
+  background-color: #f3f4f6;
+}
+
+/* ========================================
+   9. MOBILE RESPONSIVE STYLES
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Top Bar Mobile Adjustments */
+  .top-bar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .top-bar-left {
+    gap: 0.25rem;
+  }
+
+  .top-bar-left img {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  .top-bar-text {
+    font-size: 0.75rem;
+    display: none; /* Hide text on very small screens */
+  }
+
+  .top-bar-right {
+    gap: 0.25rem;
+  }
+
+  .top-bar-right svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Hero Section Mobile Adjustments */
   #explore-more-btn {
     bottom: 1rem;
     right: 1rem;
@@ -229,9 +757,10 @@
 
   /* Mobile header adjustments */
   .floating-navbar {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: calc(100% - 2rem);
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    border-radius: 0.5rem;
   }
 
   /* Mobile Dream Bajaj Section */
@@ -239,17 +768,100 @@
     font-size: 2rem;
     line-height: 1.2;
   }
+
+  /* Bikes Section Mobile Adjustments */
+  #color-options {
+    justify-content: flex-end;
+  }
+
+  #current-color-name {
+    text-align: right;
+  }
+
+  /* Stack logo section vertically on mobile */
+  .flex.justify-between.items-start {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Featured blog layout adjustments for mobile */
+  .featured-text-column,
+  .featured-image-column {
+    grid-column: 1 / -1 !important; /* Full width on mobile */
+  }
+
+  /* Hide desktop dropdown on mobile */
+  .dropdown-content,
+  .media-dropdown-content {
+    display: none !important;
+  }
 }
 
-/* Loan Availability Button */
-.loan-availability-btn {
-  background: linear-gradient(135deg, #1f2937, #374151);
-  transition: all 0.3s ease;
+/* Tablet responsive adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .top-bar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .top-bar-text {
+    font-size: 0.8125rem;
+  }
 }
 
-.loan-availability-btn:hover {
-  background: linear-gradient(135deg, #374151, #4b5563);
-  transform: translateY(-2px);
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .top-bar {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .top-bar-text {
+    display: none !important;
+  }
+
+  .top-bar-left span,
+  .top-bar-right span {
+    display: none;
+  }
+
+  .top-bar-left {
+    justify-content: flex-start;
+  }
+
+  .top-bar-right {
+    justify-content: flex-end;
+  }
+
+  .top-bar-left img {
+    height: 1.25rem;
+  }
+
+  .top-bar-right svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 360px) {
+  .top-bar {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .top-bar-content {
+    justify-content: space-between;
+  }
+
+  .top-bar-left img {
+    height: 1rem;
+  }
+
+  .top-bar-right svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 /* Bajaj Experiences Section */

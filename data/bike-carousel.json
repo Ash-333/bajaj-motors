@@ -1,0 +1,181 @@
+{
+  "colorVariants": {
+    "black": { "name": "Charcoal Black", "class": "bg-black" },
+    "yellow": { "name": "Racing Yellow", "class": "bg-yellow-400" },
+    "green": { "name": "Forest Green", "class": "bg-green-500" },
+    "red": { "name": "Racing Red", "class": "bg-red-500" },
+    "blue": { "name": "Ocean Blue", "class": "bg-blue-500" }
+  },
+  "brands": {
+    "PULSAR": {
+      "name": "PULSAR",
+      "models": [
+        {
+          "id": "pulsar-220f-abs",
+          "name": "PULSAR 220F ABS",
+          "category": "Classic",
+          "description": "Powerful High Performance bike",
+          "images": {
+            "black": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+            "yellow": "/assets/bikes/pulsar/pulsar-220f-yellow.svg",
+            "green": "/assets/bikes/pulsar/pulsar-220f-green.svg"
+          },
+          "availableColors": ["black", "yellow", "green"]
+        },
+        {
+          "id": "pulsar-150-td",
+          "name": "PULSAR 150 TD",
+          "category": "Classic",
+          "description": "Reliable and stylish with excellent fuel efficiency",
+          "images": {
+            "black": "./assets/bikes/pulsar/pulsar_150_td.png",
+            "yellow": "/assets/bikes/pulsar/pulsar-150td-yellow.svg",
+            "green": "/assets/bikes/pulsar/pulsar-150td-green.svg"
+          },
+          "availableColors": ["black", "yellow", "green"]
+        },
+        {
+          "id": "pulsar-150",
+          "name": "PULSAR 150",
+          "category": "Classic",
+          "description": "Iconic blend of power and style",
+          "images": {
+            "black": "./assets/bikes/pulsar/pulsar_150.png",
+            "yellow": "/assets/bikes/pulsar/pulsar-150-yellow.svg",
+            "green": "/assets/bikes/pulsar/pulsar-150-green.svg"
+          },
+          "availableColors": ["black", "yellow", "green"]
+        },
+        {
+          "id": "pulsar-125",
+          "name": "PULSAR 125",
+          "category": "Classic",
+          "description": "Perfect entry-level bike with great mileage",
+          "images": {
+            "black": "./assets/bikes/pulsar/pulsar_125.png",
+            "yellow": "/assets/bikes/pulsar/pulsar-125-yellow.svg",
+            "green": "/assets/bikes/pulsar/pulsar-125-green.svg"
+          },
+          "availableColors": ["black", "yellow", "green"]
+        }
+      ]
+    },
+    "DOMINAR": {
+      "name": "DOMINAR",
+      "models": [
+        {
+          "id": "dominar-400",
+          "name": "DOMINAR 400",
+          "category": "Adventure",
+          "description": "Ultimate highway cruiser",
+          "images": {
+            "black": "/assets/bikes/dominar/dominar-400-black.svg",
+            "blue": "/assets/bikes/dominar/dominar-400-blue.svg",
+            "green": "/assets/bikes/dominar/dominar-400-green.svg"
+          },
+          "availableColors": ["black", "blue", "green"]
+        },
+        {
+          "id": "dominar-250",
+          "name": "DOMINAR 250",
+          "category": "Adventure",
+          "description": "Perfect balance of power and efficiency",
+          "images": {
+            "black": "/assets/bikes/dominar/dominar-250-black.svg",
+            "blue": "/assets/bikes/dominar/dominar-250-blue.svg",
+            "red": "/assets/bikes/dominar/dominar-250-red.svg"
+          },
+          "availableColors": ["black", "blue", "red"]
+        }
+      ]
+    },
+    "AVENGERS": {
+      "name": "AVENGERS",
+      "models": [
+        {
+          "id": "avenger-cruise-220",
+          "name": "AVENGER CRUISE 220",
+          "category": "Cruiser",
+          "description": "Perfect cruiser for long comfortable rides",
+          "images": {
+            "black": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+            "blue": "/assets/bikes/avengers/avenger-cruise-220-blue.svg",
+            "red": "/assets/bikes/avengers/avenger-cruise-220-red.svg"
+          },
+          "availableColors": ["black", "blue", "red"]
+        },
+        {
+          "id": "avenger-street-160",
+          "name": "AVENGER STREET 160",
+          "category": "Street",
+          "description": "Urban cruiser with modern styling",
+          "images": {
+            "black": "/assets/bikes/avengers/avenger-street-160-black.svg",
+            "blue": "/assets/bikes/avengers/avenger-street-160-blue.svg",
+            "yellow": "/assets/bikes/avengers/avenger-street-160-yellow.svg"
+          },
+          "availableColors": ["black", "blue", "yellow"]
+        }
+      ]
+    },
+    "DISCOVER": {
+      "name": "DISCOVER",
+      "models": [
+        {
+          "id": "discover-125",
+          "name": "DISCOVER 125",
+          "category": "Commuter",
+          "description": "Perfect commuter bike with excellent mileage",
+          "images": {
+            "black": "/assets/bikes/discover/discover-125-black.svg",
+            "blue": "/assets/bikes/discover/discover-125-blue.svg",
+            "red": "/assets/bikes/discover/discover-125-red.svg"
+          },
+          "availableColors": ["black", "blue", "red"]
+        },
+        {
+          "id": "discover-110",
+          "name": "DISCOVER 110",
+          "category": "Economy",
+          "description": "Economical bike for everyday commuting",
+          "images": {
+            "black": "/assets/bikes/discover/discover-110-black.svg",
+            "blue": "/assets/bikes/discover/discover-110-blue.svg",
+            "green": "/assets/bikes/discover/discover-110-green.svg"
+          },
+          "availableColors": ["black", "blue", "green"]
+        }
+      ]
+    },
+    "PLATINA": {
+      "name": "PLATINA",
+      "models": [
+        {
+          "id": "platina-110-h-gear",
+          "name": "PLATINA 110 H-GEAR",
+          "category": "Comfort",
+          "description": "Most comfortable bike with H-Gear technology",
+          "images": {
+            "black": "/assets/bikes/platina/platina-110-h-gear-black.svg",
+            "blue": "/assets/bikes/platina/platina-110-h-gear-blue.svg",
+            "green": "/assets/bikes/platina/platina-110-h-gear-green.svg"
+          },
+          "availableColors": ["black", "blue", "green"]
+        },
+        {
+          "id": "platina-100-es",
+          "name": "PLATINA 100 ES",
+          "category": "Economy",
+          "description": "Electric start with excellent fuel efficiency",
+          "images": {
+            "black": "/assets/bikes/platina/platina-100-es-black.svg",
+            "red": "/assets/bikes/platina/platina-100-es-red.svg",
+            "green": "/assets/bikes/platina/platina-100-es-green.svg"
+          },
+          "availableColors": ["black", "red", "green"]
+        }
+      ]
+    }
+  },
+  "fallbackImage": "/assets/fallbacks/bike-placeholder.svg"
+}

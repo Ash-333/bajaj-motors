@@ -49,37 +49,7 @@ export const motorcycleData = {
     }
 };
 
-// Media Center Data
-export const mediaCenterData = {
-    categories: ['Press Releases', 'News & Updates', 'Videos', 'Photo Gallery', 'Downloads'],
-    content: {
-        'Press Releases': [
-            { title: 'Bajaj Auto Q3 Results 2024', date: '2024-01-15', type: 'PDF' },
-            { title: 'New Product Launch Announcement', date: '2024-01-10', type: 'PDF' },
-            { title: 'Partnership with Global Brands', date: '2024-01-05', type: 'PDF' }
-        ],
-        'News & Updates': [
-            { title: 'Bajaj Wins Industry Award 2024', date: '2024-01-20', type: 'Article' },
-            { title: 'Expansion into New Markets', date: '2024-01-18', type: 'Article' },
-            { title: 'Sustainability Initiatives', date: '2024-01-12', type: 'Article' }
-        ],
-        'Videos': [
-            { title: 'PULSAR Series Commercial', date: '2024-01-25', type: 'Video' },
-            { title: 'Behind the Scenes - Manufacturing', date: '2024-01-22', type: 'Video' },
-            { title: 'Customer Testimonials', date: '2024-01-15', type: 'Video' }
-        ],
-        'Photo Gallery': [
-            { title: 'Auto Expo 2024 Gallery', date: '2024-01-30', type: 'Gallery' },
-            { title: 'Product Photoshoot', date: '2024-01-28', type: 'Gallery' },
-            { title: 'Events & Launches', date: '2024-01-20', type: 'Gallery' }
-        ],
-        'Downloads': [
-            { title: 'Product Brochures', date: '2024-01-01', type: 'ZIP' },
-            { title: 'Technical Specifications', date: '2024-01-01', type: 'PDF' },
-            { title: 'Wallpapers & Images', date: '2024-01-01', type: 'ZIP' }
-        ]
-    }
-};
+
 
 // Function to add new motorcycle
 export function addNewMotorcycle(category, motorcycle) {
@@ -89,20 +59,7 @@ export function addNewMotorcycle(category, motorcycle) {
     motorcycleData.motorcycles[category].push(motorcycle);
 }
 
-// Function to get motorcycles by category
-export function getMotorcyclesByCategory(category) {
-    return motorcycleData.motorcycles[category] || [];
-}
 
-// Function to get all categories
-export function getAllCategories() {
-    return Object.keys(motorcycleData.motorcycles);
-}
-
-// Function to get all brands
-export function getAllBrands() {
-    return motorcycleData.brands;
-}
 
 // Function to get motorcycles by brand
 export function getMotorcyclesByBrand(brand) {
@@ -128,12 +85,4 @@ export function getCategoriesForBrand(brand) {
     return categories;
 }
 
-// Function to get media center content by category
-export function getMediaContentByCategory(category) {
-    return mediaCenterData.content[category] || [];
-}
 
-// Function to get all media categories
-export function getAllMediaCategories() {
-    return mediaCenterData.categories;
-}
