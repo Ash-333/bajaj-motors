@@ -1,6 +1,40 @@
-// Enhanced Bike Carousel Component with Dynamic Data Loading
-import { bikeDataUtils } from './bike-api.js';
-import { BrandManager } from './brand-manager.js';
+// Simplified Bike Carousel Component - Self-contained with JSON data loading
+let bikeData = null;
+
+// Load bike data from simplified JSON file
+async function loadBikeData() {
+    if (!bikeData) {
+        try {
+            const response = await fetch('./data/bike-carousel.json');
+            bikeData = await response.json();
+        } catch (error) {
+            console.error('Error loading bike data:', error);
+            bikeData = { brands: {}, colorVariants: {}, fallbackImage: '' };
+        }
+    }
+    return bikeData;
+}
+
+// Simple utility functions - moved here from bike-api.js
+function getAllBrands() {
+    return Object.keys(bikeData.brands);
+}
+
+function getBrandData(brandName) {
+    return bikeData.brands[brandName] || null;
+}
+
+function getColorVariant(colorId) {
+    return bikeData.colorVariants[colorId] || null;
+}
+
+function getBrandLogo(brandName) {
+    return `/assets/brand-logos/${brandName.toLowerCase()}-logo.svg`;
+}
+
+function getCategoryIcon(brandName) {
+    return `/assets/category-icons/${brandName.toLowerCase()}-category-icon.svg`;
+}
 
 export class BikeCarousel {
   constructor() {
@@ -31,26 +65,19 @@ export class BikeCarousel {
     this.models = [];
     this.availableColors = []; // Current model's available colors
 
-    // Managers
-    this.brandManager = null;
-
     // Initialize
     this.init();
   }
 
   async init() {
     try {
-      // Initialize data first
-      await bikeDataUtils.initialize();
-
-      // Initialize managers
-      this.brandManager = new BrandManager(this);
-      await this.brandManager.init();
+      // Load data first
+      await loadBikeData();
 
       // Load initial brand data
       this.loadBrandData(this.currentBrand);
 
-      // Add transition styles with Tailwind classes
+      // Add transition styles
       if (this.bikeImage) {
         this.bikeImage.className += ' transition-opacity duration-300 ease-in-out';
       }
@@ -67,8 +94,21 @@ export class BikeCarousel {
     }
   }
 
+  showErrorState(message) {
+    if (this.bikeImage) {
+      this.bikeImage.src = bikeData.fallbackImage;
+      this.bikeImage.alt = 'Error loading bike data';
+    }
+    if (this.title) {
+      this.title.textContent = 'Error Loading Data';
+    }
+    if (this.description) {
+      this.description.textContent = message || 'Failed to load bike information';
+    }
+  }
+
   loadBrandData(brandName) {
-    const brandData = bikeDataUtils.getBrandData(brandName);
+    const brandData = getBrandData(brandName);
     if (!brandData) {
       console.error(`Brand ${brandName} not found`);
       return;
@@ -91,6 +131,7 @@ export class BikeCarousel {
 
     // Update UI elements
     this.updateColorButtons();
+    this.createVariantButtons();
     this.refreshVariantButtons();
   }
 
@@ -111,6 +152,7 @@ export class BikeCarousel {
 
     // Update UI elements
     this.updateColorButtons();
+    this.createVariantButtons();
     this.refreshVariantButtons();
 
     // Update view
@@ -143,7 +185,7 @@ export class BikeCarousel {
   }
 
   loadImage(src) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       const img = new Image();
       img.onload = resolve;
       img.onerror = () => {
@@ -182,7 +224,8 @@ export class BikeCarousel {
       }
 
       // Update active button styles
-      this.updateVariantButtons(model.buttonId);
+      const buttonId = this.generateButtonId(model.name);
+      this.updateVariantButtons(buttonId);
 
       // Update color buttons
       this.updateColorButtonsState(colorId);
@@ -206,7 +249,7 @@ export class BikeCarousel {
   }
 
   getModelImage(model, colorId) {
-    return model.images[colorId] || model.images.black || model.fallbackImage || '/assets/fallbacks/bike-placeholder.svg';
+    return model.images[colorId] || model.images.black || bikeData.fallbackImage;
   }
 
   updateVariantButtons(activeButtonId) {
@@ -226,6 +269,39 @@ export class BikeCarousel {
     }
   }
 
+  createVariantButtons() {
+    const variantTabsContainer = document.getElementById('variant-tabs');
+    if (!variantTabsContainer) return;
+
+    // Clear existing variant buttons
+    variantTabsContainer.innerHTML = '';
+
+    // Create variant buttons for each model in the current brand
+    this.models.forEach((model, index) => {
+      const variantButton = document.createElement('button');
+      const buttonId = this.generateButtonId(model.name);
+
+      variantButton.id = buttonId;
+      variantButton.className = 'variant-btn px-4 py-2 text-sm font-medium border-b-2 transition-all duration-200 hover:text-black focus:outline-none';
+      variantButton.textContent = model.name;
+      variantButton.setAttribute('data-variant', index.toString());
+
+      // Set initial active state for first model
+      if (index === this.currentModelIndex) {
+        variantButton.classList.add('font-semibold', 'border-black', 'text-black');
+      } else {
+        variantButton.classList.add('text-gray-400', 'border-transparent');
+      }
+
+      variantTabsContainer.appendChild(variantButton);
+    });
+  }
+
+  generateButtonId(modelName) {
+    // Generate a consistent button ID from model name
+    return `s1-variant-${modelName.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`;
+  }
+
   refreshVariantButtons() {
     // This will be called when brand changes to refresh button references
     this.variantButtons = document.querySelectorAll(".variant-btn");
@@ -234,7 +310,8 @@ export class BikeCarousel {
     if (this.models.length > 0) {
       const currentModel = this.models[this.currentModelIndex];
       if (currentModel) {
-        this.updateVariantButtons(currentModel.buttonId);
+        const buttonId = this.generateButtonId(currentModel.name);
+        this.updateVariantButtons(buttonId);
       }
     }
   }
@@ -256,7 +333,7 @@ export class BikeCarousel {
 
     // Create color buttons for available colors
     currentModel.availableColors.forEach((colorId, index) => {
-      const colorVariant = bikeDataUtils.getColorVariant(colorId);
+      const colorVariant = getColorVariant(colorId);
       if (!colorVariant) return;
 
       const colorButton = document.createElement('button');
@@ -439,7 +516,7 @@ export class BikeCarousel {
   }
 
   updateColorNameDisplay(colorId) {
-    const colorVariant = bikeDataUtils.getColorVariant(colorId);
+    const colorVariant = getColorVariant(colorId);
     const colorNameElement = document.getElementById('current-color-name');
 
     if (colorNameElement && colorVariant) {
@@ -454,21 +531,22 @@ export class BikeCarousel {
 
     // Update brand logo
     if (this.brandLogo) {
-      const logoUrl = bikeDataUtils.getBrandLogo(this.currentBrand);
+      const logoUrl = getBrandLogo(this.currentBrand);
       this.brandLogo.src = logoUrl;
       this.brandLogo.alt = `${this.currentBrand} Logo`;
     }
 
     // Update category icon
     if (this.categoryIcon) {
-      const iconUrl = bikeDataUtils.getCategoryIcon(this.currentBrand);
+      const iconUrl = getCategoryIcon(this.currentBrand);
       this.categoryIcon.src = iconUrl;
       this.categoryIcon.alt = `${currentModel.category} Icon`;
     }
 
     // Update category display text
     if (this.categoryDisplayText) {
-      const categoryText = bikeDataUtils.getDynamicCategoryText(this.currentBrand, currentModel.category);
+      const brandData = getBrandData(this.currentBrand);
+      const categoryText = `${brandData.name} ${currentModel.category}`;
       this.categoryDisplayText.textContent = categoryText;
     }
   }
