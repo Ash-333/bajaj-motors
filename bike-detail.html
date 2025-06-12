@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bajaj Motors - Bike Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/360-viewer.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body class="bg-gray-50">
+  <!-- Header (Same as index.html) -->
+  <header class="header-overlay fixed top-0 left-0 right-0 z-50">
+    <!-- Top Bar -->
+    <div class="bg-transparent py-2 top-bar">
+      <div class="top-bar-content">
+        <div class="top-bar-left">
+          <img src="assets/golcha-logo.png" alt="golcha_logo" class="top-bar-logo" />
+          <span class="top-bar-text">GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span>
+        </div>
+        <div class="top-bar-right">
+          <svg class="top-bar-icon" viewBox="0 0 23 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M11.5 0L14.0311 6.90983H21.4616L15.7153 11.1803L18.2464 18.0902L11.5 13.8197L4.75358 18.0902L7.28468 11.1803L1.53835 6.90983H8.96886L11.5 0Z"
+              fill="white" />
+          </svg>
+          <span class="top-bar-text">AUTHORIZED DEALER</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm border-b border-gray-200 main-nav">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <!-- Left Navigation -->
+          <div class="hidden lg:flex items-center space-x-8">
+            <!-- Bikes Dropdown -->
+            <div class="relative group">
+              <button id="bikes-dropdown-btn"
+                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200 flex items-center">
+                MOTORCYCLES
+                <svg class="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" fill="none"
+                  stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+
+              <!-- Dropdown Menu -->
+              <div id="bikes-dropdown"
+                class="absolute left-0 mt-2 w-[800px] bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                <div class="p-6">
+                  <!-- Brand Tabs -->
+                  <div class="flex space-x-6 mb-6 border-b border-gray-200">
+                    <button
+                      class="brand-tab pb-3 px-1 text-sm font-medium text-blue-600 border-b-2 border-blue-600 transition-colors duration-200"
+                      data-brand="PULSAR">
+                      PULSAR
+                    </button>
+                    <button
+                      class="brand-tab pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent transition-colors duration-200"
+                      data-brand="DOMINAR">
+                      DOMINAR
+                    </button>
+                    <button
+                      class="brand-tab pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent transition-colors duration-200"
+                      data-brand="AVENGERS">
+                      AVENGERS
+                    </button>
+                    <button
+                      class="brand-tab pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent transition-colors duration-200"
+                      data-brand="DISCOVER">
+                      DISCOVER
+                    </button>
+                    <button
+                      class="brand-tab pb-3 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 border-b-2 border-transparent transition-colors duration-200"
+                      data-brand="PLATINA">
+                      PLATINA
+                    </button>
+                  </div>
+
+                  <!-- Brand Content -->
+                  <div id="brand-content">
+                    <!-- Content will be populated by JavaScript -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">SHOWROOMS</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">WORKSHOPS</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">EVENTS</a>
+          </div>
+
+          <!-- Center Logo -->
+          <a href="index.html">
+            <img class="h-[72px] px-4" src="assets/logo.png" alt="logo" />
+          </a>
+
+          <!-- Right Navigation -->
+          <div class="hidden lg:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">MEDIA
+              CENTER</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">ABOUT US</a>
+            <a href="#" class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200">CONTACT</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="lg:hidden">
+            <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="lg:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+          <button id="mobile-bikes-btn"
+            class="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+            MOTORCYCLES
+          </button>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">SHOWROOMS</a>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">WORKSHOPS</a>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">EVENTS</a>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">MEDIA
+            CENTER</a>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">ABOUT
+            US</a>
+          <a href="#"
+            class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">CONTACT</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative h-screen overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-gray-100 to-white"></div>
+    <div class="relative z-10 h-full flex items-center justify-center pt-32">
+      <div class="max-w-6xl mx-auto px-4">
+        <img id="hero-bike-image" src="" alt="Bike" class="w-full h-auto max-h-[70vh] object-contain" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 360° Viewer Section -->
+  <section class="viewer-360-section relative overflow-hidden">
+    <!-- Mountain Background (Half Height) -->
+    <div class="absolute inset-x-0 top-0 h-1/2 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('./assets/360/bg.png');"></div>
+    <!-- Color Overlay on Mountain Background -->
+    <div class="absolute inset-x-0 top-0 h-1/2" style="background-color: #B3B3B3; opacity: 0.6;"></div>
+
+    <div class="relative z-10 py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- 360° Viewer Container -->
+        <div class="relative flex items-center justify-center">
+          <!-- 360° Viewer -->
+          <div id="bike-360-viewer" class="viewer-360-container-platform">
+            <!-- 360° viewer will be initialized here -->
+          </div>
+
+          <!-- Fallback Image (hidden by default) -->
+          <div id="fallback-container" class="viewer-360-container-new hidden">
+            <img id="fallback-bike-image" src="" alt="Bike" class="w-full h-auto object-contain max-h-96" />
+            <!-- Static Platform for fallback -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+              <div class="relative">
+                <div class="w-80 h-4 bg-white bg-opacity-20 rounded-full"></div>
+                <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 text-gray-400 text-sm font-light">
+                  360°
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Pricing Information -->
+        <div class="text-center mt-12">
+          <div id="bike-price" class="text-2xl font-bold text-[#0F0F0F] mb-2">
+            <!-- Dynamic pricing will be loaded here -->
+            <div class="text-2xl font-bold text-[#0F0F0F] mb-2">
+              Loading pricing...
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bike Details Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Bike Title and Basic Info -->
+      <div class="text-center mb-12">
+        <h1 id="bike-title" class="text-4xl lg:text-6xl font-bold text-gray-900 mb-4">
+          <!-- Title will be populated by JavaScript -->
+        </h1>
+        <p id="bike-description" class="text-xl text-gray-600 max-w-3xl mx-auto">
+          <!-- Description will be populated by JavaScript -->
+        </p>
+      </div>
+
+      <!-- Color Selection -->
+      <div class="flex justify-center mb-16">
+        <div class="flex items-center space-x-6">
+          <h3 class="text-lg font-semibold text-gray-700">Available Colors:</h3>
+          <div id="color-selector" class="flex space-x-3">
+            <!-- Color options will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Features -->
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Key Features</h2>
+        <div id="key-features" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Features will be populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Key Highlights Section -->
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">KEY HIGHLIGHTS</h2>
+
+        <!-- Compact Specification Tabs -->
+        <div class="flex space-x-1 mb-6">
+          <button id="performance-tab"
+            class="spec-tab-compact px-3 py-2 text-sm font-medium bg-gray-900 text-white transition-all duration-200"
+            data-tab="performance">
+            PERFORMANCE
+          </button>
+          <button id="design-tab"
+            class="spec-tab-compact px-3 py-2 text-sm font-medium bg-gray-200 text-gray-600 hover:bg-gray-300 transition-all duration-200"
+            data-tab="design">
+            DESIGN
+          </button>
+          <button id="tech-tab"
+            class="spec-tab-compact px-3 py-2 text-sm font-medium bg-gray-200 text-gray-600 hover:bg-gray-300 transition-all duration-200"
+            data-tab="tech">
+            TECH
+          </button>
+          <button id="safety-tab"
+            class="spec-tab-compact px-3 py-2 text-sm font-medium bg-gray-200 text-gray-600 hover:bg-gray-300 transition-all duration-200"
+            data-tab="safety">
+            SAFETY
+          </button>
+        </div>
+
+        <!-- Content Area with Bike Image -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <!-- Left Column - Tab Content -->
+          <div class="order-2 lg:order-1">
+            <div id="tab-content" class="space-y-4">
+              <!-- Performance Tab Content -->
+              <div id="performance-content" class="tab-content">
+                <div id="performance-specs" class="space-y-3">
+                  <!-- Performance specifications will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Design Tab Content -->
+              <div id="design-content" class="tab-content hidden">
+                <div id="design-specs" class="space-y-3">
+                  <!-- Design specifications will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Tech Tab Content -->
+              <div id="tech-content" class="tab-content hidden">
+                <div id="tech-specs" class="space-y-3">
+                  <!-- Tech specifications will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Safety Tab Content -->
+              <div id="safety-content" class="tab-content hidden">
+                <div id="safety-specs" class="space-y-3">
+                  <!-- Safety specifications will be populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Book Test Ride Button -->
+            <div class="mt-8">
+              <button
+                class="bg-gray-900 text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition-colors duration-200">
+                BOOK TEST RIDE →
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column - Bike Image -->
+          <div class="order-1 lg:order-2 flex items-center justify-center">
+            <div class="relative">
+              <img id="spec-bike-image" src="" alt="Bike" class="w-full h-auto object-contain max-h-96" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (Same as index.html) -->
+  <footer class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Email Signup Section -->
+    <div class="flex-1 flex items-center justify-center px-4 py-12">
+      <div class="max-w-md w-full">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">
+            Sign up for Email
+          </h2>
+          <p class="text-sm text-gray-500 mb-1">
+            Read our
+            <a href="#" class="text-blue-500 underline">privacy policy</a>
+            to learn about data processing
+          </p>
+          <p class="text-sm text-gray-500">
+            Sign up for BAJAJ latest news and updates
+          </p>
+        </div>
+
+        <form id="emailForm" class="mb-4">
+          <div class="flex gap-2 mb-2">
+            <input type="email" id="email" placeholder="YOUR EMAIL ADDRESS"
+              class="flex-1 bg-white border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required />
+            <button type="submit"
+              class="bg-blue-500 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-blue-600">
+              SUBSCRIBE NOW
+            </button>
+          </div>
+          <p class="text-xs text-gray-500 text-center">
+            This site is protected by reCAPTCHA and the Google
+            <a href="#" class="underline">Privacy Policy</a> and
+            <a href="#" class="underline">Terms of Service</a> apply.
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="bg-gray-900 text-white py-12">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-8">
+          <div class="flex justify-center items-center mb-4">
+            <img class="w-8 h-8" src="/assets/golcha-logo.png" alt="golcha_logo" />
+
+            <h3 class="text-lg font-medium">
+              GOLCHHA GROUP WITH LEGACY OF 100 YEAR
+            </h3>
+          </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="flex justify-center gap-8 text-sm mb-8">
+          <a href="#" class="hover:text-gray-300">TERMS OF USE</a>
+          <a href="#" class="hover:text-gray-300">PRIVACY INFORMATION</a>
+          <a href="#" class="hover:text-gray-300">COOKIES INFORMATION</a>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center text-xs text-gray-400 mb-8">
+          <p>
+            Copyright © 2025 Bajaj Auto Ltd – A Sole Shareholder Company - A
+            Company subject to the Management and Coordination
+          </p>
+          <p>activities of BAJAJ AUTO. All rights reserved. VAT NO.</p>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="flex flex-wrap justify-between items-center gap-4">
+          <!-- Bajaj Logo -->
+          <div>
+            <img class="h-16" src="/assets/logo.png" alt="" />
+          </div>
+
+          <!-- Social Media Icons -->
+          <div class="flex gap-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <img src="assets/socials/insta.svg" alt="instagram">
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <img src="assets/socials/facebook.svg" alt="facebook">  
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+
+          <!-- International Website -->
+          <div class="flex items-center text-sm text-gray-400">
+            <svg width="186" height="28" viewBox="0 0 186 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M6.89761 20.1618C8.28247 21.3099 10.0607 22 12.0001 22C16.4184 22 20.0001 18.4183 20.0001 14C20.0001 13.431 19.9407 12.8758 19.8278 12.3404M6.89761 20.1618C5.12756 18.6944 4.00014 16.4789 4.00014 14C4.00014 9.58172 7.58186 6 12.0001 6C15.8494 6 19.0637 8.71853 19.8278 12.3404M6.89761 20.1618C8.85314 19.7147 11.1796 18.7828 13.526 17.4281C16.2564 15.8517 18.4773 14.0125 19.8278 12.3404M6.89761 20.1618C4.46844 20.7171 2.61159 20.5243 1.99965 19.4644C1.36934 18.3726 2.19631 16.5969 3.99999 14.709M19.8278 12.3404C21.0796 10.7904 21.5836 9.38405 21.0522 8.46374C20.5134 7.53051 19.0095 7.26939 16.9997 7.59929"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M40.3086 8.54688V18.5H38.2646V8.54688H40.3086ZM44.8342 12.6826V18.5H42.8654V11.1035H44.7111L44.8342 12.6826ZM44.5471 14.542H44.0139C44.0139 13.9951 44.0845 13.5029 44.2258 13.0654C44.3671 12.6234 44.5653 12.2474 44.8205 11.9375C45.0757 11.623 45.3788 11.3838 45.7297 11.2197C46.0852 11.0511 46.4816 10.9668 46.9191 10.9668C47.2655 10.9668 47.5822 11.0169 47.8693 11.1172C48.1564 11.2174 48.4025 11.377 48.6076 11.5957C48.8173 11.8145 48.9768 12.1038 49.0861 12.4639C49.2001 12.8239 49.257 13.2637 49.257 13.7832V18.5H47.2746V13.7764C47.2746 13.4482 47.229 13.193 47.1379 13.0107C47.0467 12.8285 46.9123 12.7008 46.7346 12.6279C46.5614 12.5505 46.3472 12.5117 46.092 12.5117C45.8277 12.5117 45.5975 12.5641 45.4016 12.6689C45.2102 12.7738 45.0507 12.9196 44.923 13.1064C44.8 13.2887 44.7066 13.5029 44.6428 13.749C44.579 13.9951 44.5471 14.2594 44.5471 14.542ZM55.1771 11.1035V12.498H50.8705V11.1035H55.1771ZM51.9369 9.27832H53.9057V16.2715C53.9057 16.4857 53.933 16.6497 53.9877 16.7637C54.0469 16.8776 54.1335 16.9574 54.2475 17.0029C54.3614 17.0439 54.5049 17.0645 54.6781 17.0645C54.8012 17.0645 54.9105 17.0599 55.0063 17.0508C55.1065 17.0371 55.1908 17.0234 55.2592 17.0098L55.266 18.459C55.0974 18.5137 54.9151 18.557 54.7191 18.5889C54.5232 18.6208 54.3067 18.6367 54.0697 18.6367C53.6368 18.6367 53.2585 18.5661 52.935 18.4248C52.616 18.279 52.3699 18.0465 52.1967 17.7275C52.0235 17.4085 51.9369 16.9893 51.9369 16.4697V9.27832ZM60.5025 18.6367C59.9283 18.6367 59.4133 18.5456 58.9576 18.3633C58.5019 18.1764 58.1145 17.9189 57.7955 17.5908C57.4811 17.2627 57.2395 16.8822 57.0709 16.4492C56.9023 16.0117 56.818 15.5469 56.818 15.0547V14.7812C56.818 14.2207 56.8977 13.708 57.0572 13.2432C57.2167 12.7783 57.4446 12.375 57.7408 12.0332C58.0416 11.6914 58.4062 11.4294 58.8346 11.2471C59.263 11.0602 59.746 10.9668 60.2838 10.9668C60.8079 10.9668 61.2727 11.0534 61.6783 11.2266C62.0839 11.3997 62.4234 11.6458 62.6969 11.9648C62.9749 12.2839 63.1845 12.6667 63.3258 13.1133C63.4671 13.5553 63.5377 14.0475 63.5377 14.5898V15.4102H57.6588V14.0977H61.6031V13.9473C61.6031 13.6738 61.553 13.43 61.4527 13.2158C61.357 12.9971 61.2112 12.8239 61.0152 12.6963C60.8193 12.5687 60.5686 12.5049 60.2633 12.5049C60.0035 12.5049 59.7802 12.5618 59.5934 12.6758C59.4065 12.7897 59.2538 12.9492 59.1354 13.1543C59.0214 13.3594 58.9348 13.6009 58.8756 13.8789C58.8209 14.1523 58.7936 14.4531 58.7936 14.7812V15.0547C58.7936 15.3509 58.8346 15.6243 58.9166 15.875C59.0032 16.1257 59.124 16.3421 59.2789 16.5244C59.4384 16.7067 59.6298 16.848 59.8531 16.9482C60.081 17.0485 60.3385 17.0986 60.6256 17.0986C60.9811 17.0986 61.3115 17.0303 61.6168 16.8936C61.9267 16.7523 62.1933 16.5404 62.4166 16.2578L63.3736 17.2969C63.2187 17.5202 63.0068 17.7344 62.7379 17.9395C62.4736 18.1445 62.1546 18.3132 61.7809 18.4453C61.4072 18.5729 60.9811 18.6367 60.5025 18.6367ZM67.4275 12.7168V18.5H65.4588V11.1035H67.3113L67.4275 12.7168ZM69.6561 11.0557L69.6219 12.8809C69.5262 12.8672 69.41 12.8558 69.2732 12.8467C69.1411 12.833 69.0203 12.8262 68.9109 12.8262C68.6329 12.8262 68.3914 12.8626 68.1863 12.9355C67.9858 13.0039 67.8172 13.1064 67.6805 13.2432C67.5483 13.3799 67.448 13.5462 67.3797 13.7422C67.3159 13.9382 67.2794 14.1615 67.2703 14.4121L66.8738 14.2891C66.8738 13.8105 66.9217 13.3708 67.0174 12.9697C67.1131 12.5641 67.2521 12.2109 67.4344 11.9102C67.6212 11.6094 67.8491 11.377 68.118 11.2129C68.3868 11.0488 68.6945 10.9668 69.0408 10.9668C69.1502 10.9668 69.2618 10.9759 69.3758 10.9941C69.4897 11.0078 69.5831 11.0283 69.6561 11.0557ZM73.3135 12.6826V18.5H71.3447V11.1035H73.1904L73.3135 12.6826ZM73.0264 14.542H72.4932C72.4932 13.9951 72.5638 13.5029 72.7051 13.0654C72.8464 12.6234 73.0446 12.2474 73.2998 11.9375C73.555 11.623 73.8581 11.3838 74.209 11.2197C74.5645 11.0511 74.9609 10.9668 75.3984 10.9668C75.7448 10.9668 76.0615 11.0169 76.3486 11.1172C76.6357 11.2174 76.8818 11.377 77.0869 11.5957C77.2965 11.8145 77.4561 12.1038 77.5654 12.4639C77.6794 12.8239 77.7363 13.2637 77.7363 13.7832V18.5H75.7539V13.7764C75.7539 13.4482 75.7083 13.193 75.6172 13.0107C75.526 12.8285 75.3916 12.7008 75.2139 12.6279C75.0407 12.5505 74.8265 12.5117 74.5713 12.5117C74.307 12.5117 74.0768 12.5641 73.8809 12.6689C73.6895 12.7738 73.5299 12.9196 73.4023 13.1064C73.2793 13.2887 73.1859 13.5029 73.1221 13.749C73.0583 13.9951 73.0264 14.2594 73.0264 14.542ZM84.0256 16.832V13.5371C84.0256 13.3001 83.9868 13.0973 83.9094 12.9287C83.8319 12.7555 83.7111 12.6211 83.5471 12.5254C83.3876 12.4297 83.1802 12.3818 82.925 12.3818C82.7062 12.3818 82.5171 12.4206 82.3576 12.498C82.1981 12.571 82.0751 12.6781 81.9885 12.8193C81.9019 12.9561 81.8586 13.1178 81.8586 13.3047H79.8898C79.8898 12.9902 79.9628 12.6917 80.1086 12.4092C80.2544 12.1266 80.4663 11.8783 80.7443 11.6641C81.0223 11.4453 81.3527 11.2744 81.7355 11.1514C82.1229 11.0283 82.5559 10.9668 83.0344 10.9668C83.6086 10.9668 84.119 11.0625 84.5656 11.2539C85.0122 11.4453 85.3632 11.7324 85.6184 12.1152C85.8781 12.498 86.008 12.9766 86.008 13.5508V16.7158C86.008 17.1214 86.0331 17.4541 86.0832 17.7139C86.1333 17.9691 86.2062 18.1924 86.302 18.3838V18.5H84.3127C84.217 18.2995 84.1441 18.0488 84.0939 17.748C84.0484 17.4427 84.0256 17.1374 84.0256 16.832ZM84.2854 13.9951L84.299 15.1094H83.1984C82.9387 15.1094 82.7131 15.139 82.5217 15.1982C82.3303 15.2575 82.173 15.3418 82.05 15.4512C81.927 15.556 81.8358 15.679 81.7766 15.8203C81.7219 15.9616 81.6945 16.1165 81.6945 16.2852C81.6945 16.4538 81.7333 16.6064 81.8107 16.7432C81.8882 16.8753 81.9999 16.9801 82.1457 17.0576C82.2915 17.1305 82.4624 17.167 82.6584 17.167C82.9546 17.167 83.2121 17.1077 83.4309 16.9893C83.6496 16.8708 83.8182 16.7249 83.9367 16.5518C84.0598 16.3786 84.1236 16.2145 84.1281 16.0596L84.6477 16.8936C84.5747 17.0804 84.4745 17.2741 84.3469 17.4746C84.2238 17.6751 84.0666 17.8643 83.8752 18.042C83.6838 18.2152 83.4536 18.3587 83.1848 18.4727C82.9159 18.582 82.5969 18.6367 82.2277 18.6367C81.7583 18.6367 81.3322 18.5433 80.9494 18.3564C80.5712 18.165 80.2704 17.903 80.0471 17.5703C79.8283 17.2331 79.7189 16.8503 79.7189 16.4219C79.7189 16.0345 79.7919 15.6904 79.9377 15.3896C80.0835 15.0889 80.2977 14.8359 80.5803 14.6309C80.8674 14.4212 81.2251 14.264 81.6535 14.1592C82.0819 14.0498 82.5786 13.9951 83.1437 13.9951H84.2854ZM91.9486 11.1035V12.498H87.642V11.1035H91.9486ZM88.7084 9.27832H90.6771V16.2715C90.6771 16.4857 90.7045 16.6497 90.7592 16.7637C90.8184 16.8776 90.905 16.9574 91.0189 17.0029C91.1329 17.0439 91.2764 17.0645 91.4496 17.0645C91.5727 17.0645 91.682 17.0599 91.7777 17.0508C91.878 17.0371 91.9623 17.0234 92.0307 17.0098L92.0375 18.459C91.8689 18.5137 91.6866 18.557 91.4906 18.5889C91.2947 18.6208 91.0782 18.6367 90.8412 18.6367C90.4083 18.6367 90.03 18.5661 89.7064 18.4248C89.3874 18.279 89.1413 18.0465 88.9682 17.7275C88.795 17.4085 88.7084 16.9893 88.7084 16.4697V9.27832ZM95.9479 11.1035V18.5H93.9723V11.1035H95.9479ZM93.8492 9.17578C93.8492 8.88867 93.9495 8.65169 94.15 8.46484C94.3505 8.27799 94.6194 8.18457 94.9566 8.18457C95.2893 8.18457 95.5559 8.27799 95.7564 8.46484C95.9615 8.65169 96.0641 8.88867 96.0641 9.17578C96.0641 9.46289 95.9615 9.69987 95.7564 9.88672C95.5559 10.0736 95.2893 10.167 94.9566 10.167C94.6194 10.167 94.3505 10.0736 94.15 9.88672C93.9495 9.69987 93.8492 9.46289 93.8492 9.17578ZM98.0604 14.877V14.7334C98.0604 14.1911 98.1378 13.6921 98.2928 13.2363C98.4477 12.776 98.6733 12.3773 98.9695 12.04C99.2658 11.7028 99.6303 11.4408 100.063 11.2539C100.496 11.0625 100.993 10.9668 101.554 10.9668C102.114 10.9668 102.613 11.0625 103.051 11.2539C103.488 11.4408 103.855 11.7028 104.151 12.04C104.452 12.3773 104.68 12.776 104.835 13.2363C104.99 13.6921 105.067 14.1911 105.067 14.7334V14.877C105.067 15.4147 104.99 15.9137 104.835 16.374C104.68 16.8298 104.452 17.2285 104.151 17.5703C103.855 17.9076 103.49 18.1696 103.057 18.3564C102.624 18.5433 102.128 18.6367 101.567 18.6367C101.007 18.6367 100.508 18.5433 100.07 18.3564C99.6372 18.1696 99.2703 17.9076 98.9695 17.5703C98.6733 17.2285 98.4477 16.8298 98.2928 16.374C98.1378 15.9137 98.0604 15.4147 98.0604 14.877ZM100.029 14.7334V14.877C100.029 15.1868 100.056 15.4762 100.111 15.7451C100.166 16.014 100.252 16.251 100.371 16.4561C100.494 16.6566 100.653 16.8138 100.849 16.9277C101.045 17.0417 101.285 17.0986 101.567 17.0986C101.841 17.0986 102.075 17.0417 102.271 16.9277C102.467 16.8138 102.624 16.6566 102.743 16.4561C102.861 16.251 102.948 16.014 103.003 15.7451C103.062 15.4762 103.092 15.1868 103.092 14.877V14.7334C103.092 14.4326 103.062 14.1501 103.003 13.8857C102.948 13.6169 102.859 13.3799 102.736 13.1748C102.618 12.9652 102.46 12.8011 102.264 12.6826C102.068 12.5641 101.832 12.5049 101.554 12.5049C101.276 12.5049 101.039 12.5641 100.843 12.6826C100.651 12.8011 100.494 12.9652 100.371 13.1748C100.252 13.3799 100.166 13.6169 100.111 13.8857C100.056 14.1501 100.029 14.4326 100.029 14.7334ZM109.005 12.6826V18.5H107.036V11.1035H108.882L109.005 12.6826ZM108.718 14.542H108.185C108.185 13.9951 108.255 13.5029 108.396 13.0654C108.538 12.6234 108.736 12.2474 108.991 11.9375C109.246 11.623 109.549 11.3838 109.9 11.2197C110.256 11.0511 110.652 10.9668 111.09 10.9668C111.436 10.9668 111.753 11.0169 112.04 11.1172C112.327 11.2174 112.573 11.377 112.778 11.5957C112.988 11.8145 113.147 12.1038 113.257 12.4639C113.371 12.8239 113.428 13.2637 113.428 13.7832V18.5H111.445V13.7764C111.445 13.4482 111.4 13.193 111.309 13.0107C111.217 12.8285 111.083 12.7008 110.905 12.6279C110.732 12.5505 110.518 12.5117 110.263 12.5117C109.998 12.5117 109.768 12.5641 109.572 12.6689C109.381 12.7738 109.221 12.9196 109.094 13.1064C108.971 13.2887 108.877 13.5029 108.813 13.749C108.75 13.9951 108.718 14.2594 108.718 14.542ZM119.717 16.832V13.5371C119.717 13.3001 119.678 13.0973 119.601 12.9287C119.523 12.7555 119.403 12.6211 119.238 12.5254C119.079 12.4297 118.872 12.3818 118.616 12.3818C118.398 12.3818 118.209 12.4206 118.049 12.498C117.89 12.571 117.766 12.6781 117.68 12.8193C117.593 12.9561 117.55 13.1178 117.55 13.3047H115.581C115.581 12.9902 115.654 12.6917 115.8 12.4092C115.946 12.1266 116.158 11.8783 116.436 11.6641C116.714 11.4453 117.044 11.2744 117.427 11.1514C117.814 11.0283 118.247 10.9668 118.726 10.9668C119.3 10.9668 119.81 11.0625 120.257 11.2539C120.704 11.4453 121.055 11.7324 121.31 12.1152C121.57 12.498 121.699 12.9766 121.699 13.5508V16.7158C121.699 17.1214 121.724 17.4541 121.775 17.7139C121.825 17.9691 121.898 18.1924 121.993 18.3838V18.5H120.004C119.908 18.2995 119.835 18.0488 119.785 17.748C119.74 17.4427 119.717 17.1374 119.717 16.832ZM119.977 13.9951L119.99 15.1094H118.89C118.63 15.1094 118.404 15.139 118.213 15.1982C118.022 15.2575 117.864 15.3418 117.741 15.4512C117.618 15.556 117.527 15.679 117.468 15.8203C117.413 15.9616 117.386 16.1165 117.386 16.2852C117.386 16.4538 117.425 16.6064 117.502 16.7432C117.58 16.8753 117.691 16.9801 117.837 17.0576C117.983 17.1305 118.154 17.167 118.35 17.167C118.646 17.167 118.904 17.1077 119.122 16.9893C119.341 16.8708 119.51 16.7249 119.628 16.5518C119.751 16.3786 119.815 16.2145 119.82 16.0596L120.339 16.8936C120.266 17.0804 120.166 17.2741 120.038 17.4746C119.915 17.6751 119.758 17.8643 119.567 18.042C119.375 18.2152 119.145 18.3587 118.876 18.4727C118.607 18.582 118.288 18.6367 117.919 18.6367C117.45 18.6367 117.024 18.5433 116.641 18.3564C116.263 18.165 115.962 17.903 115.738 17.5703C115.52 17.2331 115.41 16.8503 115.41 16.4219C115.41 16.0345 115.483 15.6904 115.629 15.3896C115.775 15.0889 115.989 14.8359 116.272 14.6309C116.559 14.4212 116.917 14.264 117.345 14.1592C117.773 14.0498 118.27 13.9951 118.835 13.9951H119.977ZM126.095 8V18.5H124.12V8H126.095ZM134.921 16.5859L136.459 11.1035H137.71L137.306 13.2568L135.768 18.5H134.722L134.921 16.5859ZM134.141 11.1035L135.242 16.5791L135.345 18.5H134.114L132.241 11.1035H134.141ZM139.118 16.4902L140.191 11.1035H142.098L140.225 18.5H139.002L139.118 16.4902ZM137.881 11.1035L139.412 16.5449L139.624 18.5H138.571L137.033 13.2637L136.643 11.1035H137.881ZM147.294 18.6367C146.72 18.6367 146.205 18.5456 145.749 18.3633C145.293 18.1764 144.906 17.9189 144.587 17.5908C144.272 17.2627 144.031 16.8822 143.862 16.4492C143.694 16.0117 143.609 15.5469 143.609 15.0547V14.7812C143.609 14.2207 143.689 13.708 143.849 13.2432C144.008 12.7783 144.236 12.375 144.532 12.0332C144.833 11.6914 145.198 11.4294 145.626 11.2471C146.054 11.0602 146.537 10.9668 147.075 10.9668C147.599 10.9668 148.064 11.0534 148.47 11.2266C148.875 11.3997 149.215 11.6458 149.488 11.9648C149.766 12.2839 149.976 12.6667 150.117 13.1133C150.258 13.5553 150.329 14.0475 150.329 14.5898V15.4102H144.45V14.0977H148.395V13.9473C148.395 13.6738 148.344 13.43 148.244 13.2158C148.148 12.9971 148.003 12.8239 147.807 12.6963C147.611 12.5687 147.36 12.5049 147.055 12.5049C146.795 12.5049 146.572 12.5618 146.385 12.6758C146.198 12.7897 146.045 12.9492 145.927 13.1543C145.813 13.3594 145.726 13.6009 145.667 13.8789C145.612 14.1523 145.585 14.4531 145.585 14.7812V15.0547C145.585 15.3509 145.626 15.6243 145.708 15.875C145.795 16.1257 145.915 16.3421 146.07 16.5244C146.23 16.7067 146.421 16.848 146.645 16.9482C146.872 17.0485 147.13 17.0986 147.417 17.0986C147.772 17.0986 148.103 17.0303 148.408 16.8936C148.718 16.7523 148.985 16.5404 149.208 16.2578L150.165 17.2969C150.01 17.5202 149.798 17.7344 149.529 17.9395C149.265 18.1445 148.946 18.3132 148.572 18.4453C148.199 18.5729 147.772 18.6367 147.294 18.6367ZM152.25 8H154.219V16.8047L154.021 18.5H152.25V8ZM158.902 14.7266V14.8701C158.902 15.4215 158.842 15.9274 158.724 16.3877C158.61 16.848 158.432 17.2467 158.191 17.584C157.949 17.9167 157.648 18.1764 157.288 18.3633C156.933 18.5456 156.514 18.6367 156.03 18.6367C155.579 18.6367 155.187 18.5456 154.855 18.3633C154.527 18.181 154.251 17.9235 154.028 17.5908C153.804 17.2581 153.624 16.8685 153.488 16.4219C153.351 15.9753 153.248 15.4876 153.18 14.959V14.6445C153.248 14.1159 153.351 13.6283 153.488 13.1816C153.624 12.735 153.804 12.3454 154.028 12.0127C154.251 11.68 154.527 11.4225 154.855 11.2402C155.183 11.0579 155.57 10.9668 156.017 10.9668C156.504 10.9668 156.928 11.0602 157.288 11.2471C157.653 11.4294 157.954 11.6891 158.191 12.0264C158.432 12.359 158.61 12.7555 158.724 13.2158C158.842 13.6715 158.902 14.1751 158.902 14.7266ZM156.933 14.8701V14.7266C156.933 14.4258 156.91 14.1432 156.864 13.8789C156.823 13.61 156.751 13.3753 156.646 13.1748C156.541 12.9697 156.397 12.8079 156.215 12.6895C156.037 12.571 155.807 12.5117 155.525 12.5117C155.256 12.5117 155.028 12.5573 154.841 12.6484C154.654 12.7396 154.499 12.8672 154.376 13.0312C154.258 13.1953 154.169 13.3913 154.11 13.6191C154.05 13.8424 154.014 14.0885 154 14.3574V15.2529C154.014 15.613 154.073 15.932 154.178 16.21C154.287 16.4834 154.451 16.6999 154.67 16.8594C154.893 17.0143 155.183 17.0918 155.538 17.0918C155.816 17.0918 156.046 17.0371 156.229 16.9277C156.411 16.8184 156.552 16.6634 156.653 16.4629C156.757 16.2624 156.83 16.0277 156.871 15.7588C156.912 15.4854 156.933 15.1891 156.933 14.8701ZM164.924 16.4561C164.924 16.3148 164.883 16.1872 164.801 16.0732C164.719 15.9593 164.566 15.8545 164.343 15.7588C164.124 15.6585 163.808 15.5674 163.393 15.4854C163.019 15.4033 162.671 15.3008 162.347 15.1777C162.028 15.0501 161.75 14.8975 161.513 14.7197C161.281 14.542 161.098 14.3324 160.966 14.0908C160.834 13.8447 160.768 13.5645 160.768 13.25C160.768 12.9401 160.834 12.6484 160.966 12.375C161.103 12.1016 161.297 11.86 161.547 11.6504C161.802 11.4362 162.112 11.2699 162.477 11.1514C162.846 11.0283 163.261 10.9668 163.721 10.9668C164.364 10.9668 164.915 11.0693 165.375 11.2744C165.84 11.4795 166.196 11.762 166.442 12.1221C166.692 12.4775 166.818 12.8831 166.818 13.3389H164.849C164.849 13.1475 164.808 12.9766 164.726 12.8262C164.649 12.6712 164.525 12.5505 164.357 12.4639C164.193 12.3727 163.979 12.3271 163.714 12.3271C163.496 12.3271 163.306 12.3659 163.147 12.4434C162.987 12.5163 162.864 12.6165 162.778 12.7441C162.696 12.8672 162.655 13.0039 162.655 13.1543C162.655 13.2682 162.677 13.3708 162.723 13.4619C162.773 13.5485 162.853 13.6283 162.962 13.7012C163.072 13.7741 163.213 13.8424 163.386 13.9062C163.564 13.9655 163.783 14.0202 164.042 14.0703C164.576 14.1797 165.052 14.3232 165.471 14.501C165.89 14.6742 166.223 14.9111 166.469 15.2119C166.715 15.5081 166.838 15.8978 166.838 16.3809C166.838 16.709 166.765 17.0098 166.62 17.2832C166.474 17.5566 166.264 17.7959 165.991 18.001C165.717 18.2015 165.389 18.3587 165.006 18.4727C164.628 18.582 164.202 18.6367 163.728 18.6367C163.04 18.6367 162.456 18.5137 161.978 18.2676C161.504 18.0215 161.144 17.7093 160.898 17.3311C160.656 16.9482 160.536 16.5563 160.536 16.1553H162.402C162.411 16.4242 162.479 16.6406 162.607 16.8047C162.739 16.9688 162.905 17.0872 163.106 17.1602C163.311 17.2331 163.532 17.2695 163.769 17.2695C164.024 17.2695 164.236 17.2354 164.405 17.167C164.573 17.0941 164.701 16.9984 164.787 16.8799C164.879 16.7568 164.924 16.6156 164.924 16.4561ZM170.995 11.1035V18.5H169.019V11.1035H170.995ZM168.896 9.17578C168.896 8.88867 168.996 8.65169 169.197 8.46484C169.397 8.27799 169.666 8.18457 170.004 8.18457C170.336 8.18457 170.603 8.27799 170.803 8.46484C171.008 8.65169 171.111 8.88867 171.111 9.17578C171.111 9.46289 171.008 9.69987 170.803 9.88672C170.603 10.0736 170.336 10.167 170.004 10.167C169.666 10.167 169.397 10.0736 169.197 9.88672C168.996 9.69987 168.896 9.46289 168.896 9.17578ZM177.045 11.1035V12.498H172.738V11.1035H177.045ZM173.804 9.27832H175.773V16.2715C175.773 16.4857 175.801 16.6497 175.855 16.7637C175.915 16.8776 176.001 16.9574 176.115 17.0029C176.229 17.0439 176.373 17.0645 176.546 17.0645C176.669 17.0645 176.778 17.0599 176.874 17.0508C176.974 17.0371 177.058 17.0234 177.127 17.0098L177.134 18.459C176.965 18.5137 176.783 18.557 176.587 18.5889C176.391 18.6208 176.174 18.6367 175.937 18.6367C175.504 18.6367 175.126 18.5661 174.803 18.4248C174.484 18.279 174.237 18.0465 174.064 17.7275C173.891 17.4085 173.804 16.9893 173.804 16.4697V9.27832ZM182.37 18.6367C181.796 18.6367 181.281 18.5456 180.825 18.3633C180.369 18.1764 179.982 17.9189 179.663 17.5908C179.349 17.2627 179.107 16.8822 178.938 16.4492C178.77 16.0117 178.686 15.5469 178.686 15.0547V14.7812C178.686 14.2207 178.765 13.708 178.925 13.2432C179.084 12.7783 179.312 12.375 179.608 12.0332C179.909 11.6914 180.274 11.4294 180.702 11.2471C181.131 11.0602 181.614 10.9668 182.151 10.9668C182.675 10.9668 183.14 11.0534 183.546 11.2266C183.951 11.3997 184.291 11.6458 184.564 11.9648C184.842 12.2839 185.052 12.6667 185.193 13.1133C185.335 13.5553 185.405 14.0475 185.405 14.5898V15.4102H179.526V14.0977H183.471V13.9473C183.471 13.6738 183.421 13.43 183.32 13.2158C183.225 12.9971 183.079 12.8239 182.883 12.6963C182.687 12.5687 182.436 12.5049 182.131 12.5049C181.871 12.5049 181.648 12.5618 181.461 12.6758C181.274 12.7897 181.121 12.9492 181.003 13.1543C180.889 13.3594 180.802 13.6009 180.743 13.8789C180.688 14.1523 180.661 14.4531 180.661 14.7812V15.0547C180.661 15.3509 180.702 15.6243 180.784 15.875C180.871 16.1257 180.992 16.3421 181.146 16.5244C181.306 16.7067 181.497 16.848 181.721 16.9482C181.949 17.0485 182.206 17.0986 182.493 17.0986C182.849 17.0986 183.179 17.0303 183.484 16.8936C183.794 16.7523 184.061 16.5404 184.284 16.2578L185.241 17.2969C185.086 17.5202 184.874 17.7344 184.605 17.9395C184.341 18.1445 184.022 18.3132 183.648 18.4453C183.275 18.5729 182.849 18.6367 182.37 18.6367Z"
+                fill="white" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document
+      .getElementById("emailForm")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        if (email) {
+          alert(
+            "Thank you for subscribing! You will receive updates at: " + email
+          );
+          document.getElementById("email").value = "";
+        }
+      });
+  </script>
+  <script src="js/360-viewer.js"></script>
+  <script type="module" src="js/bike-detail.js"></script>
+  <script type="module" src="js/navbar.js"></script>
+</body>
+
+</html>

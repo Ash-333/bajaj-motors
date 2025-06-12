@@ -416,7 +416,8 @@ export class BikeCarousel {
         </svg>
       </span>
     `;
-      this.seriesLink.href = `#${model.id}`;
+      // Update to link to bike detail page
+      this.seriesLink.href = `bike-detail.html?bike=${model.id}`;
     }
   }
 
