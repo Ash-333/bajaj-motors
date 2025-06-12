@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latest Blogs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="bg-white text-black font-sans">
+    <!-- Header -->
+    <header class="header-overlay fixed top-0 left-0 right-0 z-50">
+      <!-- Top Bar -->
+      <div class="bg-transparent py-2 top-bar">
+        <div class="top-bar-content">
+          <div class="top-bar-left">
+            <img
+              src="assets/golcha-logo.png"
+              alt="golcha_logo"
+              class="top-bar-logo"
+            />
+            <span class="top-bar-text"
+              >GOLCHHA GROUP WITH LEGACY OF 100 YEAR</span
+            >
+          </div>
+          <div class="top-bar-right">
+            <svg
+              class="top-bar-icon"
+              viewBox="0 0 23 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.89761 15.1618C8.28247 16.3099 10.0607 17 12.0001 17C16.4184 17 20.0001 13.4183 20.0001 9C20.0001 8.43095 19.9407 7.87578 19.8278 7.34036M6.89761 15.1618C5.12756 13.6944 4.00014 11.4789 4.00014 9C4.00014 4.58172 7.58186 1 12.0001 1C15.8494 1 19.0637 3.71853 19.8278 7.34036M6.89761 15.1618C8.85314 14.7147 11.1796 13.7828 13.526 12.4281C16.2564 10.8517 18.4773 9.01248 19.8278 7.34036M6.89761 15.1618C4.46844 15.7171 2.61159 15.5243 1.99965 14.4644C1.36934 13.3726 2.19631 11.5969 3.99999 9.70898M19.8278 7.34036C21.0796 5.79041 21.5836 4.38405 21.0522 3.46374C20.5134 2.53051 19.0095 2.26939 16.9997 2.59929"
+                stroke="white"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span class="top-bar-text">International website</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Navigation -->
+      <div class="bg-transparent py-2 font-roboto lg:px-[150px] px-4">
+        <nav class="floating-navbar bg-white my-4 px-6">
+          <!-- Mobile Navigation -->
+          <div class="lg:hidden flex items-center justify-between py-4">
+            <!-- Mobile Menu Button -->
+            <button
+              class="flex items-center justify-center w-8 h-8"
+              id="mobile-menu-btn"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Mobile Logo -->
+            <img class="h-12" src="assets/logo.png" alt="logo" />
+
+            <!-- Mobile BIKES Button -->
+            <button
+              class="text-sm font-medium text-gray-700 flex items-center space-x-1"
+              id="mobile-bikes-btn"
+            >
+              <span>BIKES</span>
+              <svg
+                class="w-4 h-4 transition-transform duration-200"
+                id="mobile-bikes-arrow"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Desktop Navigation -->
+          <div
+            class="hidden lg:flex justify-evenly items-center py-4 text-base"
+          >
+            <!-- Left Navigation Items -->
+            <div class="flex items-center space-x-8">
+              <!-- Motorcycles Dropdown -->
+              <div class="relative dropdown">
+                <button
+                  class="text-sm flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  onclick="toggleDropdown('motorcycles')"
+                >
+                  <span>MOTORCYCLES</span>
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200"
+                    id="motorcycles-arrow"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                <!-- Dropdown Content -->
+                <div
+                  id="motorcycles-dropdown"
+                  class="dropdown-content absolute top-full left-0 mt-12 bg-white border border-gray-200 z-50 overflow-hidden"
+                  style="width: 1000px; height: 600px"
+                >
+                  <div class="flex h-full">
+                    <!-- Left Sidebar - Brands -->
+                    <div class="w-64 bg-gray-50 p-6 rounded-l-lg flex-shrink-0">
+                      <h3 class="text-gray-800 font-semibold mb-4">BRANDS</h3>
+                      <ul class="space-y-2" id="brand-list">
+                        <!-- Brands will be populated by JavaScript -->
+                      </ul>
+                    </div>
+
+                    <!-- Right Content - Motorcycles -->
+                    <div class="flex-1 flex flex-col h-full">
+                      <!-- Category Filter -->
+                      <div
+                        class="flex space-x-4 p-6 pb-4 flex-shrink-0 border-b border-gray-100"
+                      >
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 active"
+                          onclick="filterCategory('All')"
+                        >
+                          All
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('Classic')"
+                        >
+                          Classic
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('NS')"
+                        >
+                          NS
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('N')"
+                        >
+                          N
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('Adventure')"
+                        >
+                          Adventure
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('Cruiser')"
+                        >
+                          Cruiser
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('Commuter')"
+                        >
+                          Commuter
+                        </button>
+                        <button
+                          class="category-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
+                          onclick="filterCategory('Economy')"
+                        >
+                          Economy
+                        </button>
+                      </div>
+
+                      <!-- Motorcycle Grid with Scrolling -->
+                      <div
+                        id="motorcycle-grid"
+                        class="flex-1 overflow-y-auto px-6 py-4"
+                      >
+                        <!-- Motorcycles will be populated by JavaScript -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="#"
+                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
+                >SHOWROOMS</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
+                >WORKSHOPS</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 text-sm hover:text-blue-600 transition-colors duration-200"
+                >EVENTS</a
+              >
+            </div>
+
+            <!-- Center Logo -->
+
+            <img class="h-[72px] px-4" src="assets/logo.png" alt="logo" />
+
+            <!-- Right Navigation Items -->
+            <div class="flex text-sm items-center space-x-8">
+              <a
+                href="#"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                >BOOK TEST RIDE</a
+              >
+              <a
+                href="/about.html"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                >ABOUT US</a
+              >
+              <a
+                href="#"
+                class="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                >NEWS</a
+              >
+
+              <!-- Media Center Dropdown -->
+              <div class="relative dropdown">
+                <button
+                  class="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  onclick="toggleDropdown('media')"
+                >
+                  <span>MEDIA CENTER</span>
+                  <svg
+                    class="w-4 h-4 transition-transform duration-200"
+                    id="media-arrow"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+
+                <!-- Media Dropdown Content -->
+                <div
+                  id="media-dropdown"
+                  class="media-dropdown-content absolute top-full right-0 mt-12 bg-white border border-gray-200 z-50 hidden"
+                  style="width: 220px"
+                >
+                  <div class="py-2">
+                    <a
+                      href="/about.html"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >ABOUT US</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >ANNOUNCEMENTS</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >EVENTS</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >BLOGS</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >DOWNLOAD CENTER</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >CONTACT US</a
+                    >
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors duration-200"
+                      >FAQS</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Mobile Bikes Full-Screen Menu -->
+        <div id="mobile-bikes-dropdown" class="lg:hidden">
+          <!-- Header -->
+          <div
+            class="flex items-center justify-between p-4 border-b border-gray-200"
+          >
+            <span class="text-lg font-semibold text-gray-900">MOTORCYCLES</span>
+            <button
+              id="mobile-bikes-close"
+              class="w-8 h-8 flex items-center justify-center"
+            >
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 overflow-y-auto">
+            <div id="mobile-bikes-main" class="p-4">
+              <div id="mobile-bikes-brands" class="space-y-1">
+                <!-- Brands will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Brand Detail View -->
+            <div id="mobile-bikes-brand-detail" class="hidden">
+              <!-- Brand Detail Header -->
+              <div class="flex items-center p-4 border-b border-gray-200">
+                <button
+                  id="mobile-bikes-back-btn"
+                  class="w-8 h-8 flex items-center justify-center mr-3"
+                >
+                  <svg
+                    class="w-6 h-6 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <span
+                  id="mobile-bikes-brand-title"
+                  class="text-lg font-semibold text-gray-900"
+                  >BIKES/PULSAR</span
+                >
+                <button
+                  id="mobile-bikes-detail-close"
+                  class="w-8 h-8 flex items-center justify-center ml-auto"
+                >
+                  <svg
+                    class="w-6 h-6 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- Category Tabs -->
+              <div class="border-b border-gray-200">
+                <div
+                  id="mobile-bikes-category-tabs"
+                  class="flex overflow-x-auto px-4 py-2"
+                >
+                  <!-- Category tabs will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Motorcycle List -->
+              <div id="mobile-bikes-motorcycle-list" class="p-4">
+                <!-- Motorcycles will be populated by JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div
+        id="mobile-menu-overlay"
+        class="fixed inset-0 bg-white z-50 transform translate-x-full transition-transform duration-300 lg:hidden"
+      >
+        <!-- Mobile Menu Header -->
+        <div
+          class="flex items-center justify-between p-4 border-b border-gray-200"
+        >
+          <span class="text-lg font-semibold text-gray-900">Menu</span>
+          <button
+            id="mobile-menu-close"
+            class="w-8 h-8 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu-content" class="flex-1 overflow-y-auto">
+          <!-- Main Menu Items -->
+          <div id="mobile-main-menu" class="p-4">
+            <div class="space-y-1">
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                HOME
+              </a>
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                SHOWROOMS
+              </a>
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                WORKSHOPS
+              </a>
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                EVENTS
+              </a>
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                BOOK TEST RIDE
+              </a>
+              <a
+                href="/about.html"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                ABOUT US
+              </a>
+              <a
+                href="#"
+                class="mobile-menu-item block px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors"
+              >
+                NEWS
+              </a>
+              <button
+                class="mobile-menu-item w-full text-left px-4 py-3 text-lg font-medium text-gray-900 hover:bg-gray-50 rounded-lg transition-colors flex items-center justify-between"
+                id="mobile-media-btn"
+              >
+                <span>MEDIA CENTER</span>
+                <svg
+                  class="w-5 h-5 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Media Center Submenu -->
+          <div id="mobile-media-menu" class="hidden">
+            <div class="p-4">
+              <div class="flex items-center mb-4">
+                <button
+                  id="mobile-media-back"
+                  class="w-8 h-8 flex items-center justify-center mr-3"
+                >
+                  <svg
+                    class="w-6 h-6 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <h3 class="text-lg font-semibold text-gray-900">
+                  MEDIA CENTER
+                </h3>
+              </div>
+              <div class="space-y-1">
+                <a
+                  href="/about.html"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  ABOUT US
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  ANNOUNCEMENTS
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  EVENTS
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  BLOGS
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  DOWNLOAD CENTER
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  CONTACT US
+                </a>
+                <a
+                  href="#"
+                  class="mobile-menu-item block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                >
+                  FAQS
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brand Detail View -->
+          <div id="mobile-brand-detail" class="hidden">
+            <!-- Brand Detail Header -->
+            <div class="flex items-center p-4 border-b border-gray-200">
+              <button
+                id="mobile-back-btn"
+                class="w-8 h-8 flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-6 h-6 text-gray-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </button>
+              <span
+                id="mobile-brand-title"
+                class="text-lg font-semibold text-gray-900"
+                >BIKES/PULSAR</span
+              >
+              <button
+                id="mobile-detail-close"
+                class="w-8 h-8 flex items-center justify-center ml-auto"
+              >
+                <svg
+                  class="w-6 h-6 text-gray-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="border-b border-gray-200">
+              <div
+                id="mobile-category-tabs"
+                class="flex overflow-x-auto px-4 py-2"
+              >
+                <!-- Category tabs will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Motorcycle List -->
+            <div id="mobile-motorcycle-list" class="p-4">
+              <!-- Motorcycles will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section
+      class="w-full h-[50vh] bg-[url('/assets/blogsBg.jpg')] bg-cover bg-center"
+    ></section>
+
+    <!-- Container -->
+    <section class="max-w-7xl mx-auto px-4 py-10">
+      <!-- Header -->
+      <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+        <!-- Search -->
+        <div
+          class="flex items-center justify-between gap-4 border min-w-[300px] rounded-full px-4 py-2"
+        >
+          <input
+            type="text"
+            placeholder="Please enter news keywords."
+            class="w-full py-1 rounded focus:outline-none border-none"
+          />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <rect
+              y="-0.00012207"
+              width="24"
+              height="24"
+              fill="url(#pattern0_275_7938)"
+            />
+            <defs>
+              <pattern
+                id="pattern0_275_7938"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+                height="1"
+              >
+                <use
+                  xlink:href="#image0_275_7938"
+                  transform="scale(0.0208333)"
+                />
+              </pattern>
+              <image
+                id="image0_275_7938"
+                width="48"
+                height="48"
+                preserveAspectRatio="none"
+                xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA2lJREFUaEPtWDtoFFEUPXcn22hSCIIkiAhioqiVWqbwL1r4QwstJMXOndlY2CRaWCyCoEmjYJZ5G9IIiihqCm3Mj6Ai+KlU1ICIFi5WSowiZHeePJmBJZDse7M7q4F5sMXy7j33nHvv+w1hkQ9a5PyRCPjXFUwqkFSgxgwkLVRjAmt2TyoQprBQKLRLKQ8C2AVgFYC2YO4LgM8ARoho2LbtqZrTXgFQcwUGBwc3l8vlPiLarkNMSjluWVZvJpN5qWNfzSaygFwu19Ta2noZQBYwPtElgHyxWDydy+VK1UguNB9JQD6fX2ZZ1h0A2yrAZwEMqx8RvZidnVWtg3Q63Sal3AJAtZf6pSt8Jsrl8pFsNvstqghjAUHmH1aSl1LeI6IeZv6wEBEhxBopZT8RHaoUUSwWd0ethLEAIcRVAN0BAR/AWWbuN8mgEKIHwEUAqcBvgJlPmWCEtkYC1IL1ff95Rc/3mpIPAwci+oL/MpVKbY2ysI0EeJ43Fu42qm0cxzkcJWuhj+d5d8N2UruT4zg7TPG0BeTz+Q7Lst4FAdSCXV+t56uRUWsCwNtwYRNRh+k5oS1ACNEL4FJA6jYzH6tGUGdeCHELwNHA9gwzh22l466/fwshRgDsDFBPMPMNrQhVjIQQxwFcD8xGmVmd5NrDpALvAbQr5Cilno9RcAVR2GpMMXOHNnuTE1QI8QNAswIvlUot3d3dMyaB5rMdGBhobmpqUthqzDBziwmuSQViETA0NNRSKpWmA9K/mHlpXAIa0UKfmHl1XAIW/SJuxDZ6jpkvxFKBRhxkvu9vcl33dSwCFGicVwkAE8ys9SiqFKi9CymnOC9zvu93uq77xCT7f88kU4c4rtNEdM227ZOmXCIJiOFBo3h8931/j+u6z0xFGFdABajjk7KS77SUcq/jOE9NREQSoALU4VF/BcBNAPcBLA+vEqlUal8mk3mkKyKygDCA6WcVIhqRUp5n5scKo1AobJBSjgFYEWD+JKL9tm1P6oioWUAYJDgnDsz5sKXwvwL4CGAUwANmfjWXmBBiHYBxAK3B3Btm3thQATrBFrLxPG8tESkRK02el3WrQK0ClL8QYgkRdabT6cmurq7fOpj/lQAdwnNtEgFRslZPn6QC9cxmFKykAlGyVk+fpAL1zGYUrEVfgT97pXVAWcFcSgAAAABJRU5ErkJggg=="
+              />
+            </defs>
+          </svg>
+        </div>
+        <div class="flex items-center gap-2 text-4xl font-bold">
+          <h2>Latest Blogs From</h2>
+          <span class="text-blue-700 cursor-pointer">All</span>
+        </div>
+
+        <div class="flex items-center gap-4 mt-4 md:mt-0">
+          <select class="border border-gray-300 px-3 py-1 rounded text-sm">
+            <option>Date</option>
+          </select>
+          <button class="bg-black text-white px-4 py-2 rounded-full text-sm">
+            Subscribe →
+          </button>
+        </div>
+      </div>
+
+      <!-- Blog Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Blog Card -->
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg1.jpg"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <!-- Repeat similar blog cards -->
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg2.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Pulsar Squad Diaries: East Nepal Ride
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <!-- Add more cards as needed -->
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg3.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg4.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg1.jpg"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <!-- Repeat similar blog cards -->
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg2.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Pulsar Squad Diaries: East Nepal Ride
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <!-- Add more cards as needed -->
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg3.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+
+        <div>
+          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
+          <img
+            src="/assets/abg4.png"
+            alt="Blog Image"
+            class="mb-3 rounded-md"
+          />
+          <h3 class="font-semibold text-lg mb-2 leading-snug">
+            Speed Fest 2025 – Bajaj N250 Launch
+          </h3>
+          <a
+            href="#"
+            class="text-blue-600 text-sm inline-flex items-center gap-1"
+          >
+            learn more →
+          </a>
+        </div>
+      </div>
+
+      <!-- View More Button -->
+      <div class="text-center mt-10">
+        <button class="border border-gray-300 px-6 py-2 rounded-full text-sm">
+          View more
+        </button>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-50 min-h-screen flex flex-col">
+      <!-- Email Signup Section -->
+      <div class="flex-1 flex items-center justify-center px-4 py-12">
+        <div class="max-w-md w-full">
+          <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">
+              Sign up for Email
+            </h2>
+            <p class="text-sm text-gray-500 mb-1">
+              Read our
+              <a href="#" class="text-blue-500 underline">privacy policy</a>
+              to learn about data processing
+            </p>
+            <p class="text-sm text-gray-500">
+              Sign up for BAJAJ latest news and updates
+            </p>
+          </div>
+
+          <form id="emailForm" class="mb-4">
+            <div class="flex gap-2 mb-2">
+              <input
+                type="email"
+                id="email"
+                placeholder="YOUR EMAIL ADDRESS"
+                class="flex-1 bg-white border border-gray-300 rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-500 text-white px-6 py-3 rounded-md text-sm font-medium hover:bg-blue-600"
+              >
+                SUBSCRIBE NOW
+              </button>
+            </div>
+            <p class="text-xs text-gray-500 text-center">
+              This site is protected by reCAPTCHA and the Google
+              <a href="#" class="underline">Privacy Policy</a> and
+              <a href="#" class="underline">Terms of Service</a> apply.
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4">
+          <div class="text-center mb-8">
+            <div class="flex justify-center items-center mb-4">
+              <div
+                class="w-8 h-8 mr-3 bg-white rounded-full flex items-center justify-center"
+              >
+                <span class="text-black font-bold text-sm">G</span>
+              </div>
+              <h3 class="text-lg font-medium">
+                GOLCHHA GROUP WITH LEGACY OF 100 YEAR
+              </h3>
+            </div>
+          </div>
+
+          <!-- Footer Links -->
+          <div class="flex justify-center gap-8 text-sm mb-8">
+            <a href="#" class="hover:text-gray-300">TERMS OF USE</a>
+            <a href="#" class="hover:text-gray-300">PRIVACY INFORMATION</a>
+            <a href="#" class="hover:text-gray-300">COOKIES INFORMATION</a>
+          </div>
+
+          <!-- Copyright -->
+          <div class="text-center text-xs text-gray-400 mb-8">
+            <p>
+              Copyright © 2025 Bajaj Auto Ltd – A Sole Shareholder Company - A
+              Company subject to the Management and Coordination
+            </p>
+            <p>activities of BAJAJ AUTO. All rights reserved. VAT NO.</p>
+          </div>
+
+          <!-- Bottom Section -->
+          <div class="flex flex-wrap justify-between items-center gap-4">
+            <!-- Bajaj Logo -->
+            <div>
+              <img src="../assets/footer-logo.svg" alt="" />
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-tiktok"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-transform transform hover:-translate-y-1"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+
+            <!-- International Website -->
+            <div class="flex items-center text-sm text-gray-400">
+              <i class="fas fa-globe mr-2"></i>
+              <a href="#" class="hover:text-white">International website</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("emailForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const email = document.getElementById("email").value;
+          if (email) {
+            alert(
+              "Thank you for subscribing! You will receive updates at: " + email
+            );
+            document.getElementById("email").value = "";
+          }
+        });
+    </script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
