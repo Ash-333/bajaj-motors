@@ -350,6 +350,130 @@
 }
 
 /* ========================================
+   5.5. BIKE DETAIL PAGE
+   ======================================== */
+
+/* Hero Section for Bike Detail */
+.bike-detail-hero {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+/* Color Selector Styles */
+.color-selector-button {
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.color-selector-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.color-selector-button.active {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+/* Key Features Cards */
+.feature-card {
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Specifications Section */
+.spec-section {
+  transition: all 0.2s ease;
+}
+
+.spec-section:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.spec-row {
+  transition: background-color 0.2s ease;
+}
+
+.spec-row:hover {
+  background-color: #f9fafb;
+}
+
+/* Specification Tabs */
+.spec-tab {
+  cursor: pointer;
+  position: relative;
+}
+
+.spec-tab:hover {
+  color: #374151;
+}
+
+.spec-tab.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+}
+
+/* Compact Specification Tabs */
+.spec-tab-compact {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.spec-tab-compact:focus {
+  outline: none;
+}
+
+/* Image Transitions */
+#hero-bike-image,
+#spec-bike-image {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Smooth image loading */
+.image-loading {
+  opacity: 0.5;
+}
+
+/* Tab Content */
+.tab-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for bike detail */
+@media (max-width: 768px) {
+  .bike-detail-hero img {
+    max-height: 50vh;
+  }
+
+  .color-selector-button {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* Mobile tab adjustments */
+  .spec-tab {
+    font-size: 0.875rem;
+    padding: 0.75rem 0.5rem;
+  }
+}
+
+/* ========================================
    6. MOBILE NAVIGATION & MENUS
    ======================================== */
 

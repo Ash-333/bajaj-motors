@@ -1,0 +1,620 @@
+{
+  "bikes": {
+    "pulsar-220f-abs": {
+      "id": "pulsar-220f-abs",
+      "name": "PULSAR 220F ABS",
+      "brand": "PULSAR",
+      "category": "Classic",
+      "description": "Powerful High Performance bike with advanced ABS technology",
+      "heroImage": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+      "images": {
+        "black": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+        "yellow": "/assets/bikes/pulsar/pulsar-220f-yellow.svg",
+        "green": "/assets/bikes/pulsar/pulsar-220f-green.svg"
+      },
+      "tabImages": {
+        "performance": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+        "design": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+        "tech": "./assets/bikes/pulsar/pulsar_220f_abs.png",
+        "safety": "./assets/bikes/pulsar/pulsar_220f_abs.png"
+      },
+      "viewer360Images": [
+        "./assets/360/1.png",
+        "./assets/360/2.png",
+        "./assets/360/3.png",
+        "./assets/360/4.png",
+        "./assets/360/5.png",
+        "./assets/360/6.png",
+        "./assets/360/7.png",
+        "./assets/360/8.png",
+        "./assets/360/9.png",
+        "./assets/360/10.png",
+        "./assets/360/11.png",
+        "./assets/360/12.png",
+        "./assets/360/13.png"
+      ],
+      "availableColors": ["black", "yellow", "green"],
+      "specifications": {
+        "engine": {
+          "title": "Engine",
+          "specs": {
+            "Engine Type": "4-Stroke, DTS-i, Oil Cooled",
+            "Displacement": "220 cc",
+            "Max Power": "20.4 PS @ 8500 rpm",
+            "Max Torque": "18.55 Nm @ 7000 rpm",
+            "Compression Ratio": "10.0:1",
+            "Fuel System": "Carburetor",
+            "Cooling": "Oil Cooled"
+          }
+        },
+        "transmission": {
+          "title": "Transmission",
+          "specs": {
+            "Gearbox": "5-Speed Manual",
+            "Clutch": "Wet Multi-plate",
+            "Final Drive": "Chain Drive"
+          }
+        },
+        "chassis": {
+          "title": "Chassis & Suspension",
+          "specs": {
+            "Frame": "Perimeter Frame",
+            "Front Suspension": "Telescopic Fork",
+            "Rear Suspension": "Nitrox Mono Shock",
+            "Front Brake": "280mm Disc with ABS",
+            "Rear Brake": "230mm Disc",
+            "Front Tyre": "100/80-17",
+            "Rear Tyre": "130/70-17"
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions & Weight",
+          "specs": {
+            "Length": "2055 mm",
+            "Width": "755 mm",
+            "Height": "1115 mm",
+            "Wheelbase": "1345 mm",
+            "Ground Clearance": "165 mm",
+            "Kerb Weight": "144 kg",
+            "Fuel Tank Capacity": "15 Litres"
+          }
+        },
+        "features": {
+          "title": "Features",
+          "specs": {
+            "ABS": "Single Channel ABS",
+            "Instrument Cluster": "Digital-Analog Combo",
+            "Headlight": "Halogen with DRL",
+            "Tail Light": "LED",
+            "Electric Start": "Yes",
+            "Kick Start": "Yes"
+          }
+        },
+        "performance": {
+          "title": "Performance",
+          "specs": {
+            "Top Speed": "135 kmph (approx)",
+            "Mileage": "35-40 kmpl",
+            "0-60 kmph": "4.5 seconds (approx)"
+          }
+        }
+      },
+      "keyFeatures": [
+        "Single Channel ABS for enhanced safety",
+        "Oil-cooled DTS-i engine for superior performance",
+        "Digital-analog instrument cluster",
+        "LED tail light with stylish design",
+        "Nitrox mono shock for comfortable ride"
+      ],
+      "price": 98000,
+      "colors": {
+        "black": {
+          "name": "Charcoal Black",
+          "code": "#1a1a1a",
+          "image": "./assets/bikes/pulsar/pulsar_220f_abs.png"
+        },
+        "yellow": {
+          "name": "Racing Yellow",
+          "code": "#ffd700",
+          "image": "/assets/bikes/pulsar/pulsar-220f-yellow.svg"
+        },
+        "green": {
+          "name": "Forest Green",
+          "code": "#228b22",
+          "image": "/assets/bikes/pulsar/pulsar-220f-green.svg"
+        }
+      }
+    },
+    "pulsar-ns-200": {
+      "id": "pulsar-ns-200",
+      "name": "PULSAR NS 200",
+      "brand": "PULSAR",
+      "category": "Sport",
+      "description": "Naked sport bike with aggressive styling and powerful performance",
+      "heroImage": "/assets/bikes/pulsar/pulsar-ns-200-black.svg",
+      "images": {
+        "black": "/assets/bikes/pulsar/pulsar-ns-200-black.svg",
+        "red": "/assets/bikes/pulsar/pulsar-ns-200-red.svg",
+        "blue": "/assets/bikes/pulsar/pulsar-ns-200-blue.svg"
+      },
+      "tabImages": {
+        "performance": "/assets/bikes/pulsar/pulsar-ns-200-black.svg",
+        "design": "/assets/bikes/pulsar/pulsar-ns-200-black.svg",
+        "tech": "/assets/bikes/pulsar/pulsar-ns-200-black.svg",
+        "safety": "/assets/bikes/pulsar/pulsar-ns-200-black.svg"
+      },
+      "viewer360Images": [
+        "./assets/360/1.png",
+        "./assets/360/2.png",
+        "./assets/360/3.png",
+        "./assets/360/4.png",
+        "./assets/360/5.png",
+        "./assets/360/6.png",
+        "./assets/360/7.png",
+        "./assets/360/8.png",
+        "./assets/360/9.png",
+        "./assets/360/10.png",
+        "./assets/360/11.png",
+        "./assets/360/12.png",
+        "./assets/360/13.png"
+      ],
+      "availableColors": ["black", "red", "blue"],
+      "specifications": {
+        "engine": {
+          "title": "Engine",
+          "specs": {
+            "Engine Type": "4-Stroke, DTS-i, Liquid Cooled",
+            "Displacement": "199.5 cc",
+            "Max Power": "24.5 PS @ 9750 rpm",
+            "Max Torque": "18.6 Nm @ 8000 rpm",
+            "Compression Ratio": "10.6:1",
+            "Fuel System": "Fuel Injection",
+            "Cooling": "Liquid Cooled"
+          }
+        },
+        "transmission": {
+          "title": "Transmission",
+          "specs": {
+            "Gearbox": "6-Speed Manual",
+            "Clutch": "Wet Multi-plate",
+            "Final Drive": "Chain Drive"
+          }
+        },
+        "chassis": {
+          "title": "Chassis & Suspension",
+          "specs": {
+            "Frame": "Perimeter Frame",
+            "Front Suspension": "Telescopic Fork",
+            "Rear Suspension": "Nitrox Mono Shock",
+            "Front Brake": "300mm Disc",
+            "Rear Brake": "230mm Disc",
+            "Front Tyre": "100/80-17",
+            "Rear Tyre": "130/70-17"
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions & Weight",
+          "specs": {
+            "Length": "2018 mm",
+            "Width": "813 mm",
+            "Height": "1070 mm",
+            "Wheelbase": "1363 mm",
+            "Ground Clearance": "169 mm",
+            "Kerb Weight": "152 kg",
+            "Fuel Tank Capacity": "12 Litres"
+          }
+        },
+        "features": {
+          "title": "Features",
+          "specs": {
+            "Instrument Cluster": "Digital",
+            "Headlight": "Halogen",
+            "Tail Light": "LED",
+            "Electric Start": "Yes",
+            "Kick Start": "No"
+          }
+        },
+        "performance": {
+          "title": "Performance",
+          "specs": {
+            "Top Speed": "136 kmph",
+            "Mileage": "35-40 kmpl",
+            "0-60 kmph": "3.9 seconds"
+          }
+        }
+      },
+      "keyFeatures": [
+        "Liquid-cooled DTS-i engine",
+        "6-speed gearbox for better performance",
+        "Naked sport bike styling",
+        "Digital instrument cluster",
+        "LED tail light"
+      ],
+      "price": 98000,
+      "colors": {
+        "black": {
+          "name": "Charcoal Black",
+          "code": "#1a1a1a",
+          "image": "/assets/bikes/pulsar/pulsar-ns-200-black.svg"
+        },
+        "red": {
+          "name": "Racing Red",
+          "code": "#dc2626",
+          "image": "/assets/bikes/pulsar/pulsar-ns-200-red.svg"
+        },
+        "blue": {
+          "name": "Ocean Blue",
+          "code": "#2563eb",
+          "image": "/assets/bikes/pulsar/pulsar-ns-200-blue.svg"
+        }
+      }
+    },
+    "dominar-400": {
+      "id": "dominar-400",
+      "name": "DOMINAR 400",
+      "brand": "DOMINAR",
+      "category": "Touring",
+      "description": "Adventure touring motorcycle with powerful performance and comfort",
+      "heroImage": "/assets/bikes/dominar/dominar-400-black.svg",
+      "images": {
+        "black": "/assets/bikes/dominar/dominar-400-black.svg",
+        "blue": "/assets/bikes/dominar/dominar-400-blue.svg"
+      },
+      "tabImages": {
+        "performance": "/assets/bikes/dominar/dominar-400-black.svg",
+        "design": "/assets/bikes/dominar/dominar-400-black.svg",
+        "tech": "/assets/bikes/dominar/dominar-400-black.svg",
+        "safety": "/assets/bikes/dominar/dominar-400-black.svg"
+      },
+      "viewer360Images": [
+        "./assets/360/1.png",
+        "./assets/360/2.png",
+        "./assets/360/3.png",
+        "./assets/360/4.png",
+        "./assets/360/5.png",
+        "./assets/360/6.png",
+        "./assets/360/7.png",
+        "./assets/360/8.png",
+        "./assets/360/9.png",
+        "./assets/360/10.png",
+        "./assets/360/11.png",
+        "./assets/360/12.png",
+        "./assets/360/13.png"
+      ],
+      "availableColors": ["black", "blue"],
+      "specifications": {
+        "engine": {
+          "title": "Engine",
+          "specs": {
+            "Engine Type": "4-Stroke, DTS-i, Liquid Cooled",
+            "Displacement": "373.3 cc",
+            "Max Power": "40 PS @ 8650 rpm",
+            "Max Torque": "35 Nm @ 7000 rpm",
+            "Compression Ratio": "11.3:1",
+            "Fuel System": "Fuel Injection",
+            "Cooling": "Liquid Cooled"
+          }
+        },
+        "transmission": {
+          "title": "Transmission",
+          "specs": {
+            "Gearbox": "6-Speed Manual",
+            "Clutch": "Wet Multi-plate",
+            "Final Drive": "Chain Drive"
+          }
+        },
+        "chassis": {
+          "title": "Chassis & Suspension",
+          "specs": {
+            "Frame": "Perimeter Frame",
+            "Front Suspension": "USD Fork",
+            "Rear Suspension": "Mono Shock",
+            "Front Brake": "320mm Disc with ABS",
+            "Rear Brake": "230mm Disc with ABS",
+            "Front Tyre": "110/70-17",
+            "Rear Tyre": "150/60-17"
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions & Weight",
+          "specs": {
+            "Length": "2156 mm",
+            "Width": "813 mm",
+            "Height": "1112 mm",
+            "Wheelbase": "1453 mm",
+            "Ground Clearance": "157 mm",
+            "Kerb Weight": "184 kg",
+            "Fuel Tank Capacity": "13 Litres"
+          }
+        },
+        "features": {
+          "title": "Features",
+          "specs": {
+            "ABS": "Dual Channel ABS",
+            "Instrument Cluster": "Digital LCD",
+            "Headlight": "LED with DRL",
+            "Tail Light": "LED",
+            "Electric Start": "Yes",
+            "Kick Start": "No"
+          }
+        },
+        "performance": {
+          "title": "Performance",
+          "specs": {
+            "Top Speed": "148 kmph",
+            "Mileage": "26-30 kmpl",
+            "0-100 kmph": "8.23 seconds"
+          }
+        }
+      },
+      "keyFeatures": [
+        "Dual Channel ABS for maximum safety",
+        "USD front forks for superior handling",
+        "LED headlight with DRL",
+        "Digital LCD instrument cluster",
+        "Touring-focused ergonomics"
+      ],
+      "price": 215000,
+      "colors": {
+        "black": {
+          "name": "Charcoal Black",
+          "code": "#1a1a1a",
+          "image": "/assets/bikes/dominar/dominar-400-black.svg"
+        },
+        "blue": {
+          "name": "Canyon Red",
+          "code": "#2563eb",
+          "image": "/assets/bikes/dominar/dominar-400-blue.svg"
+        }
+      }
+    },
+    "avenger-cruise-220": {
+      "id": "avenger-cruise-220",
+      "name": "AVENGER CRUISE 220",
+      "brand": "AVENGERS",
+      "category": "Cruiser",
+      "description": "Perfect cruiser for long comfortable rides with classic styling",
+      "heroImage": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+      "images": {
+        "black": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+        "blue": "/assets/bikes/avengers/avenger-cruise-220-blue.svg",
+        "red": "/assets/bikes/avengers/avenger-cruise-220-red.svg"
+      },
+      "tabImages": {
+        "performance": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+        "design": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+        "tech": "/assets/bikes/avengers/avenger-cruise-220-black.svg",
+        "safety": "/assets/bikes/avengers/avenger-cruise-220-black.svg"
+      },
+      "availableColors": ["black", "blue", "red"],
+      "viewer360Images": [
+        "./assets/360/1.png",
+        "./assets/360/2.png",
+        "./assets/360/3.png",
+        "./assets/360/4.png",
+        "./assets/360/5.png",
+        "./assets/360/6.png",
+        "./assets/360/7.png",
+        "./assets/360/8.png",
+        "./assets/360/9.png",
+        "./assets/360/10.png",
+        "./assets/360/11.png",
+        "./assets/360/12.png",
+        "./assets/360/13.png"
+      ],
+      "specifications": {
+        "engine": {
+          "title": "Engine",
+          "specs": {
+            "Engine Type": "4-Stroke, DTS-i, Oil Cooled",
+            "Displacement": "220 cc",
+            "Max Power": "19 PS @ 8400 rpm",
+            "Max Torque": "17.5 Nm @ 7000 rpm",
+            "Compression Ratio": "9.5:1",
+            "Fuel System": "Carburetor",
+            "Cooling": "Oil Cooled"
+          }
+        },
+        "transmission": {
+          "title": "Transmission",
+          "specs": {
+            "Gearbox": "5-Speed Manual",
+            "Clutch": "Wet Multi-plate",
+            "Final Drive": "Chain Drive"
+          }
+        },
+        "chassis": {
+          "title": "Chassis & Suspension",
+          "specs": {
+            "Frame": "Single Downtube",
+            "Front Suspension": "Telescopic Fork",
+            "Rear Suspension": "Twin Shock Absorber",
+            "Front Brake": "280mm Disc",
+            "Rear Brake": "130mm Drum",
+            "Front Tyre": "90/90-19",
+            "Rear Tyre": "140/80-15"
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions & Weight",
+          "specs": {
+            "Length": "2205 mm",
+            "Width": "800 mm",
+            "Height": "1115 mm",
+            "Wheelbase": "1580 mm",
+            "Ground Clearance": "169 mm",
+            "Kerb Weight": "152 kg",
+            "Fuel Tank Capacity": "14 Litres"
+          }
+        },
+        "features": {
+          "title": "Features",
+          "specs": {
+            "Instrument Cluster": "Analog",
+            "Headlight": "Halogen",
+            "Tail Light": "Bulb",
+            "Electric Start": "Yes",
+            "Kick Start": "Yes"
+          }
+        },
+        "performance": {
+          "title": "Performance",
+          "specs": {
+            "Top Speed": "115 kmph",
+            "Mileage": "40-45 kmpl",
+            "0-60 kmph": "5.8 seconds"
+          }
+        }
+      },
+      "keyFeatures": [
+        "Classic cruiser styling",
+        "Comfortable riding position",
+        "Low seat height for easy handling",
+        "Chrome finished exhaust",
+        "Relaxed ergonomics for long rides"
+      ],
+      "price": 125000,
+      "colors": {
+        "black": {
+          "name": "Ebony Black",
+          "code": "#1a1a1a",
+          "image": "/assets/bikes/avengers/avenger-cruise-220-black.svg"
+        },
+        "blue": {
+          "name": "Ocean Blue",
+          "code": "#2563eb",
+          "image": "/assets/bikes/avengers/avenger-cruise-220-blue.svg"
+        },
+        "red": {
+          "name": "Cocktail Wine Red",
+          "code": "#dc2626",
+          "image": "/assets/bikes/avengers/avenger-cruise-220-red.svg"
+        }
+      }
+    },
+    "discover-125": {
+      "id": "discover-125",
+      "name": "DISCOVER 125",
+      "brand": "DISCOVER",
+      "category": "Commuter",
+      "description": "Efficient commuter bike with excellent fuel economy and reliability",
+      "heroImage": "/assets/bikes/discover/discover-125-black.svg",
+      "images": {
+        "black": "/assets/bikes/discover/discover-125-black.svg",
+        "red": "/assets/bikes/discover/discover-125-red.svg",
+        "blue": "/assets/bikes/discover/discover-125-blue.svg"
+      },
+      "tabImages": {
+        "performance": "/assets/bikes/discover/discover-125-black.svg",
+        "design": "/assets/bikes/discover/discover-125-black.svg",
+        "tech": "/assets/bikes/discover/discover-125-black.svg",
+        "safety": "/assets/bikes/discover/discover-125-black.svg"
+      },
+      "availableColors": ["black", "red", "blue"],
+      "viewer360Images": [
+        "./assets/360/1.png",
+        "./assets/360/2.png",
+        "./assets/360/3.png",
+        "./assets/360/4.png",
+        "./assets/360/5.png",
+        "./assets/360/6.png",
+        "./assets/360/7.png",
+        "./assets/360/8.png",
+        "./assets/360/9.png",
+        "./assets/360/10.png",
+        "./assets/360/11.png",
+        "./assets/360/12.png",
+        "./assets/360/13.png"
+      ],
+      "specifications": {
+        "engine": {
+          "title": "Engine",
+          "specs": {
+            "Engine Type": "4-Stroke, DTS-i, Air Cooled",
+            "Displacement": "124.6 cc",
+            "Max Power": "11.2 PS @ 7500 rpm",
+            "Max Torque": "10.8 Nm @ 6500 rpm",
+            "Compression Ratio": "9.5:1",
+            "Fuel System": "Carburetor",
+            "Cooling": "Air Cooled"
+          }
+        },
+        "transmission": {
+          "title": "Transmission",
+          "specs": {
+            "Gearbox": "5-Speed Manual",
+            "Clutch": "Wet Multi-plate",
+            "Final Drive": "Chain Drive"
+          }
+        },
+        "chassis": {
+          "title": "Chassis & Suspension",
+          "specs": {
+            "Frame": "Single Downtube",
+            "Front Suspension": "Telescopic Fork",
+            "Rear Suspension": "Twin Shock Absorber",
+            "Front Brake": "240mm Disc",
+            "Rear Brake": "130mm Drum",
+            "Front Tyre": "80/100-18",
+            "Rear Tyre": "100/90-18"
+          }
+        },
+        "dimensions": {
+          "title": "Dimensions & Weight",
+          "specs": {
+            "Length": "2020 mm",
+            "Width": "750 mm",
+            "Height": "1070 mm",
+            "Wheelbase": "1305 mm",
+            "Ground Clearance": "165 mm",
+            "Kerb Weight": "117 kg",
+            "Fuel Tank Capacity": "11 Litres"
+          }
+        },
+        "features": {
+          "title": "Features",
+          "specs": {
+            "Instrument Cluster": "Analog",
+            "Headlight": "Halogen",
+            "Tail Light": "Bulb",
+            "Electric Start": "Yes",
+            "Kick Start": "Yes"
+          }
+        },
+        "performance": {
+          "title": "Performance",
+          "specs": {
+            "Top Speed": "95 kmph",
+            "Mileage": "50-55 kmpl",
+            "0-60 kmph": "6.5 seconds"
+          }
+        }
+      },
+      "keyFeatures": [
+        "Excellent fuel efficiency",
+        "Reliable DTS-i engine",
+        "Comfortable commuting",
+        "Low maintenance cost",
+        "Proven reliability"
+      ],
+      "price": 75000,
+      "colors": {
+        "black": {
+          "name": "Ebony Black",
+          "code": "#1a1a1a",
+          "image": "/assets/bikes/discover/discover-125-black.svg"
+        },
+        "red": {
+          "name": "Flame Red",
+          "code": "#dc2626",
+          "image": "/assets/bikes/discover/discover-125-red.svg"
+        },
+        "blue": {
+          "name": "Laser Blue",
+          "code": "#2563eb",
+          "image": "/assets/bikes/discover/discover-125-blue.svg"
+        }
+      }
+    }
+  }
+}
