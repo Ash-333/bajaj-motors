@@ -1,6 +1,5 @@
 // Enhanced Bike Carousel Component with Dynamic Data Loading
 import { bikeDataUtils } from './bike-api.js';
-import { AutoScrollManager } from './auto-scroll-manager.js';
 import { BrandManager } from './brand-manager.js';
 
 export class BikeCarousel {
@@ -33,7 +32,6 @@ export class BikeCarousel {
     this.availableColors = []; // Current model's available colors
 
     // Managers
-    this.autoScrollManager = null;
     this.brandManager = null;
 
     // Initialize
@@ -59,9 +57,6 @@ export class BikeCarousel {
 
       // Setup event listeners
       this.setupEventListeners();
-
-      // Initialize auto-scroll
-      this.initializeAutoScroll();
 
       // Initialize view
       this.updateView(this.currentModelIndex, this.currentColorId);
@@ -120,18 +115,9 @@ export class BikeCarousel {
 
     // Update view
     this.updateView(this.currentModelIndex, this.currentColorId);
-
-    // Restart auto-scroll for new brand
-    if (this.autoScrollManager) {
-      this.autoScrollManager.stop();
-      this.autoScrollManager.start();
-    }
   }
 
-  initializeAutoScroll() {
-    const autoScrollConfig = bikeDataUtils.getAutoScrollConfig();
-    this.autoScrollManager = new AutoScrollManager(this, autoScrollConfig);
-  }
+
 
   async preloadImages() {
     if (!this.models.length) return;
@@ -516,42 +502,14 @@ export class BikeCarousel {
       currentModelIndex: this.currentModelIndex,
       currentColorId: this.currentColorId,
       isTransitioning: this.isTransitioning,
-      totalModels: this.models.length,
-      autoScrollStatus: this.autoScrollManager ? this.autoScrollManager.getStatus() : null
+      totalModels: this.models.length
     };
   }
 
-  // Auto-scroll control methods
-  startAutoScroll() {
-    if (this.autoScrollManager) {
-      this.autoScrollManager.start();
-    }
-  }
 
-  stopAutoScroll() {
-    if (this.autoScrollManager) {
-      this.autoScrollManager.stop();
-    }
-  }
-
-  pauseAutoScroll() {
-    if (this.autoScrollManager) {
-      this.autoScrollManager.pause();
-    }
-  }
-
-  resumeAutoScroll() {
-    if (this.autoScrollManager) {
-      this.autoScrollManager.resume();
-    }
-  }
 
   // Cleanup method
   destroy() {
-    if (this.autoScrollManager) {
-      this.autoScrollManager.destroy();
-    }
-
     // Remove event listeners would require storing references
     // For now, we'll rely on garbage collection
   }

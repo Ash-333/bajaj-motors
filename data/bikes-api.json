@@ -1,12 +1,4 @@
 {
-  "autoScrollConfig": {
-    "enabled": true,
-    "interval": 6000,
-    "pauseOnHover": true,
-    "pauseOnInteraction": true,
-    "resumeDelay": 3000,
-    "showProgress": false
-  },
   "categoryDisplayMap": {
     "Classic": "Classic Series",
     "NS": "NS Series",
