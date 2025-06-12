@@ -48,8 +48,8 @@ export class BikeApiService {
 
   // Validate the loaded JSON data structure
   _validateDataStructure(data) {
-    const requiredFields = ['autoScrollConfig', 'colorVariants', 'brands'];
-    
+    const requiredFields = ['colorVariants', 'brands'];
+
     for (const field of requiredFields) {
       if (!data[field]) {
         throw new Error(`Missing required field: ${field}`);
@@ -142,13 +142,7 @@ export class BikeApiService {
     return models.filter(model => model.category === category);
   }
 
-  // Get auto-scroll configuration
-  getAutoScrollConfig() {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
-    }
-    return { ...this.bikeData.autoScrollConfig };
-  }
+
 
   // Get color variant by ID
   getColorVariant(colorId) {
@@ -283,10 +277,7 @@ export const bikeDataUtils = {
     return bikeApiService.getModelsByCategory(brandName, category);
   },
 
-  // Get auto-scroll configuration
-  getAutoScrollConfig() {
-    return bikeApiService.getAutoScrollConfig();
-  },
+
 
   // Get color variant by ID
   getColorVariant(colorId) {

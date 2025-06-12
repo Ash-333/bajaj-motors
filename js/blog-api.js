@@ -1,30 +1,28 @@
-// Bike API Service - Dynamic Data Management System
-export class BikeApiService {
+// Blog API Service - Simulates API calls using fetch from JSON
+export class BlogApiService {
   constructor() {
-    this.apiUrl = '/data/bikes-api.json';
-    this.bikeData = null;
+    this.apiUrl = '/data/blogs-api.json';
+    this.blogData = null;
     this.isLoaded = false;
-    this.loadingPromise = null;
   }
 
-  // Load bike data from JSON API
-  async loadBikeData() {
-    if (this.isLoaded && this.bikeData) {
-      return this.bikeData;
-    }
-
-    // If already loading, return the existing promise
-    if (this.loadingPromise) {
-      return this.loadingPromise;
-    }
-
-    this.loadingPromise = this._fetchBikeData();
-    return this.loadingPromise;
+  // Simulate API delay
+  async simulateApiDelay(ms = 500) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // Private method to fetch data
-  async _fetchBikeData() {
+  // Load blog data (simulates initial API call)
+  async loadBlogData() {
+    if (this.isLoaded && this.blogData) {
+      return this.blogData;
+    }
+
     try {
+      console.log('🔄 Fetching blog data from API...');
+      
+      // Simulate API loading delay
+      await this.simulateApiDelay();
+      
       const response = await fetch(this.apiUrl);
       
       if (!response.ok) {
@@ -32,300 +30,205 @@ export class BikeApiService {
       }
 
       const data = await response.json();
-      
-      // Validate data structure
-      this._validateDataStructure(data);
-      
-      this.bikeData = data;
+      this.blogData = data;
       this.isLoaded = true;
       
+      console.log('✅ Blog data loaded successfully');
       return data;
     } catch (error) {
-      console.error('Failed to load bike data:', error);
-      throw new Error(`Failed to load bike data: ${error.message}`);
+      console.error('❌ Failed to load blog data:', error);
+      throw new Error(`Failed to load blog data: ${error.message}`);
     }
   }
 
-  // Validate the loaded JSON data structure
-  _validateDataStructure(data) {
-    const requiredFields = ['colorVariants', 'brands'];
-
-    for (const field of requiredFields) {
-      if (!data[field]) {
-        throw new Error(`Missing required field: ${field}`);
+  // Get all blogs
+  async getAllBlogs() {
+    try {
+      if (!this.blogData) {
+        await this.loadBlogData();
       }
+      
+      return this.blogData.blogs.filter(blog => blog.status === 'published');
+    } catch (error) {
+      console.error('❌ Failed to get blogs:', error);
+      throw error;
     }
+  }
 
-    // Validate brands structure
-    if (typeof data.brands !== 'object' || Object.keys(data.brands).length === 0) {
-      throw new Error('Invalid brands data structure');
+  // Get featured blogs
+  async getFeaturedBlogs() {
+    try {
+      const blogs = await this.getAllBlogs();
+      return blogs.filter(blog => blog.featured);
+    } catch (error) {
+      console.error('❌ Failed to get featured blogs:', error);
+      throw error;
     }
+  }
 
-    // Validate each brand has required fields
-    for (const [brandName, brandData] of Object.entries(data.brands)) {
-      if (!brandData.models || !Array.isArray(brandData.models)) {
-        throw new Error(`Brand ${brandName} missing models array`);
+  // Get blogs by category
+  async getBlogsByCategory(categoryId) {
+    try {
+      const blogs = await this.getAllBlogs();
+      return blogs.filter(blog => blog.category.toLowerCase() === categoryId.toLowerCase());
+    } catch (error) {
+      console.error('❌ Failed to get blogs by category:', error);
+      throw error;
+    }
+  }
+
+  // Get blog by ID
+  async getBlogById(blogId) {
+    try {
+      const blogs = await this.getAllBlogs();
+      const blog = blogs.find(b => b.id === blogId);
+      
+      if (!blog) {
+        throw new Error(`Blog with ID "${blogId}" not found`);
       }
+      
+      return blog;
+    } catch (error) {
+      console.error('❌ Failed to get blog by ID:', error);
+      throw error;
     }
   }
 
-  // Get all brand names
-  getAllBrands() {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
+  // Get recent blogs (latest 6)
+  async getRecentBlogs(limit = 6) {
+    try {
+      const blogs = await this.getAllBlogs();
+      return blogs
+        .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+        .slice(0, limit);
+    } catch (error) {
+      console.error('❌ Failed to get recent blogs:', error);
+      throw error;
     }
-    return Object.keys(this.bikeData.brands);
   }
 
-  // Get brand data by name
-  getBrandData(brandName) {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
+  // Get all categories
+  async getCategories() {
+    try {
+      if (!this.blogData) {
+        await this.loadBlogData();
+      }
+      
+      return this.blogData.categories;
+    } catch (error) {
+      console.error('❌ Failed to get categories:', error);
+      throw error;
     }
-    return this.bikeData.brands[brandName] || null;
   }
 
-  // Get all models for a brand
-  getBrandModels(brandName) {
-    const brand = this.getBrandData(brandName);
-    return brand ? brand.models : [];
-  }
-
-  // Get model by ID
-  getModelById(modelId) {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
+  // Search blogs
+  async searchBlogs(query) {
+    try {
+      const blogs = await this.getAllBlogs();
+      const searchTerm = query.toLowerCase();
+      
+      return blogs.filter(blog => 
+        blog.title.toLowerCase().includes(searchTerm) ||
+        blog.excerpt.toLowerCase().includes(searchTerm) ||
+        blog.content.toLowerCase().includes(searchTerm) ||
+        blog.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+      );
+    } catch (error) {
+      console.error('❌ Failed to search blogs:', error);
+      throw error;
     }
-
-    for (const brandName of this.getAllBrands()) {
-      const models = this.getBrandModels(brandName);
-      const model = models.find(m => m.id === modelId);
-      if (model) return model;
-    }
-    return null;
   }
 
-  // Get available colors for a model
-  getModelColors(modelId) {
-    const model = this.getModelById(modelId);
-    if (!model) return [];
-
-    return model.availableColors.map(colorId => {
-      const colorVariant = this.bikeData.colorVariants.find(c => c.id === colorId);
-      return colorVariant || null;
-    }).filter(Boolean);
+  // Format date for display
+  formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    });
   }
 
-  // Get image URL for model and color
-  getModelImage(modelId, colorId = 'black') {
-    const model = this.getModelById(modelId);
-    if (!model) return null;
-
-    return model.images[colorId] || model.images.black || model.fallbackImage;
+  // Get category color
+  getCategoryColor(categoryName) {
+    const category = this.blogData?.categories.find(
+      cat => cat.name.toLowerCase() === categoryName.toLowerCase()
+    );
+    return category?.color || 'blue';
   }
 
-  // Validate if color is available for model
-  isColorAvailable(modelId, colorId) {
-    const model = this.getModelById(modelId);
-    return model ? model.availableColors.includes(colorId) : false;
+  // Check if service is ready
+  isReady() {
+    return this.isLoaded && this.blogData !== null;
   }
 
-  // Get categories for a brand
-  getBrandCategories(brandName) {
-    const brand = this.getBrandData(brandName);
-    return brand ? brand.categories : [];
-  }
-
-  // Get models by category within a brand
-  getModelsByCategory(brandName, category) {
-    const models = this.getBrandModels(brandName);
-    return models.filter(model => model.category === category);
-  }
-
-
-
-  // Get color variant by ID
-  getColorVariant(colorId) {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
-    }
-    return this.bikeData.colorVariants.find(c => c.id === colorId) || null;
-  }
-
-  // Get all color variants
-  getAllColorVariants() {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
-    }
-    return [...this.bikeData.colorVariants];
-  }
-
-  // Get category display map
-  getCategoryDisplayMap() {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
-    }
-    return { ...this.bikeData.categoryDisplayMap };
-  }
-
-  // Get fallback data
-  getFallbacks() {
-    if (!this.bikeData) {
-      throw new Error('Bike data not loaded. Call loadBikeData() first.');
-    }
-    return { ...this.bikeData.fallbacks };
-  }
-
-  // Get brand logo
-  getBrandLogo(brandName) {
-    const brand = this.getBrandData(brandName);
-    return brand ? brand.brandLogo : this.getFallbacks().brandLogo;
-  }
-
-  // Get category icon
-  getCategoryIcon(brandName) {
-    const brand = this.getBrandData(brandName);
-    return brand ? brand.categoryIcon : this.getFallbacks().categoryIcon;
-  }
-
-  // Get brand display text
-  getBrandDisplayText(brandName) {
-    const brand = this.getBrandData(brandName);
-    return brand ? brand.brandDisplayText : brandName;
-  }
-
-  // Get category display text
-  getCategoryDisplayText(category) {
-    const categoryMap = this.getCategoryDisplayMap();
-    return categoryMap[category] || this.getFallbacks().categoryText;
-  }
-
-  // Get dynamic category text (brand + category)
-  getDynamicCategoryText(brandName, category) {
-    const brandText = this.getBrandDisplayText(brandName);
-    const categoryText = this.getCategoryDisplayText(category);
-    return `${brandText} ${categoryText}`;
-  }
-
-  // Check if data is loaded
-  isDataLoaded() {
-    return this.isLoaded && this.bikeData !== null;
-  }
-
-  // Get loading status
-  getLoadingStatus() {
+  // Get service status
+  getStatus() {
     return {
       isLoaded: this.isLoaded,
-      hasData: this.bikeData !== null,
-      isLoading: this.loadingPromise !== null && !this.isLoaded
+      hasData: this.blogData !== null,
+      totalBlogs: this.blogData?.blogs?.length || 0
     };
   }
 }
 
 // Create singleton instance
-export const bikeApiService = new BikeApiService();
+export const blogApi = new BlogApiService();
 
-// Utility functions that match the original bike-data.js interface
-export const bikeDataUtils = {
-  // Load data first (must be called before using other methods)
-  async initialize() {
-    return await bikeApiService.loadBikeData();
+// Utility functions for easy access
+export const blogUtils = {
+  // Get all blogs
+  async getAllBlogs() {
+    return await blogApi.getAllBlogs();
   },
 
-  // Get all brand names
-  getAllBrands() {
-    return bikeApiService.getAllBrands();
+  // Get featured blogs
+  async getFeaturedBlogs() {
+    return await blogApi.getFeaturedBlogs();
   },
 
-  // Get brand data by name
-  getBrandData(brandName) {
-    return bikeApiService.getBrandData(brandName);
+  // Get recent blogs
+  async getRecentBlogs(limit = 6) {
+    return await blogApi.getRecentBlogs(limit);
   },
 
-  // Get all models for a brand
-  getBrandModels(brandName) {
-    return bikeApiService.getBrandModels(brandName);
+  // Get blog by ID
+  async getBlogById(blogId) {
+    return await blogApi.getBlogById(blogId);
   },
 
-  // Get model by ID
-  getModelById(modelId) {
-    return bikeApiService.getModelById(modelId);
+  // Get blogs by category
+  async getBlogsByCategory(categoryId) {
+    return await blogApi.getBlogsByCategory(categoryId);
   },
 
-  // Get available colors for a model
-  getModelColors(modelId) {
-    return bikeApiService.getModelColors(modelId);
+  // Search blogs
+  async searchBlogs(query) {
+    return await blogApi.searchBlogs(query);
   },
 
-  // Get image URL for model and color
-  getModelImage(modelId, colorId = 'black') {
-    return bikeApiService.getModelImage(modelId, colorId);
+  // Get categories
+  async getCategories() {
+    return await blogApi.getCategories();
   },
 
-  // Validate if color is available for model
-  isColorAvailable(modelId, colorId) {
-    return bikeApiService.isColorAvailable(modelId, colorId);
+  // Format date
+  formatDate(dateString) {
+    return blogApi.formatDate(dateString);
   },
 
-  // Get categories for a brand
-  getBrandCategories(brandName) {
-    return bikeApiService.getBrandCategories(brandName);
+  // Get category color
+  getCategoryColor(categoryName) {
+    return blogApi.getCategoryColor(categoryName);
   },
 
-  // Get models by category within a brand
-  getModelsByCategory(brandName, category) {
-    return bikeApiService.getModelsByCategory(brandName, category);
+  // Check if service is ready
+  isReady() {
+    return blogApi.isReady();
   },
 
-
-
-  // Get color variant by ID
-  getColorVariant(colorId) {
-    return bikeApiService.getColorVariant(colorId);
-  },
-
-  // Get all color variants
-  getAllColorVariants() {
-    return bikeApiService.getAllColorVariants();
-  },
-
-  // Check if data is loaded
-  isDataLoaded() {
-    return bikeApiService.isDataLoaded();
-  },
-
-  // Get category display map
-  getCategoryDisplayMap() {
-    return bikeApiService.getCategoryDisplayMap();
-  },
-
-  // Get fallback data
-  getFallbacks() {
-    return bikeApiService.getFallbacks();
-  },
-
-  // Get brand logo
-  getBrandLogo(brandName) {
-    return bikeApiService.getBrandLogo(brandName);
-  },
-
-  // Get category icon
-  getCategoryIcon(brandName) {
-    return bikeApiService.getCategoryIcon(brandName);
-  },
-
-  // Get brand display text
-  getBrandDisplayText(brandName) {
-    return bikeApiService.getBrandDisplayText(brandName);
-  },
-
-  // Get category display text
-  getCategoryDisplayText(category) {
-    return bikeApiService.getCategoryDisplayText(category);
-  },
-
-  // Get dynamic category text
-  getDynamicCategoryText(brandName, category) {
-    return bikeApiService.getDynamicCategoryText(brandName, category);
+  // Get service status
+  getStatus() {
+    return blogApi.getStatus();
   }
 };
