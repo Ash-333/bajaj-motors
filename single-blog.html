@@ -664,35 +664,24 @@
     <section class="max-w-7xl mx-auto px-4 py-10">
       <!-- Header -->
 
-      <div class="flex items-center gap-2 mb-10">
-        <svg
-          width="20"
-          height="21"
-          viewBox="0 0 20 21"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M17.6562 6.80798L10.4883 1.49548C10.3451 1.39132 10.1823 1.33923 10 1.33923C9.81771 1.33923 9.65495 1.39132 9.51172 1.49548L2.34375 6.80798C2.13542 6.96423 1.9694 7.15955 1.8457 7.39392C1.72201 7.6283 1.66016 7.87569 1.66016 8.13611V17.9994C1.66016 18.4551 1.82292 18.8457 2.14844 19.1713C2.47396 19.4968 2.87109 19.6595 3.33984 19.6595H16.6602C17.1289 19.6595 17.526 19.4968 17.8516 19.1713C18.1771 18.8457 18.3398 18.4551 18.3398 17.9994V8.13611C18.3398 7.87569 18.278 7.6283 18.1543 7.39392C18.0306 7.15955 17.8646 6.96423 17.6562 6.80798ZM8.33984 17.9994V13.8392H11.6602V17.9994H8.33984ZM16.6602 17.9994H13.3398V12.9994C13.3398 12.765 13.2585 12.5664 13.0957 12.4037C12.9329 12.2409 12.7344 12.1595 12.5 12.1595H7.5C7.26562 12.1595 7.06706 12.2409 6.9043 12.4037C6.74154 12.5664 6.66016 12.765 6.66016 12.9994V17.9994H3.33984V8.13611L10 3.1947L16.6602 8.13611V17.9994Z"
-            fill="black"
-          />
-        </svg>
-        > <span class="text-gray-400">Blogs</span> >
-        <h1 class="uppercase">
-          QUILES ENDS IN SEVENTH AND ALONSO SCORES IN THE FRENCH GRAND
-        </h1>
-        PRIX
+      <!-- Breadcrumb -->
+      <div id="breadcrumb">
+        <!-- Breadcrumb will be populated by JavaScript -->
       </div>
 
-      <div class="space-y-10">
-        <div class="space-y-2" d>
-          <p class="text-gray-400">21 June 2025</p>
-          <h1 class="text-4xl font-bold">
-            Bajaj Pulsar N250 Launch at Speed Fest 2025
-          </h1>
+      <!-- Blog Content -->
+      <div id="blog-container">
+        <!-- Loading State -->
+        <div class="text-center py-12">
+          <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p class="text-gray-600">Loading blog...</p>
         </div>
-        <img src="/assets/abg1.jpg" alt="" />
       </div>
+    </section>
+
+    <!-- Related Blogs Section -->
+    <section id="related-blogs" class="bg-gray-50">
+      <!-- Related blogs will be populated by JavaScript -->
     </section>
 
     <!-- Footer -->
@@ -842,5 +831,6 @@
         });
     </script>
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/single-blog.js"></script>
   </body>
 </html>

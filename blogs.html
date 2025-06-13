@@ -710,8 +710,7 @@
           </svg>
         </div>
         <div class="flex items-center gap-2 text-4xl font-bold">
-          <h2>Latest Blogs From</h2>
-          <span class="text-blue-700 cursor-pointer">All</span>
+          <h2>Latest Blogs</h2>
         </div>
 
         <div class="flex items-center gap-4 mt-4 md:mt-0">
@@ -725,154 +724,16 @@
       </div>
 
       <!-- Blog Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Blog Card -->
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg1.jpg"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
+      <div id="blog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Loading State -->
+        <div class="col-span-full flex items-center justify-center py-12">
+          <div class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p class="text-gray-600">Loading blogs...</p>
+          </div>
         </div>
+      </div>
 
-        <!-- Repeat similar blog cards -->
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg2.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Pulsar Squad Diaries: East Nepal Ride
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-
-        <!-- Add more cards as needed -->
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg3.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg4.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg1.jpg"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-
-        <!-- Repeat similar blog cards -->
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg2.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Pulsar Squad Diaries: East Nepal Ride
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-
-        <!-- Add more cards as needed -->
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg3.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
-
-        <div>
-          <p class="text-xs mb-2 text-gray-600">MAY 12 2025</p>
-          <img
-            src="/assets/abg4.png"
-            alt="Blog Image"
-            class="mb-3 rounded-md"
-          />
-          <h3 class="font-semibold text-lg mb-2 leading-snug">
-            Speed Fest 2025 – Bajaj N250 Launch
-          </h3>
-          <a
-            href="#"
-            class="text-blue-600 text-sm inline-flex items-center gap-1"
-          >
-            learn more →
-          </a>
-        </div>
       </div>
 
       <!-- View More Button -->
@@ -882,6 +743,8 @@
         </button>
       </div>
     </section>
+
+    
     <!-- Footer -->
     <footer class="bg-gray-50 min-h-screen flex flex-col">
       <!-- Email Signup Section -->
@@ -1029,5 +892,6 @@
         });
     </script>
     <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/blogs-page.js"></script>
   </body>
 </html>
