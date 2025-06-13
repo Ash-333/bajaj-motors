@@ -1,32 +1,67 @@
-// Blog Section Controller for Home Page
-import { blogUtils } from './blog-api.js';
+// Simplified Blog Section - Direct approach like bike section
+let blogData = null;
+
+// Load blog data from JSON file - simple and direct
+async function loadBlogData() {
+  if (!blogData) {
+    try {
+      const response = await fetch('./data/blogs-api.json');
+      blogData = await response.json();
+    } catch (error) {
+      console.error('Error loading blog data:', error);
+      blogData = { blogs: [], categories: [] };
+    }
+  }
+  return blogData;
+}
+
+// Simple utility functions
+function getRecentBlogs(limit = 4) {
+  return blogData.blogs
+    .filter(blog => blog.status === 'published')
+    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+    .slice(0, limit);
+}
+
+function getFeaturedBlog() {
+  return blogData.blogs.find(blog => blog.featured && blog.status === 'published') || null;
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
 
 class BlogSection {
   constructor() {
     this.blogGrid = document.getElementById('blog-grid');
-    this.isLoaded = false;
-    
     this.init();
   }
 
   async init() {
     try {
-      await this.loadBlogs();
+      // Load data first
+      await loadBlogData();
+
+      // Load blogs
+      this.loadBlogs();
     } catch (error) {
       console.error('Failed to initialize blog section:', error);
       this.showError();
     }
   }
 
-  async loadBlogs() {
+  loadBlogs() {
     try {
-      console.log('🔄 Loading blogs for home page...');
-
       // Show loading state
       this.showLoadingState();
 
       // Get recent blogs (4 latest - 1 featured + 3 bottom)
-      const blogs = await blogUtils.getRecentBlogs(4);
+      const blogs = getRecentBlogs(4);
 
       if (blogs.length === 0) {
         this.showEmptyState();
@@ -39,11 +74,8 @@ class BlogSection {
       // Create blog layout
       this.createBlogLayout(blogs);
 
-      this.isLoaded = true;
-      console.log('✅ Blog section loaded successfully');
-
     } catch (error) {
-      console.error('❌ Failed to load blogs:', error);
+      console.error('Failed to load blogs:', error);
       this.showError();
     }
   }
@@ -82,9 +114,9 @@ class BlogSection {
   createFeaturedTextElement(blog) {
     const div = document.createElement('div');
     div.className = 'group cursor-pointer featured-text-column';
-    div.style.gridColumn = '1 / span 3'; // Takes 3 out of 10 grid columns (30%)
+    div.style.gridColumn = '1 / span 4'; // Takes 4 out of 10 grid columns (40%)
 
-    const formattedDate = blogUtils.formatDate(blog.publishDate);
+    const formattedDate = formatDate(blog.publishDate);
 
     div.innerHTML = `
       <article class="overflow-hidden transition-all duration-300 h-full font-roboto">
@@ -119,7 +151,7 @@ class BlogSection {
   createFeaturedImageElement(blog) {
     const div = document.createElement('div');
     div.className = 'group cursor-pointer featured-image-column';
-    div.style.gridColumn = '4 / span 7'; // Takes 7 out of 10 grid columns (70%)
+    div.style.gridColumn = '5 / span 6'; // Takes 6 out of 10 grid columns (60%)
 
     div.innerHTML = `
       <div class="relative h-80 lg:h-96 overflow-hidden rounded-xl transition-all duration-300">
