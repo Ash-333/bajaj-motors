@@ -29,11 +29,13 @@ function getColorVariant(colorId) {
 }
 
 function getBrandLogo(brandName) {
-    return `/assets/brand-logos/${brandName.toLowerCase()}-logo.svg`;
+    const brandData = getBrandData(brandName);
+    return brandData?.logo || `/assets/brand-logos/${brandName.toLowerCase()}-logo.svg`;
 }
 
 function getCategoryIcon(brandName) {
-    return `/assets/category-icons/${brandName.toLowerCase()}-category-icon.svg`;
+    const brandData = getBrandData(brandName);
+    return brandData?.categoryIcon || `/assets/category-icons/${brandName.toLowerCase()}-category-icon.svg`;
 }
 
 export class BikeCarousel {
@@ -666,59 +668,59 @@ export class BikeCarousel {
   }
 
   // Navigate to next/previous color (for potential future use)
-  nextColor() {
-    if (this.isTransitioning || this.availableColors.length === 0) return;
+  // nextColor() {
+  //   if (this.isTransitioning || this.availableColors.length === 0) return;
 
-    this.currentColorIndex = (this.currentColorIndex + 1) % this.availableColors.length;
-    this.currentColorId = this.availableColors[this.currentColorIndex];
-    this.updateView(this.currentModelIndex, this.currentColorId);
-    this.updateColorButtonsState(this.currentColorId);
-    this.updateColorNameDisplay(this.currentColorId);
-  }
+  //   this.currentColorIndex = (this.currentColorIndex + 1) % this.availableColors.length;
+  //   this.currentColorId = this.availableColors[this.currentColorIndex];
+  //   this.updateView(this.currentModelIndex, this.currentColorId);
+  //   this.updateColorButtonsState(this.currentColorId);
+  //   this.updateColorNameDisplay(this.currentColorId);
+  // }
 
-  prevColor() {
-    if (this.isTransitioning || this.availableColors.length === 0) return;
+  // prevColor() {
+  //   if (this.isTransitioning || this.availableColors.length === 0) return;
 
-    this.currentColorIndex = (this.currentColorIndex - 1 + this.availableColors.length) % this.availableColors.length;
-    this.currentColorId = this.availableColors[this.currentColorIndex];
-    this.updateView(this.currentModelIndex, this.currentColorId);
-    this.updateColorButtonsState(this.currentColorId);
-    this.updateColorNameDisplay(this.currentColorId);
-  }
+  //   this.currentColorIndex = (this.currentColorIndex - 1 + this.availableColors.length) % this.availableColors.length;
+  //   this.currentColorId = this.availableColors[this.currentColorIndex];
+  //   this.updateView(this.currentModelIndex, this.currentColorId);
+  //   this.updateColorButtonsState(this.currentColorId);
+  //   this.updateColorNameDisplay(this.currentColorId);
+  // }
 
-  // Error State Management
+  // // Error State Management
 
-  showErrorState(errorMessage) {
-    const errorOverlay = document.createElement('div');
-    errorOverlay.id = 'carousel-error-overlay';
-    errorOverlay.className = `fixed inset-0 bg-white bg-opacity-95 flex items-center justify-center z-50
-                             transition-opacity duration-300`;
-    errorOverlay.innerHTML = `
-      <div class="flex flex-col items-center space-y-6 max-w-md text-center p-8">
-        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
-          <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
-          </svg>
-        </div>
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900 mb-2">Failed to Load Bike Data</h3>
-          <p class="text-gray-600 mb-4">${errorMessage}</p>
-          <button id="retry-load-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
-            Retry Loading
-          </button>
-        </div>
-      </div>
-    `;
+  // showErrorState(errorMessage) {
+  //   const errorOverlay = document.createElement('div');
+  //   errorOverlay.id = 'carousel-error-overlay';
+  //   errorOverlay.className = `fixed inset-0 bg-white bg-opacity-95 flex items-center justify-center z-50
+  //                            transition-opacity duration-300`;
+  //   errorOverlay.innerHTML = `
+  //     <div class="flex flex-col items-center space-y-6 max-w-md text-center p-8">
+  //       <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center">
+  //         <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  //           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+  //         </svg>
+  //       </div>
+  //       <div>
+  //         <h3 class="text-xl font-semibold text-gray-900 mb-2">Failed to Load Bike Data</h3>
+  //         <p class="text-gray-600 mb-4">${errorMessage}</p>
+  //         <button id="retry-load-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200">
+  //           Retry Loading
+  //         </button>
+  //       </div>
+  //     </div>
+  //   `;
 
-    document.body.appendChild(errorOverlay);
+  //   document.body.appendChild(errorOverlay);
 
-    // Add retry functionality
-    const retryBtn = document.getElementById('retry-load-btn');
-    if (retryBtn) {
-      retryBtn.addEventListener('click', () => {
-        errorOverlay.remove();
-        this.init(); // Retry initialization
-      });
-    }
-  }
+  //   // Add retry functionality
+  //   const retryBtn = document.getElementById('retry-load-btn');
+  //   if (retryBtn) {
+  //     retryBtn.addEventListener('click', () => {
+  //       errorOverlay.remove();
+  //       this.init(); // Retry initialization
+  //     });
+  //   }
+  // }
 }

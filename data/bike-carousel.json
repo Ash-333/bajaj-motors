@@ -9,6 +9,8 @@
   "brands": {
     "PULSAR": {
       "name": "PULSAR",
+      "logo": "./assets/brand-logos/pulsar-logo.png",
+      "categoryIcon": "/assets/category-icons/pulsar-category-icon.png",
       "models": [
         {
           "id": "pulsar-220f-abs",
@@ -62,6 +64,8 @@
     },
     "DOMINAR": {
       "name": "DOMINAR",
+      "logo": "/assets/brand-logos/dominar-logo.svg",
+      "categoryIcon": "/assets/category-icons/dominar-category-icon.svg",
       "models": [
         {
           "id": "dominar-400",
@@ -91,6 +95,8 @@
     },
     "AVENGERS": {
       "name": "AVENGERS",
+      "logo": "/assets/brand-logos/avengers-logo.svg",
+      "categoryIcon": "/assets/category-icons/avengers-category-icon.svg",
       "models": [
         {
           "id": "avenger-cruise-220",
@@ -120,6 +126,8 @@
     },
     "DISCOVER": {
       "name": "DISCOVER",
+      "logo": "/assets/brand-logos/discover-logo.svg",
+      "categoryIcon": "/assets/category-icons/discover-category-icon.svg",
       "models": [
         {
           "id": "discover-125",
@@ -149,6 +157,8 @@
     },
     "PLATINA": {
       "name": "PLATINA",
+      "logo": "/assets/brand-logos/platina-logo.svg",
+      "categoryIcon": "/assets/category-icons/platina-category-icon.svg",
       "models": [
         {
           "id": "platina-110-h-gear",
