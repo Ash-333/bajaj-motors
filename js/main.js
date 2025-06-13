@@ -8,11 +8,11 @@ class BajajApp {
     this.navbarManager = null;
   }
 
-  // Initialize the application - back to simple sync
-  initialize() {
+  // Initialize the application
+  async initialize() {
     // Initialize carousel
     this.carouselManager = new CarouselManager();
-    this.carouselManager.initialize();
+    await this.carouselManager.initialize();
 
     // Initialize navbar (loads data when needed)
     this.navbarManager = new NavbarManager();
@@ -22,57 +22,12 @@ class BajajApp {
     window.navbarManager = this.navbarManager;
   }
 
-  // Get carousel manager
-  getCarouselManager() {
-    return this.carouselManager;
-  }
-
-  // Get navbar manager
-  getNavbarManager() {
-    return this.navbarManager;
-  }
-
-  // Add new slide to carousel
-  addCarouselSlide(slideData) {
-    if (this.carouselManager) {
-      return this.carouselManager.addSlide(slideData);
-    }
-    return null;
-  }
-
-  // Add new motorcycle
-  addMotorcycle(category, motorcycle) {
-    if (this.navbarManager) {
-      this.navbarManager.addMotorcycle(category, motorcycle);
-    }
-  }
-
-  // Update carousel settings
-  updateCarouselSettings(settings) {
-    if (this.carouselManager) {
-      this.carouselManager.updateSettings(settings);
-    }
-  }
-
-  // Get application status
-  getStatus() {
-    return {
-      carouselInitialized: !!this.carouselManager,
-      navbarInitialized: !!this.navbarManager,
-      carouselStats: this.carouselManager
-        ? this.carouselManager.getStats()
-        : null,
-      currentCategory: this.navbarManager
-        ? this.navbarManager.getCurrentCategory()
-        : null,
-    };
-  }
 }
 
 // Initialize the application when DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
   const app = new BajajApp();
-  app.initialize();
+  await app.initialize();
 });
 
 // Export for potential module usage

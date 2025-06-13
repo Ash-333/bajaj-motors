@@ -1,55 +1,8 @@
 // Carousel Module
 export class CarouselManager {
   constructor() {
-    this.slides = [
-      {
-        id: "slide1",
-        image: "./assets/hero_image_1.png",
-        title: "PULSAR Series",
-        subtitle: "Definitely Male",
-        description:
-          "Experience the thrill of performance with our latest PULSAR motorcycles. Built for speed, designed for dominance.",
-        cta: "Explore PULSAR",
-        active: true,
-        category: "sport",
-      },
-      {
-        id: "slide2",
-        image:
-          "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1920&h=1080&fit=crop",
-        title: "DOMINAR 400",
-        subtitle: "Adventure Awaits",
-        description:
-          "Conquer every terrain with the powerful DOMINAR 400. Your gateway to unlimited adventures.",
-        cta: "Discover DOMINAR",
-        active: true,
-        category: "adventure",
-      },
-      {
-        id: "slide3",
-        image:
-          "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1920&h=1080&fit=crop",
-        title: "AVENGER Series",
-        subtitle: "Cruise in Style",
-        description:
-          "Embrace the cruiser lifestyle with AVENGER. Comfort meets performance on every ride.",
-        cta: "View AVENGER",
-        active: true,
-        category: "cruiser",
-      },
-      // {
-      //   id: "slide4",
-      //   image:
-      //     "https://images.unsplash.com/photo-1605531179818-de32686e5e2e?w=1920&h=1080&fit=crop",
-      //   title: "PLATINA",
-      //   subtitle: "Comfort Redefined",
-      //   description:
-      //     "The perfect blend of comfort and efficiency. PLATINA makes every journey memorable.",
-      //   cta: "Experience PLATINA",
-      //   active: true,
-      //   category: "commuter",
-      // },
-    ];
+    this.slides = [];
+    this.originalSlides = [];
 
     this.settings = {
       autoplay: true,
@@ -62,6 +15,42 @@ export class CarouselManager {
 
     this.currentSlide = 0;
     this.carouselInterval = null;
+  }
+
+  // Function to load hero carousel data from JSON
+  async loadHeroCarouselData() {
+    try {
+      const response = await fetch("./data/heroCarouselData.json");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      this.originalSlides = data.heroSlides;
+      this.slides = [...this.originalSlides];
+      return this.originalSlides;
+    } catch (error) {
+      console.error("Error loading hero carousel data:", error);
+      // Fallback data in case JSON fails to load
+      this.originalSlides = [
+        {
+          id: "slide1",
+          image: "./assets/hero_image_1.png",
+          active: true,
+        },
+        {
+          id: "slide2",
+          image: "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1920&h=1080&fit=crop",
+          active: true,
+        },
+        {
+          id: "slide3",
+          image: "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1920&h=1080&fit=crop",
+          active: true,
+        },
+      ];
+      this.slides = [...this.originalSlides];
+      return this.originalSlides;
+    }
   }
 
   // Get all active slides
@@ -135,7 +124,8 @@ export class CarouselManager {
   }
 
   // Initialize carousel
-  initialize() {
+  async initialize() {
+    await this.loadHeroCarouselData();
     this.renderSlides();
     this.renderDots();
     this.setupControls();
@@ -147,10 +137,14 @@ export class CarouselManager {
   // Render carousel slides
   renderSlides() {
     const slidesContainer = document.getElementById("carousel-slides");
-    if (!slidesContainer) return;
+    if (!slidesContainer) {
+      console.error("❌ Carousel slides container not found!");
+      return;
+    }
 
     slidesContainer.innerHTML = "";
     const activeSlides = this.getActiveSlides();
+    console.log("🎨 Rendering", activeSlides.length, "active slides");
 
     if (activeSlides.length === 0) {
       slidesContainer.innerHTML =
@@ -165,6 +159,7 @@ export class CarouselManager {
       // Remove all text content - slides now only show background images
       slideElement.innerHTML = "";
       slidesContainer.appendChild(slideElement);
+      console.log(`📸 Added slide ${index + 1}: ${slide.image}`);
     });
   }
 

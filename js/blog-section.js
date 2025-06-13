@@ -5,7 +5,7 @@ let blogData = null;
 async function loadBlogData() {
   if (!blogData) {
     try {
-      const response = await fetch('/data/blogs-api.json');
+      const response = await fetch('./data/blogs-api.json');
       blogData = await response.json();
     } catch (error) {
       console.error('Error loading blog data:', error);
