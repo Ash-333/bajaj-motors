@@ -9,7 +9,7 @@ async function loadBlogData() {
       blogData = await response.json();
     } catch (error) {
       console.error('Error loading blog data:', error);
-      blogData = { blogs: [], categories: [] };
+      blogData = { blogs: [] };
     }
   }
   return blogData;
@@ -201,26 +201,11 @@ class BlogSection {
     return article;
   }
 
-  getCategoryColorClass(category) {
-    const colorMap = {
-      'Community': 'bg-blue-600',
-      'Product Launch': 'bg-green-600',
-      'Events': 'bg-purple-600',
-      'Offers': 'bg-red-600',
-      'Safety': 'bg-orange-600',
-      'Travel': 'bg-indigo-600',
-      'Maintenance': 'bg-gray-600',
-      'Touring': 'bg-yellow-600'
-    };
-    
-    return colorMap[category] || 'bg-blue-600';
-  }
+
 
   navigateToBlog(blogId) {
-    // For now, just log the navigation
-    // In a real app, this would navigate to a blog detail page
-    console.log(`Navigating to blog: ${blogId}`);
-    // window.location.href = `/blog/${blogId}`;
+    // Navigate to single blog page with blog ID
+    window.location.href = `single-blog.html?id=${blogId}`;
   }
 
   showLoadingState() {
